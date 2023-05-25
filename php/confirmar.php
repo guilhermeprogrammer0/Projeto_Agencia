@@ -27,13 +27,13 @@ error_reporting(0);
     <nav id="menu">
         <ul class="menu">
         <div class="img-logo">
-                <img src="Imagens/logo.jpeg">
+                <img src="../Imagens/logo.jpeg">
             </div>
             <li><a href="../index.html">Início</a></li>
             <li><a href="../pacotes.html">Pacotes</a></li>
             <li class="active"><a href="reservas.php">Reservas</a></li>
-            <li><a href="#">Curiosidades</a></li>
-            <li><a href="#">Sobre</a></li>
+            <li><a href="../curiosidades.html">Curiosidades</a></li>
+            <li><a href="../sobre.html">Sobre</a></li>
         </ul>
     </nav>
     

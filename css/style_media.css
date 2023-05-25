@@ -56,6 +56,19 @@ footer h3{
 .textos-pacotes h2{
     font-size: 1.3em;
     }
+    .curiosidades{
+        width:80%;
+    }
+    .card-text p{
+        font-size:0.9em;
+    }
+    .sobre{
+        width:80%;
+    }
+    .sobre p{
+        font-size: 1em;
+    }
+    
 }
 @media screen and (max-width:600px){
     .formulario{

@@ -192,10 +192,10 @@ header h1{
     margin:auto;
     text-align: center;
     background-color: #1377b6;
-    color:#F1F3F5;
     border-radius: 5px;
-        
-    
+}
+#txt{
+    color:#F1F3F5;
 }
 .cards{
     display:flex;
@@ -223,3 +223,59 @@ header h1{
 .btn-menu{
     display:none;
 }
+/*    Curiosidades */
+
+.curiosidades{
+    margin: auto;
+    margin-top: 60px;
+    width:50%;
+    display:flex;
+    flex-direction: column;
+    gap:15px;
+    justify-content: center;
+}
+
+.card-text{
+    height: auto;
+}
+.card-text p{
+    text-align: justify;
+}
+.img-curiosidades{
+    width:100%;
+    height: 300px;
+    border-radius: 0;
+}
+.texto_curiosidades h1,h2{
+    color: #1377b6 ;
+
+}
+
+
+/*------------------------------------------------*/
+
+
+
+/* Pagina Sobre */
+
+.sobre{
+    display:block;
+    margin: auto;
+    margin-top: 60px;
+    width:60%;
+    background-color: #1377b6;
+    padding: 65px;
+    border-radius: 6px;
+    color: #F1F3F5;
+    margin-bottom:80px;
+}
+.sobre h1{
+    text-align: center;
+}
+.sobre p{
+    font-size: 1.2em;
+    text-align: justify;
+}
+
+
+/*------------------------------------------*/
