@@ -81,17 +81,6 @@ error_reporting(0);
     }
     
     ?>
-
-
-
-
-
-
-
-
-
-
-
 <script src="../js/script.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
