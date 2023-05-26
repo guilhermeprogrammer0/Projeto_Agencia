@@ -62,7 +62,10 @@ header h1{
 }
 .boas-vindas p{
     font-size: 1.1em;
-
+}
+.boas-vindas h3{
+    text-align: center;
+    color:#1377b6;
 }
 .texto{
     margin-top: 25px;
