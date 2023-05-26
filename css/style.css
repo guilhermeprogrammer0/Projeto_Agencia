@@ -223,8 +223,6 @@ header h1{
 .btn-menu{
     display:none;
 }
-/*    Curiosidades */
-
 .curiosidades{
     margin: auto;
     margin-top: 60px;
@@ -250,14 +248,6 @@ header h1{
     color: #1377b6 ;
 
 }
-
-
-/*------------------------------------------------*/
-
-
-
-/* Pagina Sobre */
-
 .sobre{
     display:block;
     margin: auto;
@@ -276,6 +266,46 @@ header h1{
     font-size: 1.2em;
     text-align: justify;
 }
-
-
-/*------------------------------------------*/
+.tabela{
+    margin-top:60px;
+}
+.formulario .texto-login h1{
+    font-family: 'Bebas neue';
+    color:#0367A6;
+    font-size:4em;
+    text-align:Center;
+}
+.form-login label{
+    font-size: 1.3em;
+}
+.formulario-login{
+    display:block;
+    margin:auto;
+    width:70%;
+    background-color: white;
+    border-radius: 6px;
+    padding:8px;
+}
+.form-login{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:100%;
+}
+.campos-login{
+    width:50%;
+}
+.botoes-login{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-danger-menu{
+    margin-top:20px;
+}
+#mostrar{
+    padding:5px;
+    cursor: pointer;
+    color:#1377b6;
+}

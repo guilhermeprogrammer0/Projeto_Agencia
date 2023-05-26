@@ -1,7 +1,5 @@
 <?php
-session_start();
 require_once "functions.php";
-require_once "conexao.php";
 require_once "protecao.php";
 error_reporting(0);
 ?>
@@ -17,6 +15,7 @@ error_reporting(0);
     <script src="https://kit.fontawesome.com/ae27920976.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
+    <link rel="shortcut icon" href="../Imagens/logo.jpeg" type="image/x-icon">
     <title>Reservas</title>
 </head>
 
@@ -69,7 +68,13 @@ error_reporting(0);
             </div>
 
 <?php
-    $sql_numero = "SELECT * from dados_pessoais";
+    require_once "conexao.php";
+    if($_POST['confirmar']){
+        $id_dados = $_SESSION['id_comprador'];
+        $id_reserva = $_SESSION['id_reserva'];
+        Relizar_Reserva($conexao,$id_dados,$id_reserva);
+    }
+    /*$sql_numero = "SELECT * from dados_pessoais";
     $sql_numero2 = mysqli_query($conexao,$sql_numero);
     $num_linhas = mysqli_num_rows($sql_numero2);
     $sql_numero_reserva = "SELECT * from reservas";
@@ -78,7 +83,7 @@ error_reporting(0);
     if($_POST['confirmar']){
         Relizar_Reserva($conexao,$num_linhas,$num_linhas2);
         session_unset();
-    }
+    }*/
     
     ?>
 <script src="../js/script.js"></script>

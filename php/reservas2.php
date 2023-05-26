@@ -1,6 +1,7 @@
 <?php
- session_start();
- require_once "protecao.php";
+require_once "functions.php";
+require_once "protecao.php";
+error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,6 +15,7 @@
     <script src="https://kit.fontawesome.com/ae27920976.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
+    <link rel="shortcut icon" href="../Imagens/logo.jpeg" type="image/x-icon">
     <title>Reservas Parte 2</title>
 </head>
 
@@ -50,7 +52,7 @@
     <label for="destino" class="form-label">Destino</label  required>
     <select class="form-select selects" name="destino">
         <?php 
-         require_once "conexao.php";
+        require_once "conexao.php";
         $sql_destinos = "SELECT * from destinos";
         $sql_destinos_exibidos = mysqli_query($conexao,$sql_destinos);
         ?>
@@ -86,8 +88,6 @@
 
 </form></main>
     <?php
-    error_reporting(0);
-    require_once "functions.php";
     if($_POST['enviar']){
         Cadastro_reservas($conexao,$_POST['destino'],$_POST['pacotes'],$_POST['qtd_passa']);
         $_SESSION['destino'] = $_POST['destino'];

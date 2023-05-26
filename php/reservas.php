@@ -1,5 +1,6 @@
 <?php
- session_start();
+require_once "functions.php";
+error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -13,6 +14,7 @@
     <script src="https://kit.fontawesome.com/ae27920976.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
+    <link rel="shortcut icon" href="../Imagens/logo.jpeg" type="image/x-icon">
     <title>Reservas</title>
 </head>
 
@@ -153,29 +155,13 @@
 </form></main>
 
     <?php
-    error_reporting(0);
+    require_once "protecao.php";
     require_once "conexao.php";
-    require_once "functions.php";
     if($_POST['enviar']){
         Cadastro_pessoais($conexao,$_POST['nome'],$_POST['cpf'],$_POST['sexo'],$_POST['data_nascimento'],$_POST['telefone'],$_POST['email'],$_POST['cidade'],$_POST['cep'],$_POST['estado'],$_POST['logradouro'],$_POST['bairro'],$_POST['numero']);
         $_SESSION['comprador'] = $_POST['nome'];
     } ?>
       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       <script src="../js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"

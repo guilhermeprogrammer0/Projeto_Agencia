@@ -68,6 +68,20 @@ footer h3{
     .sobre p{
         font-size: 1em;
     }
+    .formulario-login{
+        width:95%;
+    }
+    .form-login label{
+        font-size: 1.1em;
+    }
+    .table-cadastrados{
+        height:300px;
+        overflow-y: auto;
+    }
+    .thead-light tr th{
+        font-size: 0.9em;
+    }
+    
     
 }
 @media screen and (max-width:600px){
