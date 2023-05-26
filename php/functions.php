@@ -37,16 +37,8 @@ function Relizar_Reserva($conexao,$id_comprador,$id_reserva){
     $sql = "INSERT INTO reserva_realizada values (default,'$id_comprador','$id_reserva')";
     $sql_cadastrar = mysqli_query($conexao,$sql);
     if($sql_cadastrar){
-        ?>
-        <script>
-            var formulario = document.querySelector(".formulario");
-            formulario.style.display =  'none';
-            var texto_reserva = document.querySelector(".texto-reserva");
-            texto_reserva.style.display = 'none';
-            var escondida = document.querySelector(".escondida");
-            escondida.classList.remove("escondida");
-                </script><?php
-     }
+        header("location:reserva_realizada.php");
+    }
      else{
          ?>
         <script>alert('ERRO');</script><?php 

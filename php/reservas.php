@@ -79,7 +79,7 @@ error_reporting(0);
     <div class="row">
     <div class="col">
     <label for="tel" class="form-label">Telefone-Celular</label>
-  <input type="text" class="form-control" id="tel" placeholder="DDXXXXXXXXX" name="telefone"  required>
+  <input type="text" class="form-control" id="tel" placeholder="DD9999999" name="telefone"  required>
     </div>
     <div class="col">
     <label for="email" class="form-label">E-mail</label>
@@ -97,7 +97,7 @@ error_reporting(0);
     </div>
     <div class="col">
     <label for="cep" class="form-label">CEP</label>
-  <input type="text" class="form-control" id="cep" placeholder="xxxxxx-xx" name="cep"  required>
+  <input type="text" class="form-control" id="cep" placeholder="xxxxx-xxx" name="cep"  required>
     </div>
     <div class="col">
     <label for="estado" class="form-label">Estado</label>

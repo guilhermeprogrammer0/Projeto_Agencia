@@ -16,7 +16,7 @@ error_reporting(0);
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
     <link rel="shortcut icon" href="../Imagens/logo.jpeg" type="image/x-icon">
-    <title>Reservas</title>
+    <title>Reserva Reazalida</title>
 </head>
 
 <body>
@@ -37,50 +37,14 @@ error_reporting(0);
     </nav>
     
 
-    <div class="texto-reserva">
-        <h2 id="txt">Confirmar Reserva</h2>
-</div>
+  
+    <div class="alert alert-primary" role="alert">
+            <h2> Reserva realizada com sucesso!<h2>
+            <a href="reservas.php"><button type="button" class="btn btn-primary btn2">Fazer mais reservas</button></a>
+            <a href="voltar.php"><button type="button" class="btn btn-danger btn2 ">Voltar ao Início</button></a>
+            <p id="explicacao">Será enviado as formas de pagamento no e-mail cadastrado.</p>
+            </div>
 
-    <main class="formulario cards">
-    <form action="confirmar.php" method="POST">
-    <div class="row">
-    <div class="col">
-    <div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Comprador</h5>
-    <p class="card-text"><?php echo $_SESSION['comprador'];?></p>
-    <h5 class="card-title">Destino</h5>
-    <p class="card-text"><?php echo $_SESSION['destino'];?></p>
-    <h5 class="card-title">Quantidade de Passagens</h5>
-    <p class="card-text"><?php echo $_SESSION['qtd_passa'];?></p>
-    <div class="botoes"><a href="voltar.php" class="btn btn-danger">Cancelar</a>
-    <input type="submit" name="confirmar" class="btn btn-primary" value="Confirmar"></div>
-    
-  </div>
-</div>
-    </div>
-    </form>
-    </main>
-
-<?php
-    require_once "conexao.php";
-    if($_POST['confirmar']){
-        $id_dados = $_SESSION['id_comprador'];
-        $id_reserva = $_SESSION['id_reserva'];
-        Relizar_Reserva($conexao,$id_dados,$id_reserva);
-    }
-    /*$sql_numero = "SELECT * from dados_pessoais";
-    $sql_numero2 = mysqli_query($conexao,$sql_numero);
-    $num_linhas = mysqli_num_rows($sql_numero2);
-    $sql_numero_reserva = "SELECT * from reservas";
-    $sql_numero_reserva_2 = mysqli_query($conexao,$sql_numero_reserva);
-    $num_linhas2 = mysqli_num_rows($sql_numero_reserva_2);
-    if($_POST['confirmar']){
-        Relizar_Reserva($conexao,$num_linhas,$num_linhas2);
-        session_unset();
-    }*/
-    
-    ?>
 <script src="../js/script.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
