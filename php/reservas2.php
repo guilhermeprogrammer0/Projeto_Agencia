@@ -95,6 +95,25 @@ error_reporting(0);
     }
     
     ?>
+       <footer class="footer">
+        <div class="redes">
+            <h3>Redes</h3>
+            <div class="icones"><i class="fa-brands fa-whatsapp "></i>16999999999</div>
+            <div class="icones"><i class="fa-brands fa-instagram"></i>@vf-agencia66</div>
+        </div>
+        <div class="contato">
+            <h3>Contato</h3>
+            <div class="icones"><i class="fa-solid fa-phone "></i>1632510000</div>
+            <div class="icones"><i class="fa-solid fa-phone"></i>16999999999</div>
+        </div>
+        <div class="maps">
+            <h3>Localização Agência Física</h3>
+            <div><iframe class="mapa"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5254.790280890376!2d-48.23503745159915!3d-21.362410432421147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b90f98dc6d8c33%3A0xe227d4367f6ea2ee!2sPra%C3%A7a%20Silvio%20Vaz%20de%20Arruda!5e0!3m2!1spt-BR!2sbr!4v1684801257283!5m2!1spt-BR!2sbr"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        </div>
+    </footer>
 
 
 

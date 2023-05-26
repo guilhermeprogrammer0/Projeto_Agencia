@@ -314,3 +314,13 @@ header h1{
     cursor: pointer;
     color:#1377b6;
 }
+.reserva-realizada{
+    margin-top:200px;
+}
+#txt-qtd{
+    margin-top:8px;
+    color:#0367A6;
+    font-family: 'Montserrat';
+    text-align: center;
+    font-size: 1.2em;
+}

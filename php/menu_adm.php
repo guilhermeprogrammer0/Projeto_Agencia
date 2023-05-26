@@ -23,7 +23,7 @@
    <header>
     <h1>Menu Administrativo</h1>
     </header>
-    <main class="formulario tabela table-cadastrados">
+    <main class="formulario tabela table-cadastrados">    
 <table class="table table-striped">
   <thead class="thead-light">
     <tr>
@@ -41,6 +41,7 @@
     (D.id = RR.comprador) inner join reservas as R ON
     (R.id_reserva = RR.destino)";
     $sql_select = mysqli_query($conexao,$sql);
+    $qtd_cadastrados = mysqli_num_rows($sql_select);
     while($row = mysqli_fetch_array($sql_select)){?>
     <tr>
     <td> <?php echo $row['id_realizada'];?></td>
@@ -49,10 +50,11 @@
     <td> <?php echo $row['pacotes'];?></td>
     <td> <?php echo $row['qtd_passa'];?></td>
     </tr>
-    <?php }?>
+    <?php } ?>
   </tbody>
     </table>
     </main>
+    <h3 id="txt-qtd">Quantidade de Reservas: <strong><?php echo $qtd_cadastrados; ?> </strong></h3>
     <div class="mb-3 botoes-login">
     <a href="logout_adm.php"><button  class="btn btn-danger btn-danger-menu">Sair </button> </a>
 </div>
