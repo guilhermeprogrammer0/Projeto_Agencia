@@ -40,7 +40,7 @@ error_reporting(0);
     <section class="pagina-reserva-realizada">
     <div class="alert alert-primary cards mt-5" role="alert">
             <h2> Reserva realizada com sucesso!<h2>
-            <a href="voltar.php"><button type="button" class="btn btn-danger btn2 ">Voltar ao Início</button></a>
+            <a href="voltar.php"><button type="button" class="btn btn-danger btn2 ">Voltar ao início</button></a>
             <a href="reservas.php"><button type="button" class="btn btn-primary btn2">Fazer mais reservas</button></a>
             <p id="explicacao">Será enviado as formas de pagamento no e-mail cadastrado.</p>
             </div> </section>
