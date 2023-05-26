@@ -201,14 +201,20 @@ header h1{
     display:flex;
     justify-content: center;
     align-items: center;
+    margin-top:50px;
 }
 .botoes{
     display:flex;
     gap:10px;
 }
 .alert-primary{
-    width:70%;
-    margin:auto;
+    width:60%;
+}
+.pagina-reserva-realizada{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height:300px;
 }
 #explicacao{
     font-size:0.5em;
@@ -224,6 +230,7 @@ header h1{
 }
 .btn2{
     width:300px;
+    margin-bottom:15px;
 }
 .btn-menu{
     display:none;

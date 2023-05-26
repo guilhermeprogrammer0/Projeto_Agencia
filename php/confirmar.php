@@ -47,7 +47,7 @@ error_reporting(0);
     <div class="col">
     <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">Comprador</h5>
+    <h5 class="card-title">Comprador(a)</h5>
     <p class="card-text"><?php echo $_SESSION['comprador'];?></p>
     <h5 class="card-title">Destino</h5>
     <p class="card-text"><?php echo $_SESSION['destino'];?></p>
@@ -82,7 +82,7 @@ error_reporting(0);
     }*/
     
     ?>
-       <footer class="footer">
+       <footer class="footer reserva-realizada">
         <div class="redes">
             <h3>Redes</h3>
             <div class="icones"><i class="fa-brands fa-whatsapp "></i>16999999999</div>

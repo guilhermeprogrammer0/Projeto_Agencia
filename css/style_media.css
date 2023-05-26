@@ -81,8 +81,13 @@ footer h3{
     .thead-light tr th{
         font-size: 0.9em;
     }
+    .alert-primary{
+        flex-direction: column;
+    }
+    .alert-primary h2{
+        font-size:1.6em;
     
-    
+    }
 }
 @media screen and (max-width:600px){
     .formulario{

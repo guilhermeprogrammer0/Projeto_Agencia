@@ -95,7 +95,7 @@ error_reporting(0);
     }
     
     ?>
-       <footer class="footer">
+       <footer class="footer reserva-realizada">
         <div class="redes">
             <h3>Redes</h3>
             <div class="icones"><i class="fa-brands fa-whatsapp "></i>16999999999</div>
