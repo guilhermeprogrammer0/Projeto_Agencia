@@ -73,7 +73,7 @@ error_reporting(0);
   <option value="1">3 dias e 2 noites</option>
   <option value="2">4 dias e 3 noites</option>
   <option value="3">7 dias e 6 noites</option>
-  <option value="3">Temporada de férias</option>
+  <option value="4">Temporada de férias</option>
 </select>
     </div>
     <div class="col">

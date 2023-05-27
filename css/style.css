@@ -62,6 +62,7 @@ header h1{
 }
 .boas-vindas p{
     font-size: 1.1em;
+    text-align: justify;
 }
 .boas-vindas h3{
     text-align: center;
