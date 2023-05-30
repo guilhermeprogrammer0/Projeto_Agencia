@@ -88,10 +88,15 @@ footer h3{
         font-size:1.6em;
     
     }
-
     .txt-login-usuario, .formulario-login{
         padding:5px;
         width:90%;
+    }
+    .formulario-login{
+        height:400px;
+    }
+    .form-login{
+        padding:15px;
     }
 
   
