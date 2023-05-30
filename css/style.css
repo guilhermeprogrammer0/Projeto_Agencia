@@ -288,6 +288,7 @@ header h1{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width:50%;
 }
 .formulario .texto-login h1{
     font-family: 'Bebas neue';
@@ -301,7 +302,7 @@ header h1{
 .formulario-login{
     display:block;
     margin:auto;
-    width:90%;
+    width:100%;
     background-color: white;
     border-radius: 6px;
     padding:10px;
@@ -310,7 +311,7 @@ header h1{
     color:white;
 }
 .txt-login-usuario{
-    width:90%;
+    width:100%;
     padding:10px;
     background-color: #0367A6;
 }
