@@ -29,7 +29,7 @@ error_reporting(0);
             </div>
             <li><a href="../index.html">Início</a></li>
             <li><a href="../pacotes.html">Pacotes</a></li>
-            <li class="active"><a href="reservas.php">Reservas</a></li>
+            <li class="active"><a href="login_usuario.php">Reservas</a></li>
             <li><a href="../curiosidades.html">Curiosidades</a></li>
             <li><a href="../sobre.html">Sobre</a></li>
         </ul>
@@ -84,6 +84,16 @@ error_reporting(0);
     <div class="col">
     <label for="email" class="form-label">E-mail</label>
   <input type="email" class="form-control" id="email" name="email"  required>
+  <span id="passwordHelpInline" class="form-text">
+      Será usado para fazer futuras reservas
+    </span>
+    </div>
+    <div class="col">
+    <label for="senha" class="form-label">Senha</label>
+  <input type="password" class="form-control" id="senha" name="senha"  required>
+  <span id="passwordHelpInline" class="form-text">
+  Será usado para fazer futuras reservas
+    </span>
     </div>
     </div>
     <section class="texto-form">
@@ -149,7 +159,7 @@ error_reporting(0);
     </div>
 
 <div class="container">
-    <input type="reset" class="btn btn-danger " value="Cancelar">
+<a href="cancelar.php"><input type="button" class="btn btn-danger " value="Cancelar"> </a>
     <input type="submit" class="btn btn-primary" value="Enviar" name="enviar">
 </div>
 </form></main>
@@ -158,7 +168,7 @@ error_reporting(0);
     require_once "protecao.php";
     require_once "conexao.php";
     if($_POST['enviar']){
-        Cadastro_pessoais($conexao,$_POST['nome'],$_POST['cpf'],$_POST['sexo'],$_POST['data_nascimento'],$_POST['telefone'],$_POST['email'],$_POST['cidade'],$_POST['cep'],$_POST['estado'],$_POST['logradouro'],$_POST['bairro'],$_POST['numero']);
+        Cadastro_pessoais($conexao,$_POST['nome'],$_POST['cpf'],$_POST['sexo'],$_POST['data_nascimento'],$_POST['telefone'],$_POST['email'],$_POST['senha'],$_POST['cidade'],$_POST['cep'],$_POST['estado'],$_POST['logradouro'],$_POST['bairro'],$_POST['numero']);
         $_SESSION['comprador'] = $_POST['nome'];
     } ?>
 

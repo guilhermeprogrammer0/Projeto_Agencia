@@ -30,12 +30,12 @@
     <form action="login_menuadm.php" method="POST">
   <div class="mb-3 form-login">
     <label for="usuario" class="form-label">Usuário</label>
-    <input type="email" class="form-control campos-login" id="usuario" name="usuario" >
+    <input type="email" class="form-control campos-login" id="usuario" name="usuario" required>
     <div id="usuario" class="form-text">Somente administradores possui um usuário</div>
   </div>
   <div class="mb-3 form-login">
     <label for="senha" class="form-label">Senha</label>
-    <input type="password" class="form-control campos-login" id="senha" name="senha">
+    <input type="password" class="form-control campos-login" id="senha" name="senha" required>
     <span id="mostrar">Mostrar Senha</span>
   </div>
 

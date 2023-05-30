@@ -30,7 +30,7 @@ error_reporting(0);
             </div>
             <li><a href="../index.html">Início</a></li>
             <li><a href="../pacotes.html">Pacotes</a></li>
-            <li class="active"><a href="reservas.php">Reservas</a></li>
+            <li class="active"><a href="login_usuario.php">Reservas</a></li>
             <li><a href="../curiosidades.html">Curiosidades</a></li>
             <li><a href="../sobre.html">Sobre</a></li>
         </ul>
@@ -83,7 +83,7 @@ error_reporting(0);
 </div></section>
 
 <div class="container">
-    <input type="reset" class="btn btn-danger " value="Cancelar">
+    <a href="cancelar.php"><input type="button" class="btn btn-danger " value="Cancelar"> </a>
     <input type="submit" class="btn btn-primary" value="Finalizar" name="enviar">
 </div>
 

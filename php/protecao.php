@@ -1,6 +1,6 @@
 <?php
-if(!isset($_SESSION['comprador'])){
-    header("location:reservas.php");
+if(!isset($_SESSION['id_usuario'])){
+    header("location:login_usuario.php");
 }
 
 

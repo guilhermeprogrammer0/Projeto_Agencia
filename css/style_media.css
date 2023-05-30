@@ -88,6 +88,13 @@ footer h3{
         font-size:1.6em;
     
     }
+
+    .txt-login-usuario, .formulario-login{
+        padding:5px;
+        width:90%;
+    }
+
+  
 }
 @media screen and (max-width:600px){
     .formulario{

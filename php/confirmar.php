@@ -45,18 +45,19 @@ error_reporting(0);
     <form action="confirmar.php" method="POST">
     <div class="row">
     <div class="col">
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 24rem;">
   <div class="card-body">
     <h5 class="card-title">Comprador(a)</h5>
-    <p class="card-text"><?php echo $_SESSION['comprador'];?></p>
+    <p class="card-text"><?php echo $_SESSION['nome_usuario'];?></p>
     <h5 class="card-title">Destino</h5>
     <p class="card-text"><?php echo $_SESSION['destino'];?></p>
     <h5 class="card-title">Quantidade de Passagens</h5>
     <p class="card-text"><?php echo $_SESSION['qtd_passa'];?></p>
-    <div class="botoes"><a href="voltar.php" class="btn btn-danger">Cancelar</a>
+    <div class="botoes">  
+    <a href="cancelar.php">
+    <input type="button" class="btn btn-danger" value="Cancelar"></a>
     <input type="submit" name="confirmar" class="btn btn-primary" value="Confirmar"></div>
-    
-  </div>
+</div>
 </div>
     </div>
     </form>
@@ -64,22 +65,11 @@ error_reporting(0);
 
 <?php
     require_once "conexao.php";
+    $id_comprador = $_SESSION['id_usuario'];
+    $id_reserva = $_SESSION['id_reserva'];
     if($_POST['confirmar']){
-        $id_dados = $_SESSION['id_comprador'];
-        $id_reserva = $_SESSION['id_reserva'];
-        Relizar_Reserva($conexao,$id_dados,$id_reserva);
+        Relizar_Reserva($conexao,$id_comprador,$id_reserva);
     }
-    
-    /*$sql_numero = "SELECT * from dados_pessoais";
-    $sql_numero2 = mysqli_query($conexao,$sql_numero);
-    $num_linhas = mysqli_num_rows($sql_numero2);
-    $sql_numero_reserva = "SELECT * from reservas";
-    $sql_numero_reserva_2 = mysqli_query($conexao,$sql_numero_reserva);
-    $num_linhas2 = mysqli_num_rows($sql_numero_reserva_2);
-    if($_POST['confirmar']){
-        Relizar_Reserva($conexao,$num_linhas,$num_linhas2);
-        session_unset();
-    }*/
     
     ?>
        <footer class="footer reserva-realizada">

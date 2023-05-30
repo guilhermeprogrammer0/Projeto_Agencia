@@ -1,7 +1,6 @@
 <?php
-require_once "functions.php";
-require_once "protecao.php";
-error_reporting(0);
+ require_once "functions.php";
+ error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -16,7 +15,7 @@ error_reporting(0);
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
     <link rel="shortcut icon" href="../Imagens/logo.jpeg" type="image/x-icon">
-    <title>Reserva Reazalida</title>
+    <title>Entrar ou Cadastrar - se</title>
 </head>
 
 <body>
@@ -26,26 +25,52 @@ error_reporting(0);
     <nav id="menu">
         <ul class="menu">
         <div class="img-logo">
-                <img src="../Imagens/logo.jpeg">
+        <img src="../Imagens/logo.jpeg">
             </div>
             <li><a href="../index.html">Início</a></li>
             <li><a href="../pacotes.html">Pacotes</a></li>
-            <li class="active"><a href="reservas.php">Reservas</a></li>
+            <li class="active"><a href="login_usuario.php">Reservas</a></li>
             <li><a href="../curiosidades.html">Curiosidades</a></li>
             <li><a href="../sobre.html">Sobre</a></li>
         </ul>
     </nav>
     
+    <main class="formulario tabela">
+    <section class="texto-login txt-login-usuario">
+        <h1>Entrar</h1>
+    </section>
+    <section class="formulario-login">
+    <form action="login_usuario.php" method="POST">
+  <div class="mb-3 form-login">
+    <label for="email" class="form-label">E-mail</label>
+    <input type="email" class="form-control campos-login" id="email" name="email" required>
+  </div>
+  <div class="mb-3 form-login">
+    <label for="senha" class="form-label">Senha</label>
+    <input type="password" class="form-control campos-login" id="senha" name="senha" required>
+    <span id="mostrar">Mostrar Senha</span>
+  </div>
 
-    <section class="pagina-reserva-realizada">
-    <div class="alert alert-primary cards mt-5" role="alert">
-            <h2> Reserva realizada com sucesso!<h2>
-            <a href="cancelar.php"><button type="button" class="btn btn-danger btn2 ">Voltar ao início</button></a>
-            <a href="reservas2.php"><button type="button" class="btn btn-primary btn2">Fazer mais reservas</button></a>
-            <p id="explicacao">Será enviado as formas de pagamento no e-mail cadastrado.</p>
-            </div> </section>
+  <div class="mb-3 botoes-login">
+  <input type="reset" class="btn btn-danger" value="Limpar Campos">
+    <input type="submit" name="entrar" class="btn btn-primary" value="Entrar">
+</div>
 
-            <footer class="footer reserva-realizada">
+<div class="mb-3 botoes-login">
+<a class="link-offset-2 link-underline link-underline-opacity-0" href="reservas.php">Cadastre - se </a>
+</div>
+</form>
+
+    </section>
+</main>
+<?php
+    require_once "conexao.php";
+    if($_POST['entrar']){
+        Login_Usuario($conexao,$_POST['email'],$_POST['senha']);
+    }
+
+?>
+   <footer class="footer reserva-realizada">
         <div class="redes">
             <h3>Redes</h3>
             <div class="icones"><i class="fa-brands fa-whatsapp "></i>16999999999</div>
@@ -64,8 +89,8 @@ error_reporting(0);
                     referrerpolicy="no-referrer-when-downgrade"></iframe></div>
         </div>
     </footer>
-
-<script src="../js/script.js"></script>
+      <script src="../js/senha.js"></script>
+      <script src="../js/script.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
@@ -74,5 +99,4 @@ error_reporting(0);
         integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
         crossorigin="anonymous"></script>
 </body>
-
 </html>
