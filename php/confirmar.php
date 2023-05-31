@@ -72,16 +72,17 @@ error_reporting(0);
     }
     
     ?>
-       <footer class="footer reserva-realizada">
+   
+   <footer class="footer">
         <div class="redes">
             <h3>Redes</h3>
-            <div class="icones"><i class="fa-brands fa-whatsapp "></i>16999999999</div>
-            <div class="icones"><i class="fa-brands fa-instagram"></i>@vf-agencia66</div>
+            <div class="icones"><i class="fa-brands fa-whatsapp "></i>16998246382</div>
+            <div class="icones"><i class="fa-brands fa-instagram"></i>@vf-agencia</div>
         </div>
         <div class="contato">
             <h3>Contato</h3>
             <div class="icones"><i class="fa-solid fa-phone "></i>1632510000</div>
-            <div class="icones"><i class="fa-solid fa-phone"></i>16999999999</div>
+            <div class="icones"><i class="fa-solid fa-phone"></i>16998246382</div>
         </div>
         <div class="maps">
             <h3>Localização Agência Física</h3>

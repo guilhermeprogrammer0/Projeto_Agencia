@@ -92,6 +92,12 @@ footer h3{
         padding:5px;
         width:90%;
     }
+    .tabela .txt-login-usuario h1{
+        color:white;
+    }
+    .tabela .texto-login h1{
+        font-size:3em;
+    }
     .formulario-login{
         height:400px;
     }

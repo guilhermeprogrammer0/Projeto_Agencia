@@ -201,6 +201,7 @@ header h1{
 #txt{
     color:#F1F3F5;
 }
+
 .cards{
     display:flex;
     justify-content: center;
@@ -310,6 +311,7 @@ header h1{
 .tabela .txt-login-usuario h1{
     color:white;
 }
+
 .txt-login-usuario{
     width:100%;
     padding:10px;

@@ -26,7 +26,7 @@
     <section class="texto-login">
         <h1>Entrar</h1>
     </section>
-    <section class="formulario-login">
+    <section class="formulario-login ">
     <form action="login_menuadm.php" method="POST">
   <div class="mb-3 form-login">
     <label for="usuario" class="form-label">Usuário</label>
