@@ -47,7 +47,7 @@ error_reporting(0);
     </section>
         <div class="row">
     <div class="col">
-    <label for="nome" class="form-label">Nome</label>
+    <label for="nome" class="form-label">Nome Completo</label>
   <input type="text" class="form-control"  id="nome" name="nome" required>
     </div>
      <div class="col">
@@ -79,7 +79,7 @@ error_reporting(0);
     <div class="row">
     <div class="col">
     <label for="tel" class="form-label">Telefone-Celular</label>
-  <input type="text" class="form-control" id="tel" placeholder="DD9999999" name="telefone"  required>
+  <input type="text" class="form-control" id="tel" placeholder="(xx) xxxxx-xxxx" name="telefone"  required>
     </div>
     <div class="col">
     <label for="email" class="form-label">E-mail</label>
