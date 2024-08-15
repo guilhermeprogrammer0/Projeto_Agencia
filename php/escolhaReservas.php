@@ -1,11 +1,10 @@
 <?php
 require_once "functions.php";
-require_once "conexao.php";
+require_once "protecao.php";
 error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +15,7 @@ error_reporting(0);
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
     <link rel="shortcut icon" href="../Imagens/logo.jpeg" type="image/x-icon">
-    <title>Reservas</title>
+    <title>Reservas Parte 2</title>
 </head>
 
 <body>
@@ -30,56 +29,41 @@ error_reporting(0);
             </div>
             <li><a href="../index.html">Início</a></li>
             <li><a href="../pacotes.html">Pacotes</a></li>
-            <li class="active"><a href="reservas.php">Reservas</a></li>
+            <li class="active"><a href="login_usuario.php">Reservas</a></li>
             <li><a href="../curiosidades.html">Curiosidades</a></li>
             <li><a href="../sobre.html">Sobre</a></li>
         </ul>
     </nav>
     <div class="texto-reserva">
-        <h2 id="txt">Confirmar Reserva</h2>
+        <h2 id="txt">Realizar Reserva</h2>
 </div>
-<?php
-$id_destino = $_SESSION['selecionadoDestino'];
-$sql = "SELECT * from destinos WHERE id_destino = $id_destino";
-$sql_destino = mysqli_query($conexao,$sql);
-$linha = mysqli_fetch_array($sql_destino);
-$img = "../Upload/" . $linha['foto'];
-?>
-    <main class="formulario cards">
-    <form action="confirmar.php" method="POST">
-    <div class="row">
-    <div class="col">
-    <div class="card cardConfirmacao" style="width: 24rem;">
-  <div class="card-body cardConfirmacao-body">
-    <h2 class="card-title">Olá, <?php echo $_SESSION['nome_usuario'] . "!";?></h2>
-    <h5 class="card-title">Destino:</h5>
-    <h4 class="card-text"><?php echo $linha['nome'];?></h4>
-    <div class="mb-3">
-        <label for="qtd_passa" class="form-label">Quantidade </label>           
-    <input type="text" class="form-control"  id="qtd_passa"  onchange="mudarValor(<?php echo $linha['preco'];?>)" name="qtd_passa" required>
-    </div>
-    <h5 class="card-text" id="valor_tela"><?php echo "R$" . number_format($linha['preco'],2,',','.');?></h5>
-    <h5 class="card-text"><img src="<?php echo $img;?>" class="card-img-top" alt="..."></h5>
-    </div>
-    <div class="botoes">  
-    <a href="cancelar.php">
-    <a href="cancelar.php"><input type="button" class="btn btn-danger" value="Cancelar"></a>
-    <input type="submit" name="confirmar" class="btn btn-primary" value="Confirmar"></div>
+  
+    <main class="formulario reservasDisponiveis">
+        <section id="aparecer">
+<section class="texto-form">
+        <h2>Reservar</h2>
+    </section>
+    <div class="destinosAreservar">
+        <?php 
+        require_once "conexao.php";
+        $sql_destinos = "SELECT * from destinos";
+        $sql_destinos_exibidos = mysqli_query($conexao,$sql_destinos);
+        while($linha = mysqli_fetch_array($sql_destinos_exibidos)){
+            $img = "../Upload/" . $linha['foto'];
+        ?>
+ <div class="card" style="width: 18rem;">
+  <img src="<?php echo $img;?>" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><?php echo $linha['nome'];?></h5>
+    <button class="btn btn-primary" id="reservar" onclick="getId(<?php echo $linha['id_destino'];?>)">Reservar </button>
+  </div>
 </div>
-</div>
+<?php }?>
     </div>
-    </form>
-    </main>
-<?php
-    $id_comprador = $_SESSION['id_usuario'];
-    $id_reserva = $_SESSION['id_reserva'];
-    if($_POST['confirmar']){
-        Relizar_Reserva($conexao,$id_comprador,$id_reserva);
-    }
-    
-    ?>
-   
-   <footer class="footer">
+</section>
+</main>
+
+<footer class="footer reserva-realizada">
         <div class="redes">
             <h3>Redes</h3>
             <div class="icones"><i class="fa-brands fa-whatsapp "></i>16998246382</div>
@@ -98,10 +82,18 @@ $img = "../Upload/" . $linha['foto'];
                     referrerpolicy="no-referrer-when-downgrade"></iframe></div>
         </div>
     </footer>
-<script src="../js/valorReserva.js"></script>
-<script src="../js/script.js"></script>
-<script src="../js/reserva.js"></script>
 
+
+
+
+
+
+
+
+
+
+<script src="../js/reserva.js"></script>
+<script src="../js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
         crossorigin="anonymous"></script>

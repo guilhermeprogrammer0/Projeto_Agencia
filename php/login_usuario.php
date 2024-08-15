@@ -57,7 +57,7 @@
 </div>
 
 <div class="mb-3 botoes-login">
-<a class="link-offset-2 link-underline link-underline-opacity-0" href="reservas.php">Cadastre - se </a>
+<a class="link-offset-2 link-underline link-underline-opacity-0" href="cadastro_cliente.php">Cadastre - se </a>
 </div>
 </form>
 

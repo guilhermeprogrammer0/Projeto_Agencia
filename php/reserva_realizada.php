@@ -35,17 +35,13 @@ error_reporting(0);
             <li><a href="../sobre.html">Sobre</a></li>
         </ul>
     </nav>
-    
-
     <section class="pagina-reserva-realizada">
     <div class="alert alert-primary cards mt-5" role="alert">
             <h2> Reserva realizada com sucesso!<h2>
             <a href="cancelar.php"><button type="button" class="btn btn-danger btn2 ">Voltar ao início</button></a>
-            <a href="reservas2.php"><button type="button" class="btn btn-primary btn2">Fazer mais reservas</button></a>
+            <a href="comprarReserva.php"><button type="button" class="btn btn-primary btn2">Fazer mais reservas</button></a>
             <p id="explicacao">Será enviado as formas de pagamento no e-mail cadastrado.</p>
             </div> </section>
-
-     
     <footer class="footer reserva-realizada">
         <div class="redes">
             <h3>Redes</h3>

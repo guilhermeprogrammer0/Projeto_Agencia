@@ -41,7 +41,7 @@ error_reporting(0);
 </div>
   
     <main class="formulario">
-        <form action="reservas.php"  method="post">
+        <form action="cadastro_cliente.php"  method="post">
         <section class="texto-form">
         <h2>Dados Pessoais</h2>
     </section>
@@ -169,7 +169,6 @@ error_reporting(0);
     require_once "conexao.php";
     if($_POST['enviar']){
         Cadastro_pessoais($conexao,$_POST['nome'],$_POST['cpf'],$_POST['sexo'],$_POST['data_nascimento'],$_POST['telefone'],$_POST['email'],$_POST['senha'],$_POST['cidade'],$_POST['cep'],$_POST['estado'],$_POST['logradouro'],$_POST['bairro'],$_POST['numero']);
-        $_SESSION['comprador'] = $_POST['nome'];
     } ?>
 
     <footer class="footer reserva-realizada">

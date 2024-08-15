@@ -28,16 +28,15 @@ error_reporting(0);
         <section class="texto-form">
         <h2>Destinos</h2>
     </section>
-        <div class="row">
-    <div class="col">
+        <div class="mb-3">
     <label for="destino" class="form-label">Destino </label>
-  <input type="text" class="form-control"  id="nome" name="nome" required>
+    <input type="text" class="form-control"  id="nome" name="nome" required>
     </div>
+    <div class="mb-3">
     <label for="preco" class="form-label">Valor</label>
   <input type="text" class="form-control"  id="preco" name="preco" required>
     </div>
-    <div class="row">
-    <div class="col">
+    <div class="mb-3">
     <label for="foto" class="form-label">Imagem</label>
   <input type="file" class="form-control"  id="imagem" name="foto" required>
     </div>
