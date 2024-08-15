@@ -33,6 +33,9 @@ error_reporting(0);
     <label for="destino" class="form-label">Destino </label>
   <input type="text" class="form-control"  id="nome" name="nome" required>
     </div>
+    <label for="preco" class="form-label">Valor</label>
+  <input type="text" class="form-control"  id="preco" name="preco" required>
+    </div>
     <div class="row">
     <div class="col">
     <label for="foto" class="form-label">Imagem</label>
@@ -47,7 +50,7 @@ error_reporting(0);
     <?php
     require_once "conexao.php";
     if($_POST['enviar']){
-        Cadastrar_Destinos($conexao,$_POST['nome'],$_POST['foto']);
+        Cadastrar_Destinos($conexao,$_POST['nome'],$_POST['preco'],$_POST['foto']);
     }
 
 

@@ -1,11 +1,9 @@
 <?php
 require_once "functions.php";
-require_once "protecao.php";
 error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,67 +33,34 @@ error_reporting(0);
             <li><a href="../sobre.html">Sobre</a></li>
         </ul>
     </nav>
-    
-
     <div class="texto-reserva">
         <h2 id="txt">Realizar Reserva</h2>
 </div>
   
-    <main class="formulario">
-        <form action="reservas2.php" method="post">
+    <main class="formulario reservasDisponiveis">
         <section id="aparecer">
 <section class="texto-form">
         <h2>Reservar</h2>
     </section>
-    <div class="row">
-    <div class="col">
-    <label for="destino" class="form-label">Destino</label  required>
-    <select class="form-select selects" name="destino">
+    <div class="destinosAreservar">
         <?php 
         require_once "conexao.php";
         $sql_destinos = "SELECT * from destinos";
         $sql_destinos_exibidos = mysqli_query($conexao,$sql_destinos);
+        while($linha = mysqli_fetch_array($sql_destinos_exibidos)){
+            $img = "../Upload/" . $linha['foto'];
         ?>
-  <option selected>Selecione</option>
-  <?php
-    while($row = mysqli_fetch_array($sql_destinos_exibidos)){
-        ?>
-        <option value="<?php echo $row['nome'];?>"> <?php echo $row['nome'];?> </option><?php
-    }
-  ?>
-  
-</select>
-    </div>
-    <div class="col">
-    <label for="pacote" class="form-label">Pacotes</label>
-    <select class="form-select selects" name="pacotes"  required>
-  <option selected>Selecione</option>
-  <option value="1">3 dias e 2 noites</option>
-  <option value="2">4 dias e 3 noites</option>
-  <option value="3">7 dias e 6 noites</option>
-  <option value="4">Temporada de férias</option>
-</select>
-    </div>
-    <div class="col">
-    <label for="qtd_passagem" class="form-label">Quantidade de Passagens</label>
-  <input type="text" class="form-control qtd_passa" id="qtd_passagem" name="qtd_passa"  required>
+ <div class="card" style="width: 18rem;">
+  <img src="<?php echo $img;?>" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><?php echo $linha['nome'];?></h5>
+    <button class="btn btn-primary" id="reservar" onclick="getId(<?php echo $linha['id_destino'];?>)">Reservar </button>
+  </div>
 </div>
-</div></section>
-
-<div class="container">
-    <a href="cancelar.php"><input type="button" class="btn btn-danger " value="Cancelar"> </a>
-    <input type="submit" class="btn btn-primary" value="Finalizar" name="enviar">
-</div>
-
-</form></main>
-    <?php
-    if($_POST['enviar']){
-        Cadastro_reservas($conexao,$_POST['destino'],$_POST['pacotes'],$_POST['qtd_passa']);
-        $_SESSION['destino'] = $_POST['destino'];
-        $_SESSION['qtd_passa'] = $_POST['qtd_passa'];
-    }
-    
-    ?>
+<?php }?>
+    </div>
+</section>
+</main>
 
 <footer class="footer reserva-realizada">
         <div class="redes">
@@ -126,6 +91,7 @@ error_reporting(0);
 
 
 
+<script src="../js/reserva.js"></script>
 <script src="../js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"

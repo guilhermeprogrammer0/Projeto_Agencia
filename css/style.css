@@ -259,7 +259,9 @@ header h1{
     gap:15px;
     justify-content: center;
 }
-
+.cardConfirmacao{
+    padding:15px;
+}
 .card-text{
     height: auto;
 }
@@ -338,7 +340,9 @@ header h1{
 .campos-login{
     width:50%;
 }
-
+.botoes{
+    padding:5px;
+}
 .botoes-login{
     display:flex;
     justify-content: center;

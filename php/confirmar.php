@@ -1,6 +1,6 @@
 <?php
 require_once "functions.php";
-require_once "protecao.php";
+require_once "conexao.php";
 error_reporting(0);
 ?>
 <!DOCTYPE html>
@@ -26,7 +26,7 @@ error_reporting(0);
     <nav id="menu">
         <ul class="menu">
         <div class="img-logo">
-                <img src="../Imagens/logo.jpeg">
+        <img src="../Imagens/logo-novo.png" class="img-logo-png">
             </div>
             <li><a href="../index.html">Início</a></li>
             <li><a href="../pacotes.html">Pacotes</a></li>
@@ -35,36 +35,42 @@ error_reporting(0);
             <li><a href="../sobre.html">Sobre</a></li>
         </ul>
     </nav>
-    
-
     <div class="texto-reserva">
         <h2 id="txt">Confirmar Reserva</h2>
 </div>
-
+<?php
+$id_destino = $_SESSION['selecionadoDestino'];
+$sql = "SELECT * from destinos WHERE id_destino = $id_destino";
+$sql_destino = mysqli_query($conexao,$sql);
+$linha = mysqli_fetch_array($sql_destino);
+$img = "../Upload/" . $linha['foto'];
+?>
     <main class="formulario cards">
     <form action="confirmar.php" method="POST">
     <div class="row">
     <div class="col">
-    <div class="card" style="width: 24rem;">
-  <div class="card-body">
-    <h5 class="card-title">Comprador(a)</h5>
-    <p class="card-text"><?php echo $_SESSION['nome_usuario'];?></p>
-    <h5 class="card-title">Destino</h5>
-    <p class="card-text"><?php echo $_SESSION['destino'];?></p>
-    <h5 class="card-title">Quantidade de Passagens</h5>
-    <p class="card-text"><?php echo $_SESSION['qtd_passa'];?></p>
+    <div class="card cardConfirmacao" style="width: 24rem;">
+  <div class="card-body cardConfirmacao-body">
+    <h2 class="card-title">Olá, <?php echo $_SESSION['nome_usuario'] . "!";?></h2>
+    <h5 class="card-title">Destino:</h5>
+    <h4 class="card-text"><?php echo $linha['nome'];?></h4>
+    <div class="mb-3">
+        <label for="qtd_passa" class="form-label">Quantidade </label>           
+    <input type="text" class="form-control"  id="qtd_passa"  onchange="mudarValor(<?php echo $linha['preco'];?>)" name="qtd_passa" required>
+    </div>
+    <h5 class="card-text" id="valor_tela"><?php echo "R$" . number_format($linha['preco'],2,',','.');?></h5>
+    <h5 class="card-text"><img src="<?php echo $img;?>" class="card-img-top" alt="..."></h5>
+    </div>
     <div class="botoes">  
     <a href="cancelar.php">
-    <input type="button" class="btn btn-danger" value="Cancelar"></a>
+    <a href="cancelar.php"><input type="button" class="btn btn-danger" value="Cancelar"></a>
     <input type="submit" name="confirmar" class="btn btn-primary" value="Confirmar"></div>
 </div>
 </div>
     </div>
     </form>
     </main>
-
 <?php
-    require_once "conexao.php";
     $id_comprador = $_SESSION['id_usuario'];
     $id_reserva = $_SESSION['id_reserva'];
     if($_POST['confirmar']){
@@ -92,7 +98,9 @@ error_reporting(0);
                     referrerpolicy="no-referrer-when-downgrade"></iframe></div>
         </div>
     </footer>
+<script src="../js/valorReserva.js"></script>
 <script src="../js/script.js"></script>
+<script src="../js/reserva.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"

@@ -1,3 +1,4 @@
-function getId(id){
-    window.location.href="getId.php?" + id;
+function getId(id_destino){
+    window.location.href=`../php/getId.php
+    ?id_destino=${id_destino}`;
 }

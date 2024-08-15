@@ -18,10 +18,9 @@ function Cadastro_pessoais($conexao,$nome,$cpf,$sexo,$data_nascimento,$telefone,
         <script> window.location.href="reservas2.php" </script><?php
          $sql = "SELECT id , nome from dados_pessoais";
          $sql_query = mysqli_query($conexao,$sql);
-         while($row = mysqli_fetch_array($sql_query)){
+         $row = mysqli_fetch_array($sql);
              $_SESSION['id_usuario'] = $row['id'];
              $_SESSION['nome_usuario'] = $row['nome'];
-         }
     }
     else{
         ?>
@@ -36,9 +35,9 @@ function Cadastro_reservas($conexao,$destino,$pacotes,$qtd_passa){
        header("location:confirmar.php");
        $sql = "SELECT id_reserva from reservas";
        $sql_query = mysqli_query($conexao,$sql);
-       while($row = mysqli_fetch_array($sql_query)){
+       $row = mysqli_fetch_array($sql);
            $_SESSION['id_reserva'] = $row['id_reserva'];
-       }
+       
     }
     else{
         ?>
@@ -61,10 +60,9 @@ function Login_Adm($conexao,$usuario,$senha){
     $sql_logar = "SELECT  * from administrativo WHERE usuario = '$usuario' AND senha = '$senha'";
     $sql_logado = mysqli_query($conexao,$sql_logar);
     $qtd_linha = mysqli_num_rows($sql_logado);
+    $row = mysqli_fetch_array($sql_logado);
     if($qtd_linha>0){
-        while($row = mysqli_fetch_array($sql_logado)){
             $_SESSION['id_adm'] = $row['id_adm'];
-        }
         header("location:menu_adm.php");
     }
     else{
@@ -75,11 +73,10 @@ function Login_Usuario($conexao,$email,$senha){
     $sql_logar = "SELECT id, nome, email, senha from dados_pessoais WHERE email = '$email' AND senha = '$senha'";
     $sql_logado = mysqli_query($conexao,$sql_logar);
     $qtd_linha = mysqli_num_rows($sql_logado);
+    $row = mysqli_fetch_array($sql_logado);
     if($qtd_linha>0){
-        while($row = mysqli_fetch_array($sql_logado)){
             $_SESSION['id_usuario'] = $row['id'];
             $_SESSION['nome_usuario'] = $row['nome'];
-        }
         header("location:reservas2.php");
     }
     else{
@@ -91,12 +88,12 @@ function Exclusao($conexao, $id){
     $sql_excluido = mysqli_query($conexao,$sql_excluir);
 }
 
-function Cadastrar_Destinos($conexao,$nome,$foto){
+function Cadastrar_Destinos($conexao,$nome,$preco,$foto){
     $extensao = strtolower(substr($_FILES['foto']['name'],-4));
     $foto = md5(time()) . $extensao;
     $diretorio = "../Upload/";
     move_uploaded_file($_FILES['foto']['tmp_name'],$diretorio.$foto);
-    $sql_cadastrar = "INSERT INTO destinos VALUES(default,'$nome','$foto')";
+    $sql_cadastrar = "INSERT INTO destinos VALUES(default,'$nome','$preco','$foto')";
     $sql_cadastro = mysqli_query($conexao, $sql_cadastrar);
     if ($sql_cadastro) {
 ?>
@@ -108,5 +105,7 @@ function Cadastrar_Destinos($conexao,$nome,$foto){
 <?php
     }
 }
+
+
 
 ?>
