@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Set-2023 às 21:27
--- Versão do servidor: 10.4.27-MariaDB
--- versão do PHP: 8.0.25
+-- Tempo de geração: 15/08/2024 às 02:59
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -26,7 +26,7 @@ USE `agencia`;
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `administrativo`
+-- Estrutura para tabela `administrativo`
 --
 
 CREATE TABLE `administrativo` (
@@ -36,16 +36,16 @@ CREATE TABLE `administrativo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Extraindo dados da tabela `administrativo`
+-- Despejando dados para a tabela `administrativo`
 --
 
 INSERT INTO `administrativo` (`id_adm`, `usuario`, `senha`) VALUES
-(1, 'agenciaadm@adm.com', 'agenciaadm');
+(1, 'agencia@adm.com', 'agenciaadm');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `dados_pessoais`
+-- Estrutura para tabela `dados_pessoais`
 --
 
 CREATE TABLE `dados_pessoais` (
@@ -66,46 +66,36 @@ CREATE TABLE `dados_pessoais` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Extraindo dados da tabela `dados_pessoais`
+-- Despejando dados para a tabela `dados_pessoais`
 --
 
 INSERT INTO `dados_pessoais` (`id`, `nome`, `cpf`, `sexo`, `data_nascimento`, `telefone`, `email`, `senha`, `cidade`, `cep`, `estado`, `logradouro`, `bairro`, `numero`) VALUES
-(1, 'Guilherme', '55625684898', 'M', '2003-09-12', '16996091036', 'guilherme@gmail.com', 'guilherme', 'Guariba', '14840000', 'Sã', 'Avenida Alzira', 'Morada do Sol', '100'),
-(2, 'Daniel', '12589632510', 'M', '2000-05-10', '16988525252', 'daniel@teste.com', 'daniel123', 'Guariba', '1484000', 'Sã', 'Rua Jornalista ', 'Nova Guariba', '25'),
-(3, 'Maysa Pedro', '12045025896', 'F', '2004-03-05', '16988523698', 'maysa@gmiail.com', 'maysa123', 'Guariba', '14840000', 'Sã', 'Rua Teste', 'Nova Guariba', '100'),
-(4, 'Junior Teste', '12012012058', 'M', '2003-05-12', '16998541236', 'juniorteste@gmail.com', 'junior2023', 'Guariba', '1484000', 'Ma', 'Rua teste', 'Teste 2', '458');
+(5, 'Guilherme', '55625684898', 'M', '2003-09-12', '16996091036', 'gui@gmail.com', 'gui123', 'Guariba', '1484000', 'Pi', 'rua teste', 'mariana 1', '261');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `destinos`
+-- Estrutura para tabela `destinos`
 --
 
 CREATE TABLE `destinos` (
   `id_destino` int(11) NOT NULL,
-  `nome` varchar(100) DEFAULT NULL
+  `nome` varchar(100) DEFAULT NULL,
+  `foto` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Extraindo dados da tabela `destinos`
+-- Despejando dados para a tabela `destinos`
 --
 
-INSERT INTO `destinos` (`id_destino`, `nome`) VALUES
-(1, 'Ubatuba'),
-(2, 'Capitólio'),
-(3, 'Rio de Janeiro'),
-(4, 'Fernando de Noronha'),
-(5, 'Porto de Galinhas'),
-(6, 'Santos'),
-(7, 'São Paulo'),
-(8, 'Brasília'),
-(9, 'Maceió'),
-(10, 'Campos do Jordão');
+INSERT INTO `destinos` (`id_destino`, `nome`, `foto`) VALUES
+(30, 'Rio', 'd64cb407335dd8efcf3f5885b78bf17e.jpg'),
+(31, 'Salvador', 'b5a38b527b4e6c1810e7ebd5c41fafb8.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `reservas`
+-- Estrutura para tabela `reservas`
 --
 
 CREATE TABLE `reservas` (
@@ -115,25 +105,10 @@ CREATE TABLE `reservas` (
   `qtd_passa` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Extraindo dados da tabela `reservas`
---
-
-INSERT INTO `reservas` (`id_reserva`, `destino`, `pacotes`, `qtd_passa`) VALUES
-(1, 'Capitólio', '2', '2'),
-(5, 'Maceió', '3', '2'),
-(6, 'São Paulo', '3', '1'),
-(7, 'Rio de Janeiro', '1', '2'),
-(8, 'Fernando de Noronha', '2', '2'),
-(10, 'Ubatuba', '2', '4'),
-(12, 'Rio de Janeiro', '3', '2'),
-(13, 'Rio de Janeiro', '3', '2'),
-(14, 'Rio de Janeiro', '2', '2');
-
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `reserva_realizada`
+-- Estrutura para tabela `reserva_realizada`
 --
 
 CREATE TABLE `reserva_realizada` (
@@ -143,49 +118,35 @@ CREATE TABLE `reserva_realizada` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `reserva_realizada`
---
-
-INSERT INTO `reserva_realizada` (`id_realizada`, `comprador`, `destino`) VALUES
-(1, 1, 1),
-(2, 1, 5),
-(3, 2, 6),
-(4, 2, 7),
-(5, 3, 8),
-(6, 1, 10),
-(7, 3, 13),
-(8, 4, 14);
-
---
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `administrativo`
+-- Índices de tabela `administrativo`
 --
 ALTER TABLE `administrativo`
   ADD PRIMARY KEY (`id_adm`);
 
 --
--- Índices para tabela `dados_pessoais`
+-- Índices de tabela `dados_pessoais`
 --
 ALTER TABLE `dados_pessoais`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `destinos`
+-- Índices de tabela `destinos`
 --
 ALTER TABLE `destinos`
   ADD PRIMARY KEY (`id_destino`);
 
 --
--- Índices para tabela `reservas`
+-- Índices de tabela `reservas`
 --
 ALTER TABLE `reservas`
   ADD PRIMARY KEY (`id_reserva`);
 
 --
--- Índices para tabela `reserva_realizada`
+-- Índices de tabela `reserva_realizada`
 --
 ALTER TABLE `reserva_realizada`
   ADD PRIMARY KEY (`id_realizada`),
@@ -193,7 +154,7 @@ ALTER TABLE `reserva_realizada`
   ADD KEY `destino` (`destino`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
@@ -206,13 +167,13 @@ ALTER TABLE `administrativo`
 -- AUTO_INCREMENT de tabela `dados_pessoais`
 --
 ALTER TABLE `dados_pessoais`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `destinos`
 --
 ALTER TABLE `destinos`
-  MODIFY `id_destino` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_destino` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de tabela `reservas`
@@ -227,11 +188,11 @@ ALTER TABLE `reserva_realizada`
   MODIFY `id_realizada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- Restrições para despejos de tabelas
+-- Restrições para tabelas despejadas
 --
 
 --
--- Limitadores para a tabela `reserva_realizada`
+-- Restrições para tabelas `reserva_realizada`
 --
 ALTER TABLE `reserva_realizada`
   ADD CONSTRAINT `reserva_realizada_ibfk_1` FOREIGN KEY (`comprador`) REFERENCES `dados_pessoais` (`id`),

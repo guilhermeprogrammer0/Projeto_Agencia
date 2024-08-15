@@ -38,7 +38,6 @@ error_reporting(0);
 </div>
   
     <main class="formulario reservasDisponiveis">
-        <form action="reservas2.php" method="post">
         <section id="aparecer">
 <section class="texto-form">
         <h2>Reservar</h2>
@@ -55,15 +54,13 @@ error_reporting(0);
   <img src="<?php echo $img;?>" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title"><?php echo $linha['nome'];?></h5>
-    <button class="btn btn-primary" onclick="getId(<?php echo $linha['id_destino'];?>)">Reservar </button>
+    <button class="btn btn-primary" id="reservar" onclick="getId(<?php echo $linha['id_destino'];?>)">Reservar </button>
   </div>
 </div>
 <?php }?>
     </div>
 </section>
-
-
-</form></main>
+</main>
     <?php
     if($_POST['enviar']){
         Cadastro_reservas($conexao,$_POST['destino'],$_POST['pacotes'],$_POST['qtd_passa']);
@@ -102,6 +99,7 @@ error_reporting(0);
 
 
 
+<script src="../js/reserva.js"></script>
 <script src="../js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
