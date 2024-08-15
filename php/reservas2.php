@@ -26,7 +26,7 @@ error_reporting(0);
     <nav id="menu">
         <ul class="menu">
         <div class="img-logo">
-        <img src="../Imagens/logo.jpeg">
+        <img src="../Imagens/logo-novo.png" class="img-logo-png">
             </div>
             <li><a href="../index.html">Início</a></li>
             <li><a href="../pacotes.html">Pacotes</a></li>

@@ -90,4 +90,23 @@ function Exclusao($conexao, $id){
     $sql_excluir = "DELETE FROM reservas WHERE id_reserva = '$id'";
     $sql_excluido = mysqli_query($conexao,$sql_excluir);
 }
+
+function Cadastrar_Destinos($conexao,$nome,$foto){
+    $extensao = strtolower(substr($_FILES['foto']['name'],-4));
+    $foto = md5(time()) . $extensao;
+    $diretorio = "../Upload/";
+    move_uploaded_file($_FILES['foto']['tmp_name'],$diretorio.$foto);
+    $sql_cadastrar = "INSERT INTO destinos VALUES(default,'$nome','$foto')";
+    $sql_cadastro = mysqli_query($conexao, $sql_cadastrar);
+    if ($sql_cadastro) {
+?>
+<script>alert('Cadastro feito com Sucesso!');</script>
+<?php
+    } else {
+?>
+<script>alert('Erro! Tente Novamente mais tarde!');</script>
+<?php
+    }
+}
+
 ?>

@@ -1,10 +1,9 @@
 <?php
- require_once "functions.php";
- error_reporting(0);
+require_once "functions.php";
+error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +14,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
     <link rel="shortcut icon" href="../Imagens/logo.jpeg" type="image/x-icon">
-    <title>Entrar ou Cadastrar - se</title>
+    <title>Reservas Parte 2</title>
 </head>
 
 <body>
@@ -34,44 +33,47 @@
             <li><a href="../sobre.html">Sobre</a></li>
         </ul>
     </nav>
-    
-    <main class="formulario tabela">
-    <section class="texto-login txt-login-usuario">
-        <h1>Entrar</h1>
-    </section>
-    <section class="formulario-login">
-    <form action="login_usuario.php" method="POST">
-  <div class="mb-3 form-login">
-    <label for="email" class="form-label">E-mail</label>
-    <input type="email" class="form-control campos-login" id="email" name="email" required>
-  </div>
-  <div class="mb-3 form-login">
-    <label for="senha" class="form-label">Senha</label>
-    <input type="password" class="form-control campos-login" id="senha" name="senha" required>
-    <span id="mostrar">Mostrar Senha</span>
-  </div>
-
-  <div class="mb-3 botoes-login">
-  <input type="reset" class="btn btn-danger" value="Limpar Campos">
-    <input type="submit" name="entrar" class="btn btn-primary" value="Entrar">
+    <div class="texto-reserva">
+        <h2 id="txt">Realizar Reserva</h2>
 </div>
-
-<div class="mb-3 botoes-login">
-<a class="link-offset-2 link-underline link-underline-opacity-0" href="reservas.php">Cadastre - se </a>
-</div>
-</form>
-
+  
+    <main class="formulario reservasDisponiveis">
+        <form action="reservas2.php" method="post">
+        <section id="aparecer">
+<section class="texto-form">
+        <h2>Reservar</h2>
     </section>
-</main>
-<?php
-    require_once "conexao.php";
-    if($_POST['entrar']){
-        Login_Usuario($conexao,$_POST['email'],$_POST['senha']);
+    <div class="destinosAreservar">
+        <?php 
+        require_once "conexao.php";
+        $sql_destinos = "SELECT * from destinos";
+        $sql_destinos_exibidos = mysqli_query($conexao,$sql_destinos);
+        while($linha = mysqli_fetch_array($sql_destinos_exibidos)){
+            $img = "../Upload/" . $linha['foto'];
+        ?>
+ <div class="card" style="width: 18rem;">
+  <img src="<?php echo $img;?>" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><?php echo $linha['nome'];?></h5>
+    <button class="btn btn-primary" onclick="getId(<?php echo $linha['id_destino'];?>)">Reservar </button>
+  </div>
+</div>
+<?php }?>
+    </div>
+</section>
+
+
+</form></main>
+    <?php
+    if($_POST['enviar']){
+        Cadastro_reservas($conexao,$_POST['destino'],$_POST['pacotes'],$_POST['qtd_passa']);
+        $_SESSION['destino'] = $_POST['destino'];
+        $_SESSION['qtd_passa'] = $_POST['qtd_passa'];
     }
+    
+    ?>
 
-?>
-
-<footer class="footer">
+<footer class="footer reserva-realizada">
         <div class="redes">
             <h3>Redes</h3>
             <div class="icones"><i class="fa-brands fa-whatsapp "></i>16998246382</div>
@@ -90,9 +92,17 @@
                     referrerpolicy="no-referrer-when-downgrade"></iframe></div>
         </div>
     </footer>
-      <script src="../js/senha.js"></script>
-      <script src="../js/script.js"></script>
 
+
+
+
+
+
+
+
+
+
+<script src="../js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
         crossorigin="anonymous"></script>
@@ -100,4 +110,5 @@
         integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
         crossorigin="anonymous"></script>
 </body>
+
 </html>
