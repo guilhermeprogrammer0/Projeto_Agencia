@@ -14,7 +14,7 @@ error_reporting(0);
     <script src="https://kit.fontawesome.com/ae27920976.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
-    <link rel="shortcut icon" href="../Imagens/logo.jpeg" type="image/x-icon">
+    <link rel="shortcut icon" href="../Imagens/logo-novo.png" type="image/x-icon">
     <title>Reservas</title>
 </head>
 
@@ -37,7 +37,7 @@ error_reporting(0);
     
 
     <div class="texto-reserva">
-        <h2 id="txt">Realizar Reserva</h2>
+        <h2 id="txt">Cadastrar - se</h2>
 </div>
   
     <main class="formulario">
@@ -102,59 +102,59 @@ error_reporting(0);
     </section>
     <div class="row">
     <div class="col">
-    <label for="cidade" class="form-label">Cidade</label>
-  <input type="text" class="form-control" id="cidade" name="cidade"  required>
+    <label for="cep" class="form-label">CEP</label>
+  <input type="text" class="form-control" id="cep" placeholder="14840000" name="cep"  required>
     </div>
     <div class="col">
-    <label for="cep" class="form-label">CEP</label>
-  <input type="text" class="form-control" id="cep" placeholder="xxxxx-xxx" name="cep"  required>
+    <label for="cidade" class="form-label">Cidade</label>
+  <input type="text" class="form-control camposEndereco" id="cidade" name="cidade"  required>
     </div>
     <div class="col">
     <label for="estado" class="form-label">Estado</label>
-    <select class="form-select" name="estado">
+    <select class="form-select camposEndereco" id="estado" name="estado">
   <option selected>Selecione</option>
-  <option value="Acre">Acre</option>
-  <option value="Alagoas">Alagoas</option>
-  <option value="Amapá">Amapá</option>
-  <option value="Amazonas">Amazonas</option>
-  <option value="Bahia">Bahia</option>
-  <option value="Ceará">Ceará</option>
-  <option value="Espírito Santo">Espírito Santo</option>
-  <option value="Goiás">Goiás</option>
-  <option value="Maranhão">Maranhão</option>
-  <option value="Mato Grosso">Mato Grosso</option>
-  <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
-  <option value="Minas Gerais">Minas Gerais</option>
-  <option value="Pará">Pará</option>
-  <option value="Paraíba">Paraíba</option>
-  <option value="Paraná">Paraná</option>
-  <option value="Pernambuco">Pernambuco</option>
-  <option value="Piauí">Piauí</option>
-  <option value="Rio de Janeiro">Rio de Janeiro</option>
-  <option value="Rio Grande do Norte">Rio Grande do Norte</option>
-  <option value="Rio Grande do Sul">Rio Grande do Sul</option>
-  <option value="Rondônia">Rondônia</option>
-  <option value="Roraima">Roraima</option>
-  <option value="Santa Catarina">Santa Catarina</option>
-  <option value="São Paulo">São Paulo</option>
-  <option value="Sergipe">Sergipe</option>
-  <option value="Tocantins">Tocantins</option>
-  <option value="Distrito Federal">Distrito Federal</option>
+  <option value="AC">AC</option>
+  <option value="AL">AL</option>
+  <option value="AP">AP</option>
+  <option value="AM">AM</option>
+  <option value="BA">BA</option>
+  <option value="CE">CE</option>
+  <option value="DF">DF</option>
+  <option value="ES">ES</option>
+  <option value="GO">GO</option>
+  <option value="MA">MA</option>
+  <option value="MT">MT</option>
+  <option value="MS">MS</option>
+  <option value="MG">MG</option>
+  <option value="PA">PA</option>
+  <option value="PB">PB</option>
+  <option value="PR">PR</option>
+  <option value="PE">PE</option>
+  <option value="PI">PI</option>
+  <option value="RJ">RJ</option>
+  <option value="RN">RN</option>
+  <option value="RS">RS</option>
+  <option value="RO">RO</option>
+  <option value="RR">RR</option>
+  <option value="SC">SC</option>
+  <option value="SP">SP</option>
+  <option value="SE">SE</option>
+  <option value="TO">TO</option>
 </select>
     </div>
     </div>
     <div class="row">
     <div class="col">
-    <label for="logra" class="form-label">Logradouro</label>
-  <input type="text" class="form-control" id="logra" placeholder="Rua/Avenida" name="logradouro"  required>
+    <label for="logradouro" class="form-label camposEndereco">Logradouro</label>
+  <input type="text" class="form-control camposEndereco" id="logradouro" placeholder="Rua/Avenida" name="logradouro"  required>
     </div>
     <div class="col">
     <label for="bairro" class="form-label">Bairro</label>
-  <input type="text" class="form-control" id="bairro" name="bairro"  required>
+  <input type="text" class="form-control camposEndereco" id="bairro" name="bairro"  required>
     </div>
     <div class="col">
-    <label for="numero" class="form-label numero">Número</label>
-  <input type="text" class="form-control" id="numero" name="numero"  required>
+    <label for="numero" class="form-label numero ">Número</label>
+  <input type="text" class="form-control camposEndereco" id="numero" name="numero"  required>
     </div>
     </div>
 
@@ -191,7 +191,7 @@ error_reporting(0);
         </div>
     </footer>
       
-
+      <script src="../js/api-cep.js"></script>
       <script src="../js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"

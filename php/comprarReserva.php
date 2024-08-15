@@ -16,8 +16,8 @@ error_reporting(0);
     <script src="https://kit.fontawesome.com/ae27920976.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
-    <link rel="shortcut icon" href="../Imagens/logo.jpeg" type="image/x-icon">
-    <title>Reservas</title>
+    <link rel="shortcut icon" href="../Imagens/logo-novo.png" type="image/x-icon">
+    <title>Comprar Reservas</title>
 </head>
 <body>
 <div class="btn-menu">
