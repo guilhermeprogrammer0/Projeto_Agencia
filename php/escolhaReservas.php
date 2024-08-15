@@ -32,7 +32,10 @@ error_reporting(0);
             <li class="active"><a href="login_usuario.php">Reservas</a></li>
             <li><a href="../curiosidades.html">Curiosidades</a></li>
             <li><a href="../sobre.html">Sobre</a></li>
+            <a href="logout.php"> <div class="divSair"><button class="btnSair"> Sair</button></div> </a>
         </ul>
+        <h5>Olá, <?php echo $_SESSION['nome_usuario'] ?>!</h5>
+       
     </nav>
     <div class="texto-reserva">
         <h2 id="txt">Realizar Reserva</h2>
@@ -55,7 +58,7 @@ error_reporting(0);
   <img src="<?php echo $img;?>" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title"><?php echo $linha['nome'];?></h5>
-    <button class="btn btn-primary" id="reservar" onclick="getId(<?php echo $linha['id_destino'];?>)">Reservar </button>
+    <button class="btn btn-primary btnReservar" id="reservar" onclick="getId(<?php echo $linha['id_destino'];?>)">Reservar </button> 
   </div>
 </div>
 <?php }?>

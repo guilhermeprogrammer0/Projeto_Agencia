@@ -118,7 +118,10 @@ footer h3{
     #btn-menu{
         cursor: pointer;
     }
- 
+
+    #menu h5{
+        display:none;
+    }
     .menu{
         display:none;
     }

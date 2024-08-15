@@ -3,6 +3,7 @@ require_once "functions.php";
 require_once "conexao.php";
 require_once "protecao.php";
 require_once "protecao-destino.php";
+error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -32,6 +33,7 @@ require_once "protecao-destino.php";
             <li class="active"><a href="reservas.php">Reservas</a></li>
             <li><a href="../curiosidades.html">Curiosidades</a></li>
             <li><a href="../sobre.html">Sobre</a></li>
+            <a href="logout.php"> <div class="divSair"><button class="btnSair"> Sair</button></div> </a>
         </ul>
     </nav>
     <div class="texto-reserva">

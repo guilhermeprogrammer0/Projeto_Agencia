@@ -38,7 +38,7 @@
     require_once "conexao.php";
      $sql = "SELECT RR.id_realizada, D.nome, R.destino, R.qtd_passa,  R.valor_total from dados_pessoais as D inner join reservas_realizadas as RR  ON
     (D.id = RR.id_comprador) inner join reservas as R ON
-    (R.id_reserva = RR.id_reserva)";
+    (R.id_reserva = RR.id_reserva) ORDER BY D.nome, R.valor_total";
     $sql_select = mysqli_query($conexao,$sql);
     $qtd_cadastrados = mysqli_num_rows($sql_select);
     while($row = mysqli_fetch_array($sql_select)){?>
@@ -47,7 +47,7 @@
     <td> <?php echo $row['nome'];?></td>
     <td> <?php echo $row['destino'];?></td>
     <td> <?php echo $row['qtd_passa'];?></td>
-    <td> <?php echo $row['valor_total'];?></td>
+    <td> <?php echo "R$". number_format($row['valor_total'],2,',','.');?></td>
     </tr>
     <?php } ?>
   </tbody>
