@@ -1,6 +1,7 @@
 <?php
 require_once "functions.php";
 require_once "protecao.php";
+require_once "protecao-destino.php";
 error_reporting(0);
 ?>
 <!DOCTYPE html>

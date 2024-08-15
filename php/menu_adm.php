@@ -1,7 +1,6 @@
 <?php
  require_once "functions.php";
  require_once "protecao_adm.php";
- error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -30,16 +29,16 @@
       <th scope="col">ID</th>
       <th scope="col">Nome</th>
       <th scope="col">Destino</th>
-      <th scope="col">Pacote</th>
-      <th scope="col">Passagens</th>
+      <th scope="col">Quantidade</th>
+      <th scope="col">Valor Total</th>
     </tr>
   </thead>
   <tbody>
   <?php 
     require_once "conexao.php";
-     $sql = "SELECT RR.id_realizada, D.nome, R.destino, R.qtd_passa, R.pacotes from dados_pessoais as D inner join reserva_realizada as RR  ON
-    (D.id = RR.comprador) inner join reservas as R ON
-    (R.id_reserva = RR.destino)";
+     $sql = "SELECT RR.id_realizada, D.nome, R.destino, R.qtd_passa,  R.valor_total from dados_pessoais as D inner join reservas_realizadas as RR  ON
+    (D.id = RR.id_comprador) inner join reservas as R ON
+    (R.id_reserva = RR.id_reserva)";
     $sql_select = mysqli_query($conexao,$sql);
     $qtd_cadastrados = mysqli_num_rows($sql_select);
     while($row = mysqli_fetch_array($sql_select)){?>
@@ -47,8 +46,8 @@
     <td> <?php echo $row['id_realizada'];?></td>
     <td> <?php echo $row['nome'];?></td>
     <td> <?php echo $row['destino'];?></td>
-    <td> <?php echo $row['pacotes'];?></td>
     <td> <?php echo $row['qtd_passa'];?></td>
+    <td> <?php echo $row['valor_total'];?></td>
     </tr>
     <?php } ?>
   </tbody>
