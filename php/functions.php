@@ -32,11 +32,10 @@ function Cadastro_reservas($conexao,$destino,$qtd_passa,$valor_total){
     $sql = "INSERT INTO reservas values (default,'$destino','$qtd_passa','$valor_total')";
     $sql_cadastrar = mysqli_query($conexao,$sql);
     if($sql_cadastrar){
-        $sql_mostrarId = "SELECT id_reserva from reservas";
+        $sql_mostrarId = "SELECT id_reserva from reservas ORDER BY id_reserva DESC LIMIT 1";
         $sql_idReserva = mysqli_query($conexao,$sql_mostrarId);
         $row = mysqli_fetch_array($sql_idReserva);
         $_SESSION['id_reserva'] = $row['id_reserva'];
-        unset($_SESSION['selecionadoDestino']);
     }
     else{
         ?>

@@ -1,8 +1,8 @@
 <?php
 require_once "functions.php";
 require_once "conexao.php";
+require_once "protecao.php";
 require_once "protecao-destino.php";
-error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -69,11 +69,12 @@ $img = "../Upload/" . $linha['foto'];
     </form>
     </main>
 <?php
-    $id_comprador = $_SESSION['id_usuario'];
-    $id_reserva = $_SESSION['id_reserva'];
     if($_POST['confirmar']){
         Cadastro_reservas($conexao,$linha['nome'],$_POST['qtd_passa'],$_POST['qtd_passa']*$linha['preco']);
+        $id_comprador = $_SESSION['id_usuario'];
+        $id_reserva = $_SESSION['id_reserva'];
         Reservar($conexao,$id_comprador,$id_reserva);
+        unset($_SESSION['id_reserva']);
     }
     
     ?>
