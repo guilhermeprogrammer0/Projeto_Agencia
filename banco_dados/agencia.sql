@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15/08/2024 às 16:28
+-- Tempo de geração: 15/08/2024 às 20:22
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -71,7 +71,8 @@ CREATE TABLE `dados_pessoais` (
 
 INSERT INTO `dados_pessoais` (`id`, `nome`, `cpf`, `sexo`, `data_nascimento`, `telefone`, `email`, `senha`, `cidade`, `cep`, `estado`, `logradouro`, `bairro`, `numero`) VALUES
 (5, 'Guilherme', '55625684898', 'M', '2003-09-12', '16996091036', 'gui@gmail.com', 'gui123', 'Guariba', '1484000', 'Pi', 'rua teste', 'mariana 1', '261'),
-(6, 'Kethilin', '47835841225', 'F', '2004-06-14', '16996341184', 'keth@gmail.com', 'keth', 'Guariba', '1484000', 'Se', 'rua teste2', 'cohab', '78');
+(6, 'Kethilin', '47835841225', 'F', '2004-06-14', '16996341184', 'keth@gmail.com', 'keth', 'Guariba', '1484000', 'Se', 'rua teste2', 'cohab', '78'),
+(7, 'teste', '456123369', 'M', '2003-06-14', '16996091036', 'teste@gmail.com', 'teste', 'Guariba', '14842512', 'SP', 'Rua José Carlos Loredo', 'Residencial Luiz Carlos Santin', '110');
 
 -- --------------------------------------------------------
 
@@ -124,7 +125,16 @@ INSERT INTO `reservas` (`id_reserva`, `destino`, `qtd_passa`, `valor_total`) VAL
 (10, 'Rio de Janeiro', '4', 2000),
 (11, 'Salvador', '7', 4900),
 (12, 'Salvador', '9', 6300),
-(13, 'Rio de Janeiro', '1', 500);
+(13, 'Rio de Janeiro', '1', 500),
+(14, 'Salvador', '3', 2100),
+(15, 'Rio de Janeiro', '8', 4000),
+(16, 'Salvador', '3', 2100),
+(17, 'Rio de Janeiro', '2', 1000),
+(18, 'Rio de Janeiro', '5', 2500),
+(19, 'Salvador', '8', 5600),
+(20, 'Rio de Janeiro', '1', 500),
+(21, 'Salvador', '5', 3500),
+(22, 'Rio de Janeiro', '6', 3000);
 
 -- --------------------------------------------------------
 
@@ -145,7 +155,16 @@ CREATE TABLE `reservas_realizadas` (
 INSERT INTO `reservas_realizadas` (`id_realizada`, `id_comprador`, `id_reserva`) VALUES
 (9, 5, 11),
 (10, 6, 12),
-(11, 6, 13);
+(11, 6, 13),
+(12, 5, 14),
+(13, 5, 15),
+(14, 5, 16),
+(15, 5, 17),
+(16, 5, 18),
+(17, 6, 19),
+(18, 6, 20),
+(19, 6, 21),
+(20, 7, 22);
 
 --
 -- Índices para tabelas despejadas
@@ -197,7 +216,7 @@ ALTER TABLE `administrativo`
 -- AUTO_INCREMENT de tabela `dados_pessoais`
 --
 ALTER TABLE `dados_pessoais`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `destinos`
@@ -209,13 +228,13 @@ ALTER TABLE `destinos`
 -- AUTO_INCREMENT de tabela `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de tabela `reservas_realizadas`
 --
 ALTER TABLE `reservas_realizadas`
-  MODIFY `id_realizada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_realizada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Restrições para tabelas despejadas
