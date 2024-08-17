@@ -87,6 +87,9 @@ body.dark .card{
 body.dark #menu h5{
     color:white;
 }
+body.dark header{
+    background-color: #15202b;
+}
 .divMudartema{
     position: absolute;
     bottom:0;
@@ -369,6 +372,7 @@ body.dark #menu h5{
     align-items: center;
     justify-content: center;
     width:70%;
+    padding:25px;
 }
 
 .formulario-login{
@@ -380,6 +384,7 @@ body.dark #menu h5{
     border-bottom-right-radius: 6px;
     padding:10px;
     height:400px;
+    padding:35px;
 }
 .formulario .texto-login h1{
     font-family: 'Bebas neue';
