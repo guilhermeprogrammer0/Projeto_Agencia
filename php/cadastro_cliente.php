@@ -32,6 +32,7 @@ error_reporting(0);
             <li class="active"><a href="login_usuario.php">Reservas</a></li>
             <li><a href="../curiosidades.html">Curiosidades</a></li>
             <li><a href="../sobre.html">Sobre</a></li>
+            <div class="divMudartema"><i class="btnMudarTema fa-solid  fa-2x" id="btnMudarTema"> </i></div>
         </ul>
     </nav>
     
@@ -171,7 +172,7 @@ error_reporting(0);
         Cadastro_pessoais($conexao,$_POST['nome'],$_POST['cpf'],$_POST['sexo'],$_POST['data_nascimento'],$_POST['telefone'],$_POST['email'],$_POST['senha'],$_POST['cidade'],$_POST['cep'],$_POST['estado'],$_POST['logradouro'],$_POST['bairro'],$_POST['numero']);
     } ?>
 
-    <footer class="footer reserva-realizada">
+    <footer class="footer">
         <div class="redes">
             <h3>Redes</h3>
             <div class="icones"><i class="fa-brands fa-whatsapp "></i>16998246382</div>
@@ -192,6 +193,7 @@ error_reporting(0);
     </footer>
       
       <script src="../js/api-cep.js"></script>
+      <script src="../js/darkMode.js"></script>
       <script src="../js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"

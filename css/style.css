@@ -25,7 +25,7 @@ header h1{
     top:0px;
 }
 .img-logo-png{
-    width:170px;
+    width:190px;
     height:170px;
 }
 
@@ -63,6 +63,39 @@ header h1{
     font-family: 'Montserrat';
     font-size:1.5em;
 }
+.dark{
+    background-color:#15202b ;
+}
+body.dark footer{
+    background-color: #22303c;
+    color:white;
+
+}
+body.dark h2{
+    color:white;
+}
+body.dark #btn-menu{
+    color:white;
+}
+body.dark .boas-vindas{
+    background-color: #FCF6EB;
+}
+body.dark .card{
+    background-color: #FCF6EB;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(109, 108, 108, 0.2);
+}
+body.dark #menu h5{
+    color:white;
+}
+.divMudartema{
+    position: absolute;
+    bottom:0;
+    right:5px;
+}
+.fa-sun,.fa-moon{
+    color:white;
+    cursor: pointer;
+}
 .divSair{
     position: absolute;
     top:0;
@@ -70,12 +103,12 @@ header h1{
 }
 .btnSair{
    width:auto;
-   border-top-left-radius: 10%;
-   border-bottom-left-radius: 10%;
+   border-top-left-radius: 0.1em;
+   border-bottom-left-radius: 0.1em;
    padding:0.5em;
    outline:none;
    border:none;
-   background-color:#F25A38;
+   background-color:#F20519;
    color:#F2F2F2;
 
 }
@@ -83,7 +116,7 @@ header h1{
     display:block;
     margin: auto;
     margin-top:25px;
-    width:60%;
+    width:50%;
     background-color: white;
     padding:20px;
     border-radius: 2px;
@@ -117,6 +150,7 @@ header h1{
     justify-content: space-around;
     width:100%;
     margin-top:35px;
+    padding:1em;
 }
 .footer h3{
     font-family: 'Montserrat';
@@ -192,7 +226,7 @@ header h1{
 }
 .row{
     background-color: white;
-    padding:10px;
+    padding:20px;
     width:auto;
 
 }
@@ -225,7 +259,10 @@ header h1{
     border:0px;
 }
 .btnReservar{
-    background-color: #F25A38;
+    background-color: #F2CB05;
+}
+.btnReservar:hover{
+    background-color: #cfb11b;
 }
 .texto-reserva{
     width:60%;
@@ -263,7 +300,11 @@ header h1{
     color:#1c82a2;;
     font-weight: normal;
 }
-.alert-primary h2{
+.alert-primary{
+    display:flex;
+    gap:20px;
+}
+.alert-primary  h3{
     text-align:center;
 
 }
@@ -280,7 +321,7 @@ header h1{
 .curiosidades{
     margin: auto;
     margin-top: 60px;
-    width:50%;
+    width:40%;
     display:flex;
     flex-direction: column;
     gap:15px;
@@ -308,7 +349,7 @@ header h1{
     display:block;
     margin: auto;
     margin-top: 60px;
-    width:60%;
+    width:50%;
     background-color: #1c82a2;
     padding: 65px;
     border-radius: 6px;
@@ -322,13 +363,23 @@ header h1{
     font-size: 1.2em;
     text-align: justify;
 }
-.tabela{
+.pagina-login{
     margin-top:60px;
     display:flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    width:40%;
+    width:70%;
+}
+
+.formulario-login{
+    display:block;
+    margin:auto;
+    width:100%;
+    background-color: white;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    padding:10px;
+    height:400px;
 }
 .formulario .texto-login h1{
     font-family: 'Bebas neue';
@@ -339,24 +390,20 @@ header h1{
 .form-login label{
     font-size: 1.3em;
 }
-.formulario-login{
-    display:block;
-    margin:auto;
-    width:100%;
-    background-color: white;
-    border-radius: 6px;
-    padding:10px;
-}
-.tabela .txt-login-usuario h1{
-    color:white;
-}
-
 .txt-login-usuario{
+    display:flex;
+    align-items: center;
+    justify-content: center;
     width:100%;
-    padding:10px;
+    height:400px;
     background-color: #1c82a2;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
 }
-
+.pagina-login .txt-login-usuario h1{
+    color:white;
+    font-size: 6em;
+}
 .form-login{
     display:flex;
     justify-content: center;
@@ -365,7 +412,7 @@ header h1{
     width:100%;
 }
 .campos-login{
-    width:50%;
+    width:75%;
 }
 .botoes{
     padding:5px;
@@ -394,8 +441,7 @@ header h1{
     font-size: 1.2em;
 }
 .reservasDisponiveis{
-    width:70%;
-
+    width:80%;
 }
 .destinosAreservar
 {
@@ -404,6 +450,24 @@ header h1{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+.anuncio{
+    width:50%;
+    display:block;
+    margin:auto;
+}
+.anuncio h1{
+             font-size:2em;
+            color: #1e90ff; 
+            text-align: center;
+            margin: 50px 0;
+            padding: 20px;
+            background: linear-gradient(45deg, #25D366, #1e90ff); 
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
 }
 .cadastroReservas{
     width:35%;

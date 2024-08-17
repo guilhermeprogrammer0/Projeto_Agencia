@@ -15,57 +15,49 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
     <link rel="shortcut icon" href="../Imagens/logo-novo.png" type="image/x-icon">
-    <title>Menu Administratvo</title>
+    <title>Menu Administratvo - Lista Destinos</title>
 </head>
 
 <body>
    <header>
     <h1>Menu Administrativo</h1>
     </header>
-    <section class="texto">
-        <h2>Clientes</h2>
-    </section>
-
     <main class="formulario tabela table-cadastrados">    
 <table class="table table-striped">
   <thead class="thead-light">
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Nome</th>
-      <th scope="col">Destino</th>
-      <th scope="col">Quantidade</th>
-      <th scope="col">Valor Total</th>
+      <th scope="col">Preço</th>
+      <th scope="col">Descrição</th>
+      <th scope="col" colspan="2">Ações</th>
     </tr>
   </thead>
   <tbody>
   <?php 
     require_once "conexao.php";
-     $sql = "SELECT RR.id_realizada, D.nome, R.destino, R.qtd_passa,  R.valor_total from dados_pessoais as D inner join reservas_realizadas as RR  ON
-    (D.id = RR.id_comprador) inner join reservas as R ON
-    (R.id_reserva = RR.id_reserva) ORDER BY D.nome, R.valor_total";
+    $sql = "SELECT * from destinos";
     $sql_select = mysqli_query($conexao,$sql);
-    $qtd_cadastrados = mysqli_num_rows($sql_select);
     while($row = mysqli_fetch_array($sql_select)){?>
     <tr>
-    <td> <?php echo $row['id_realizada'];?></td>
+    <td> <?php echo $row['id_destino'];?></td>
     <td> <?php echo $row['nome'];?></td>
-    <td> <?php echo $row['destino'];?></td>
-    <td> <?php echo $row['qtd_passa'];?></td>
-    <td> <?php echo "R$". number_format($row['valor_total'],2,',','.');?></td>
+    <td> <?php echo $row['preco'];?></td>
+    <td> <?php echo $row['descricao'];?></td>
+    <td> <button class="btn btn-warning" onclick="Editar(<?php echo $row['id_destino'];?>)"> Editar </button></td>
+    <td> <button class="btn btn-danger" onclick="Excluir(<?php echo $row['id_destino'];?>)"> Editar </button></td>
     </tr>
     <?php } ?>
   </tbody>
     </table>
     </main>
-    <h3 id="txt-qtd">Quantidade de Reservas: <strong><?php echo $qtd_cadastrados; ?> </strong></h3>
     <div class="mb-3 botoes-login">
-    <a href="logout_adm.php"><button  class="btn btn-danger btn-danger-menu">Sair </button> </a>
-    <a href="cadastro_destinos.php"><button  class="btn btn-primary btn-danger-menu">Cadastrar Destinos </button> </a>
-    <a href="lista_destinos.php"><button  class="btn btn-warning btn-danger-menu">Lista de Destinos</button> </a>
+    <a href="menu_adm.php"><button  class="btn btn-danger btn-danger-menu">Voltar</button> </a>
 </div>
 
 
       <script src="../js/script.js"></script>
+      <script src="../js/acoesAdm.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
         crossorigin="anonymous"></script>

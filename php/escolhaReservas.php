@@ -15,7 +15,7 @@ error_reporting(0);
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
     <link rel="shortcut icon" href="../Imagens/logo-novo.png" type="image/x-icon">
-    <title>Reservas</title>
+    <title>Escolha de Reservas</title>
 </head>
 
 <body>
@@ -33,10 +33,14 @@ error_reporting(0);
             <li><a href="../curiosidades.html">Curiosidades</a></li>
             <li><a href="../sobre.html">Sobre</a></li>
             <a href="logout.php"> <div class="divSair"><button class="btnSair"> Sair</button></div> </a>
-        </ul>
-        <h5>Olá, <?php echo $_SESSION['nome_usuario'] ?>!</h5>
+            <div class="divMudartema"><i class="btnMudarTema fa-solid  fa-2x" id="btnMudarTema"> </i></div>
+</ul>
+        <h5>Olá, <?php echo $_SESSION['nome_usuario']; ?>!</h5>
        
     </nav>
+    <section class="anuncio">
+<h1> Descubra Seu Destino dos Sonhos: Ofertas Exclusivas e Locais Imperdíveis em Viagens! </h1>
+</section>
     <div class="texto-reserva">
         <h2 id="txt">Realizar Reserva</h2>
 </div>
@@ -58,6 +62,8 @@ error_reporting(0);
   <img src="<?php echo $img;?>" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title"><?php echo $linha['nome'];?></h5>
+    <p class="card-title"> Valor por passagem: R$ <?php echo number_format($linha['preco'],2,',','.');?></p>
+    <p class="card-title">Descrição: <?php echo $linha['descricao'];?></p>
     <button class="btn btn-primary btnReservar" id="reservar" onclick="getId(<?php echo $linha['id_destino'];?>)">Reservar </button> 
   </div>
 </div>
@@ -65,6 +71,7 @@ error_reporting(0);
     </div>
 </section>
 </main>
+
 
 <footer class="footer reserva-realizada">
         <div class="redes">
@@ -86,16 +93,8 @@ error_reporting(0);
         </div>
     </footer>
 
-
-
-
-
-
-
-
-
-
 <script src="../js/reserva.js"></script>
+<script src="../js/darkMode.js"></script>
 <script src="../js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"

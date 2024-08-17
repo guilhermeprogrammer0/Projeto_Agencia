@@ -34,6 +34,7 @@ error_reporting(0);
             <li><a href="../curiosidades.html">Curiosidades</a></li>
             <li><a href="../sobre.html">Sobre</a></li>
             <a href="logout.php"> <div class="divSair"><button class="btnSair"> Sair</button></div> </a>
+            <div class="divMudartema"><i class="btnMudarTema fa-solid  fa-2x" id="btnMudarTema"> </i></div>
         </ul>
     </nav>
     <div class="texto-reserva">
@@ -52,7 +53,7 @@ $img = "../Upload/" . $linha['foto'];
     <div class="col">
     <div class="card cardConfirmacao" style="width: 24rem;">
   <div class="card-body cardConfirmacao-body">
-    <h2 class="card-title">Olá, <?php echo $_SESSION['nome_usuario'] . "!";?></h2>
+    <h1 class="card-title">Olá, <?php echo $_SESSION['nome_usuario'] . "!";?></h1>
     <h5 class="card-title">Destino:</h5>
     <h4 class="card-text"><?php echo $linha['nome'];?></h4>
     <div class="mb-3">
@@ -63,7 +64,7 @@ $img = "../Upload/" . $linha['foto'];
     <h5 class="card-text"><img src="<?php echo $img;?>" class="card-img-top" alt="..."></h5>
     </div>
     <div class="botoes">  
-    <a href="cancelar.php"><input type="button" class="btn btn-danger" value="Cancelar"></a>
+    <a href="escolhaReservas.php"><input type="button" class="btn btn-danger" value="Voltar"></a>
     <input type="submit" name="confirmar" class="btn btn-primary" value="Confirmar"></div>
 </div>
 </div>
@@ -101,6 +102,7 @@ $img = "../Upload/" . $linha['foto'];
         </div>
     </footer>
 <script src="../js/valorReserva.js"></script>
+<script src="../js/darkMode.js"></script>
 <script src="../js/script.js"></script>
 <script src="../js/reserva.js"></script>
 

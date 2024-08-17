@@ -32,10 +32,11 @@
             <li class="active"><a href="login_usuario.php">Reservas</a></li>
             <li><a href="../curiosidades.html">Curiosidades</a></li>
             <li><a href="../sobre.html">Sobre</a></li>
+            <div class="divMudartema"><i class="btnMudarTema fa-solid  fa-2x" id="btnMudarTema"> </i></div>
         </ul>
     </nav>
     
-    <main class="formulario tabela">
+    <main class="formulario pagina-login">
     <section class="texto-login txt-login-usuario">
         <h1>Entrar</h1>
     </section>
@@ -90,6 +91,7 @@
                     referrerpolicy="no-referrer-when-downgrade"></iframe></div>
         </div>
     </footer>
+    <script src="../js/darkMode.js"></script>
       <script src="../js/senha.js"></script>
       <script src="../js/script.js"></script>
 

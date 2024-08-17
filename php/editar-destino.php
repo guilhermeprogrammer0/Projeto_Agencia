@@ -16,7 +16,7 @@ error_reporting(0);
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
     <link rel="shortcut icon" href="../Imagens/logo-novo.png" type="image/x-icon">
-    <title>Cadastro de  Destinos</title>
+    <title>Edição de Destinos</title>
 </head>
 
 <body>
@@ -25,38 +25,42 @@ error_reporting(0);
         <h2 id="txt">Inserir Destinos</h2>
 </div>
     <main class="formulario cadastroReservas">
-        <form action="cadastro_destinos.php"  method="post" enctype="multipart/form-data">
+        <form action="edicao-destino.php"  method="post" enctype="multipart/form-data">
+            <?php
+            require_once "conexao.php";
+            $id_destino = $_REQUEST['id_destino'];
+            $sql = "SELECT * from destinos WHERE id_destino=$id_destino";
+            $sql_select = mysqli_query($conexao,$sql);
+            $row = mysqli_fetch_array($sql_select)?>
         <section class="texto-form">
         <h2>Destinos</h2>
     </section>
+    <div class="mb-3">
+    <input type="hidden" class="form-control"  id="id_destino" name="id_destino" value="<?php echo $row['id_destino'];?>" required>
+    </div>
         <div class="mb-3">
     <label for="destino" class="form-label">Destino </label>
-    <input type="text" class="form-control"  id="nome" name="nome" required>
+    <input type="text" class="form-control"  id="nome" name="nome" value="<?php echo $row['nome'];?>" required>
     </div>
     <div class="mb-3">
     <label for="preco" class="form-label">Valor</label>
-  <input type="text" class="form-control"  id="preco" name="preco" required>
+  <input type="text" class="form-control"  id="preco" name="preco"  value="<?php echo $row['preco'];?>"required>
     </div>
     <label for="descricao" class="form-label">Descricao</label>
-  <input type="text" class="form-control"  id="descricao" name="descricao" required>
+  <input type="text" class="form-control"  id="descricao" name="descricao"  value="<?php echo $row['descricao'];?>" required>
     </div>
     <div class="mb-3">
     <label for="foto" class="form-label">Imagem</label>
-  <input type="file" class="form-control"  id="imagem" name="foto" required>
+  <input type="file" class="form-control"  id="imagem" name="foto">
     </div>
 
 <div class="container">
-<a href="menu_adm.php"><input type="button" class="btn btn-danger " value="Voltar"> </a>
+<input type="button" class="btn btn-danger " value="Cancelar"> 
 <input type="submit" class="btn btn-primary" value="Enviar" name="enviar">
 </div>
 </form></main>
     <?php
     require_once "conexao.php";
-    if($_POST['enviar']){
-        Cadastrar_Destinos($conexao,$_POST['nome'],$_POST['preco'],$_POST['descricao'],$_POST['foto']);
-    }
-
-
     ?>
 
       <script src="../js/script.js"></script>

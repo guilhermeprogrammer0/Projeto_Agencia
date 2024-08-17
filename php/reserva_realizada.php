@@ -34,11 +34,12 @@ error_reporting(0);
             <li class="active"><a href="reservas.php">Reservas</a></li>
             <li><a href="../curiosidades.html">Curiosidades</a></li>
             <li><a href="../sobre.html">Sobre</a></li>
+            <div class="divMudartema"><i class="btnMudarTema fa-solid  fa-2x" id="btnMudarTema"> </i></div>
         </ul>
     </nav>
     <section class="pagina-reserva-realizada">
     <div class="alert alert-primary cards mt-5" role="alert">
-            <h2> Reserva realizada com sucesso!<h2>
+            <h3> Reserva realizada com sucesso!<h3>
             <a href="logout.php"><button type="button" class="btn btn-danger btn2 ">Sair</button></a>
             <a href="escolhaReservas.php"><button type="button" class="btn btn-primary btn2">Fazer mais reservas</button></a>
             <p id="explicacao">Será enviado as formas de pagamento no e-mail cadastrado.</p>
@@ -64,6 +65,9 @@ error_reporting(0);
     </footer>
 
 <script src="../js/script.js"></script>
+<script src="../js/darkMode.js"></script>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
