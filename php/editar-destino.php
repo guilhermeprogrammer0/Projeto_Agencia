@@ -55,7 +55,7 @@ error_reporting(0);
     </div>
 
 <div class="container">
-<input type="button" class="btn btn-danger " value="Cancelar"> 
+<a href="menu_adm.php"><input type="button" class="btn btn-danger " value="Voltar"> </a>
 <input type="submit" class="btn btn-primary" value="Enviar" name="enviar">
 </div>
 </form></main>
