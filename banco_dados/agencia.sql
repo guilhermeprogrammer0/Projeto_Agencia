@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15/08/2024 às 20:22
+-- Tempo de geração: 17/08/2024 às 03:51
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -84,6 +84,7 @@ CREATE TABLE `destinos` (
   `id_destino` int(11) NOT NULL,
   `nome` varchar(100) DEFAULT NULL,
   `preco` float NOT NULL,
+  `descricao` varchar(100) NOT NULL,
   `foto` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
@@ -91,9 +92,13 @@ CREATE TABLE `destinos` (
 -- Despejando dados para a tabela `destinos`
 --
 
-INSERT INTO `destinos` (`id_destino`, `nome`, `preco`, `foto`) VALUES
-(34, 'Rio de Janeiro', 500, '0b23851a707de2714a616bcb75029a71.jpg'),
-(35, 'Salvador', 700, '11d61e772141f8da79a517c14ef5f004.jpg');
+INSERT INTO `destinos` (`id_destino`, `nome`, `preco`, `descricao`, `foto`) VALUES
+(1, 'Rio de Janeiro', 1100, '4 Dias', 'd7e94d9c47e4561f63b60fed553795aa.jpg'),
+(2, 'Capitólio', 800, '3 Dias', 'c591634095cdc12d6062595b683dd56c.jpg'),
+(3, 'Florianópolis', 350, '10 Dias', 'a49eec2ddbf189a8494e2c9771067640.jpg'),
+(5, 'Salvador', 700, '5 Dias', 'b2f9720524f29a8cbc946442a48821b5.jpg'),
+(6, 'Ubatuba', 450, '4 Dias', '9e4b9f5974ce29d49d4305ee9ec15998.jpg'),
+(8, 'Foz do Iguaçu', 700, '2 Dias', '6446268950e4ad77b7859da11242a082.jpg');
 
 -- --------------------------------------------------------
 
@@ -113,28 +118,9 @@ CREATE TABLE `reservas` (
 --
 
 INSERT INTO `reservas` (`id_reserva`, `destino`, `qtd_passa`, `valor_total`) VALUES
-(1, 'Salvador', '7', 4900),
-(2, 'Salvador', '2', 1400),
-(3, 'Rio de Janeiro', '2', 1000),
-(4, 'Salvador', '3', 2100),
-(5, 'Rio de Janeiro', '1', 500),
-(6, 'Rio de Janeiro', '1', 500),
-(7, 'Salvador', '3', 2100),
-(8, 'Salvador', '3', 2100),
-(9, 'Salvador', '1', 700),
-(10, 'Rio de Janeiro', '4', 2000),
-(11, 'Salvador', '7', 4900),
-(12, 'Salvador', '9', 6300),
-(13, 'Rio de Janeiro', '1', 500),
-(14, 'Salvador', '3', 2100),
-(15, 'Rio de Janeiro', '8', 4000),
-(16, 'Salvador', '3', 2100),
-(17, 'Rio de Janeiro', '2', 1000),
-(18, 'Rio de Janeiro', '5', 2500),
-(19, 'Salvador', '8', 5600),
-(20, 'Rio de Janeiro', '1', 500),
-(21, 'Salvador', '5', 3500),
-(22, 'Rio de Janeiro', '6', 3000);
+(1, 'Capitólio', '5', 4000),
+(2, 'Salvador', '5', 3500),
+(3, 'Florianópolis', '3', 1350);
 
 -- --------------------------------------------------------
 
@@ -153,18 +139,9 @@ CREATE TABLE `reservas_realizadas` (
 --
 
 INSERT INTO `reservas_realizadas` (`id_realizada`, `id_comprador`, `id_reserva`) VALUES
-(9, 5, 11),
-(10, 6, 12),
-(11, 6, 13),
-(12, 5, 14),
-(13, 5, 15),
-(14, 5, 16),
-(15, 5, 17),
-(16, 5, 18),
-(17, 6, 19),
-(18, 6, 20),
-(19, 6, 21),
-(20, 7, 22);
+(1, 5, 1),
+(2, 5, 2),
+(3, 5, 3);
 
 --
 -- Índices para tabelas despejadas
@@ -199,8 +176,8 @@ ALTER TABLE `reservas`
 --
 ALTER TABLE `reservas_realizadas`
   ADD PRIMARY KEY (`id_realizada`),
-  ADD KEY `id_comprador` (`id_comprador`),
-  ADD KEY `id_reserva` (`id_reserva`);
+  ADD KEY `FK_REALIZADAS_DADOS` (`id_comprador`),
+  ADD KEY `FK_REALIZADAS_RESERVAS` (`id_reserva`);
 
 --
 -- AUTO_INCREMENT para tabelas despejadas
@@ -222,19 +199,19 @@ ALTER TABLE `dados_pessoais`
 -- AUTO_INCREMENT de tabela `destinos`
 --
 ALTER TABLE `destinos`
-  MODIFY `id_destino` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_destino` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `reservas_realizadas`
 --
 ALTER TABLE `reservas_realizadas`
-  MODIFY `id_realizada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_realizada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restrições para tabelas despejadas
@@ -244,8 +221,8 @@ ALTER TABLE `reservas_realizadas`
 -- Restrições para tabelas `reservas_realizadas`
 --
 ALTER TABLE `reservas_realizadas`
-  ADD CONSTRAINT `reservas_realizadas_ibfk_1` FOREIGN KEY (`id_comprador`) REFERENCES `dados_pessoais` (`id`),
-  ADD CONSTRAINT `reservas_realizadas_ibfk_2` FOREIGN KEY (`id_reserva`) REFERENCES `reservas` (`id_reserva`);
+  ADD CONSTRAINT `FK_REALIZADAS_DADOS` FOREIGN KEY (`id_comprador`) REFERENCES `dados_pessoais` (`id`),
+  ADD CONSTRAINT `FK_REALIZADAS_RESERVAS` FOREIGN KEY (`id_reserva`) REFERENCES `reservas` (`id_reserva`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
