@@ -1,6 +1,7 @@
 <?php
 require_once "functions.php";
 require_once "protecao_adm.php";
+error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

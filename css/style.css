@@ -262,10 +262,10 @@ body.dark header{
     border:0px;
 }
 .btnReservar{
-    background-color: #F2CB05;
+    background-color: #F26716;
 }
 .btnReservar:hover{
-    background-color: #cfb11b;
+    background-color: #F26716;
 }
 .texto-reserva{
     width:60%;
@@ -482,4 +482,8 @@ body.dark header{
 .table-cadastrados{
     overflow-y: auto;
     height:450px;
+}
+.avisoCep{
+	display:none;
+	color:red;
 }

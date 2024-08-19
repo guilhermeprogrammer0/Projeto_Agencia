@@ -104,7 +104,9 @@ error_reporting(0);
     <div class="row">
     <div class="col">
     <label for="cep" class="form-label">CEP</label>
-  <input type="text" class="form-control" id="cep" placeholder="14840000" name="cep"  required>
+  <input type="text" class="form-control " id="cep" placeholder="14840000" name="cep"  required>
+    <span id="passwordHelpInline" class="form-text avisoCep">
+    </span>
     </div>
     <div class="col">
     <label for="cidade" class="form-label">Cidade</label>
