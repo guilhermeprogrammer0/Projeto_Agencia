@@ -160,7 +160,7 @@ error_reporting(0);
     </div>
 
 <div class="container">
-<a href="cancelar.php"><input type="button" class="btn btn-danger " value="Cancelar"> </a>
+<a href="login_usuario.php"><input type="button" class="btn btn-danger " value="Cancelar"> </a>
     <input type="submit" class="btn btn-primary" value="Enviar" name="enviar">
 </div>
 </form></main>

@@ -1,14 +1,16 @@
+
 let cidade = document.getElementById("cidade");
 let estado = document.getElementById("estado");
 let logradouro = document.getElementById("logradouro");
 let bairro = document.getElementById("bairro");
+
 function atribuirEndereco(data){
-    if(data.erro){
-        alert("CEP INVÁLIDO!")
-        logradouro.value = ''
-        bairro.value= ''
-        cidade.value = ''
-        estado.value = ''
+    if(data.error){
+        alert("CEP INVÁLIDO!");
+        logradouro.value = '';
+        bairro.value= '';
+        cidade.value = '';
+        estado.value = '';
     }
     cidade.value = data.localidade;
     estado.value = data.uf;

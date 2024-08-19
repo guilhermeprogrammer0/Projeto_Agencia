@@ -4,7 +4,8 @@ function Cadastro_pessoais($conexao,$nome,$cpf,$sexo,$data_nascimento,$telefone,
     $sql_verificar = "SELECT cpf, email from dados_pessoais WHERE cpf = ? OR email = ?";
     $stmt_verificar = $conexao->prepare($sql_verificar);
     $stmt_verificar->bind_param("ss",$cpf,$email);
-    $resposta_verificacao = $stmt_verificar->execute()->get_result();
+    $stmt_verificar->execute();
+    $resposta_verificacao = $stmt_verificar->get_result();
     if($resposta_verificacao->num_rows>0){
         ?>
         <script> alert('Você já possui cadastro no site, entre com seu e-mail e senha.'); 
@@ -13,12 +14,12 @@ function Cadastro_pessoais($conexao,$nome,$cpf,$sexo,$data_nascimento,$telefone,
     <?php
     }
     else{
-    $sql = "INSERT INTO dados_pessoais values (default,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    $sql_cadastrar = "INSERT INTO dados_pessoais values (default,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     $stmt_cadastrar = $conexao->prepare($sql_cadastrar);
     $stmt_cadastrar->bind_param("sssssssssssss",$nome,$cpf,$sexo,$data_nascimento,$telefone,$email,$senha,$cidade,$cep,$estado,$logradouro,$bairro,$numero);
     if($stmt_cadastrar->execute()){?>
         <script> window.location.href="escolhaReservas.php" </script><?php
-         $sql = "SELECT id , nome from dados_pessoais";
+         $sql = "SELECT id , nome from dados_pessoais ORDER BY id DESC LIMIT 1";
          $sql_query = $conexao->query($sql);
          $row = $sql_query->fetch_array();
              $_SESSION['id_usuario'] = $row['id'];
