@@ -53,9 +53,9 @@ error_reporting(0);
     <div class="destinosAreservar">
         <?php 
         require_once "conexao.php";
-        $sql_destinos = "SELECT * from destinos";
-        $sql_destinos_exibidos = mysqli_query($conexao,$sql_destinos);
-        while($linha = mysqli_fetch_array($sql_destinos_exibidos)){
+        $sql = "SELECT * from destinos";
+        $sql_destinos_exibidos = $conexao->query($sql);
+        while($linha = $sql_destinos_exibidos->fetch_array()){
             $img = "../Upload/" . $linha['foto'];
         ?>
  <div class="card" style="width: 18rem;">

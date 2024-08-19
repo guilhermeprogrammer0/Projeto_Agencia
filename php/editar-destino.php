@@ -29,25 +29,27 @@ error_reporting(0);
             <?php
             require_once "conexao.php";
             $id_destino = $_REQUEST['id_destino'];
-            $sql = "SELECT * from destinos WHERE id_destino=$id_destino";
-            $sql_select = mysqli_query($conexao,$sql);
-            $row = mysqli_fetch_array($sql_select)?>
+            $sql = "SELECT * from destinos WHERE id_destino=?";
+            $stmt = $conexao->prepare($sql);
+            $stmt->bind_param("i",$id_destino);
+            $stmt->execute();
+            $linha = $stmt->get_result()->fetch_array();?>
         <section class="texto-form">
         <h2>Destinos</h2>
     </section>
     <div class="mb-3">
-    <input type="hidden" class="form-control"  id="id_destino" name="id_destino" value="<?php echo $row['id_destino'];?>" required>
+    <input type="hidden" class="form-control"  id="id_destino" name="id_destino" value="<?php echo $linha['id_destino'];?>" required>
     </div>
         <div class="mb-3">
     <label for="destino" class="form-label">Destino </label>
-    <input type="text" class="form-control"  id="nome" name="nome" value="<?php echo $row['nome'];?>" required>
+    <input type="text" class="form-control"  id="nome" name="nome" value="<?php echo $linha['nome'];?>" required>
     </div>
     <div class="mb-3">
     <label for="preco" class="form-label">Valor</label>
-  <input type="text" class="form-control"  id="preco" name="preco"  value="<?php echo $row['preco'];?>"required>
+  <input type="text" class="form-control"  id="preco" name="preco"  value="<?php echo $linha['preco'];?>"required>
     </div>
     <label for="descricao" class="form-label">Descricao</label>
-  <input type="text" class="form-control"  id="descricao" name="descricao"  value="<?php echo $row['descricao'];?>" required>
+  <input type="text" class="form-control"  id="descricao" name="descricao"  value="<?php echo $linha['descricao'];?>" required>
     </div>
     <div class="mb-3">
     <label for="foto" class="form-label">Imagem</label>

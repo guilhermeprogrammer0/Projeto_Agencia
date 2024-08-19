@@ -1,10 +1,11 @@
 <?php
 session_start();
 function Cadastro_pessoais($conexao,$nome,$cpf,$sexo,$data_nascimento,$telefone,$email,$senha,$cidade,$cep,$estado,$logradouro,$bairro,$numero){
-    $sql_verificar = "SELECT cpf, email from dados_pessoais WHERE cpf = '$cpf' OR email = '$email'";
-    $sql_verificado = mysqli_query($conexao,$sql_verificar);
-    $qtd_linhas = mysqli_num_rows($sql_verificado);
-    if($qtd_linhas>0){
+    $sql_verificar = "SELECT cpf, email from dados_pessoais WHERE cpf = ? OR email = ?";
+    $stmt_verificar = $conexao->prepare($sql_verificar);
+    $stmt_verificar->bind_param("ss",$cpf,$email);
+    $resposta_verificacao = $stmt_verificar->execute()->get_result();
+    if($resposta_verificacao->num_rows>0){
         ?>
         <script> alert('Você já possui cadastro no site, entre com seu e-mail e senha.'); 
         window.location.href = 'login_usuario.php';
@@ -12,13 +13,14 @@ function Cadastro_pessoais($conexao,$nome,$cpf,$sexo,$data_nascimento,$telefone,
     <?php
     }
     else{
-    $sql = "INSERT INTO dados_pessoais values (default,'$nome','$cpf','$sexo','$data_nascimento','$telefone','$email','$senha','$cidade','$cep','$estado','$logradouro','$bairro','$numero')";
-    $sql_cadastrar = mysqli_query($conexao,$sql);
-    if($sql_cadastrar){?>
+    $sql = "INSERT INTO dados_pessoais values (default,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    $stmt_cadastrar = $conexao->prepare($sql_cadastrar);
+    $stmt_cadastrar->bind_param("sssssssssssss",$nome,$cpf,$sexo,$data_nascimento,$telefone,$email,$senha,$cidade,$cep,$estado,$logradouro,$bairro,$numero);
+    if($stmt_cadastrar->execute()){?>
         <script> window.location.href="escolhaReservas.php" </script><?php
          $sql = "SELECT id , nome from dados_pessoais";
-         $sql_query = mysqli_query($conexao,$sql);
-         $row = mysqli_fetch_array($sql);
+         $sql_query = $conexao->query($sql);
+         $row = $sql_query->fetch_array();
              $_SESSION['id_usuario'] = $row['id'];
              $_SESSION['nome_usuario'] = $row['nome'];
     }
@@ -26,28 +28,33 @@ function Cadastro_pessoais($conexao,$nome,$cpf,$sexo,$data_nascimento,$telefone,
         ?>
        <script>alert('ERRO');</script><?php 
     }
+    $stmt_cadastrar->close();
 }
 }
 function Cadastro_reservas($conexao,$destino,$qtd_passa,$valor_total){
-    $sql = "INSERT INTO reservas values (default,'$destino','$qtd_passa','$valor_total')";
-    $sql_cadastrar = mysqli_query($conexao,$sql);
-    if($sql_cadastrar){
+    $sql_reservas = "INSERT INTO reservas values (default,?,?,?)";
+    $stmt_reservas = $conexao->prepare($sql_reservas);
+    $stmt_reservas->bind_param("sid",$destino,$qtd_passa,$valor_total);
+    if($stmt_reservas->execute()){
         $sql_mostrarId = "SELECT id_reserva from reservas ORDER BY id_reserva DESC LIMIT 1";
-        $sql_idReserva = mysqli_query($conexao,$sql_mostrarId);
-        $row = mysqli_fetch_array($sql_idReserva);
+        $sql_idReserva = $conexao->query($sql_mostrarId);
+        $row = $sql_idReserva->fetch_array();
         $_SESSION['id_reserva'] = $row['id_reserva'];
     }
     else{
         ?>
        <script>alert('ERRO');</script><?php 
     }
+    $stmt_reservas->close();
 
 }
 function Reservar($conexao,$id_comprador,$id_reserva){
-    $sql_reservar = "INSERT INTO reservas_realizadas values (default,'$id_comprador','$id_reserva')";
-    $sql_reservado = mysqli_query($conexao,$sql_reservar);
-    if($sql_reservado){
+    $sql_reservar = "INSERT INTO reservas_realizadas values (default,?,?)";
+    $stmt_reservar = $conexao->prepare($sql_reservar);
+    $stmt_reservar->bind_param("ii",$id_comprador,$id_reserva);
+    if($stmt_reservar->execute()){
         header("location:reserva_realizada.php");
+        $stmt_reservar->close();
     }
      else{
          ?>
@@ -55,11 +62,14 @@ function Reservar($conexao,$id_comprador,$id_reserva){
      }
 }
 function Login_Usuario($conexao,$email,$senha){
-    $sql_logar = "SELECT id, nome, email, senha from dados_pessoais WHERE email = '$email' AND senha = '$senha'";
-    $sql_logado = mysqli_query($conexao,$sql_logar);
-    $qtd_linha = mysqli_num_rows($sql_logado);
-    $row = mysqli_fetch_array($sql_logado);
-    if($qtd_linha>0){
+    $sql_logar = "SELECT id, nome, email, senha from dados_pessoais WHERE email = ? AND senha = ?";
+    $stmt_logar = $conexao->prepare($sql_logar);
+    $stmt_logar->bind_param("ss",$email,$senha);
+    $stmt_logar->execute();
+    $resultado = $stmt_logar->get_result();
+    $num_rows = $resultado->num_rows;
+    if($num_rows>0){
+            $row = $resultado->fetch_array();
             $_SESSION['id_usuario'] = $row['id'];
             $_SESSION['nome_usuario'] = $row['nome'];
         header("location:escolhaReservas.php");
@@ -67,29 +77,37 @@ function Login_Usuario($conexao,$email,$senha){
     else{
         ?> <script>alert('Login e/ou senha Inválidos.');</script><?php 
     }
+    $stmt_logar->close();
 }
 //ADMINISTRATIVO
 function Login_Adm($conexao,$usuario,$senha){
-    $sql_logar = "SELECT  * from administrativo WHERE usuario = '$usuario' AND senha = '$senha'";
-    $sql_logado = mysqli_query($conexao,$sql_logar);
-    $qtd_linha = mysqli_num_rows($sql_logado);
-    $row = mysqli_fetch_array($sql_logado);
-    if($qtd_linha>0){
+    $sql_logar = "SELECT  * from administrativo WHERE usuario = ? AND senha = ?";
+    $stmt_logar = $conexao->prepare($sql_logar);
+    $stmt_logar->bind_param("ss",$usuario,$senha);
+    $stmt_logar->execute();
+    $resultado = $stmt_logar->get_result();
+    $num_rows = $resultado->num_rows;
+    if($num_rows>0){
+        $row = $resultado->fetch_array();
             $_SESSION['id_adm'] = $row['id_adm'];
         header("location:menu_adm.php");
     }
     else{
         ?> <script>alert('Login e/ou senha Inválidos');</script><?php 
     }
+    $stmt_logar->close();
 }
 function Cadastrar_Destinos($conexao,$nome,$preco,$descricao,$foto){
-    $extensao = strtolower(substr($_FILES['foto']['name'],-4));
-    $foto = md5(time()) . $extensao;
-    $diretorio = "../Upload/";
-    move_uploaded_file($_FILES['foto']['tmp_name'],$diretorio.$foto);
-    $sql_cadastrar = "INSERT INTO destinos VALUES(default,'$nome','$preco','$descricao','$foto')";
-    $sql_cadastro = mysqli_query($conexao, $sql_cadastrar);
-    if ($sql_cadastro) {
+     $files = $_FILES[$foto];
+     $name = $files['name'];
+     $tmp_name = $files['tmp_name'];
+     $extensao = pathinfo($name,PATHINFO_EXTENSION);
+     $novo_nome = uniqid() . '.' .$extensao;
+     move_uploaded_file($tmp_name, '../Upload/'.$novo_nome);
+    $sql_cadastrar = "INSERT INTO destinos VALUES(default,?,?,?,?)";
+    $stmt_cadastrar = $conexao->prepare($sql_cadastrar);
+    $stmt_cadastrar->bind_param("sdsb",$nome,$preco,$descricao,$foto);
+    if ($$stmt_cadastrar->execute()) {
 ?>
 <script>alert('Cadastro feito com Sucesso!');</script>
 <?php
@@ -98,22 +116,35 @@ function Cadastrar_Destinos($conexao,$nome,$preco,$descricao,$foto){
 <script>alert('Erro! Tente Novamente mais tarde!');</script>
 <?php
     }
+    $stmt_cadastrar->close();
 }
 function Editar_Destino($conexao,$id_destino,$nome,$preco,$descricao,$foto){
-    $extensao = strtolower(substr($_FILES['foto']['name'],-4));
-    $foto = md5(time()) . $extensao;
-    $diretorio = "../Upload/";
-    move_uploaded_file($_FILES['foto']['tmp_name'],$diretorio.$foto);
+    $files = $_FILES[$foto];
+    $name = $file['name'];
+    $tmp_name = $file['tmp_name'];
+    $extensao = pathinfo($name, PATHINFO_EXTENSION);
+    $novo_nome = uniqid() . '.'.$extensao;
+    move_uploaded_file($tmp_name,'../Upload/'.$novo_nome);
     $sql_editarDestino;
-    $campoFoto = $_FILES['foto']['size'];
-    if($campoFoto==0){
-        $sql_editarDestino = "UPDATE destinos set nome='$nome',preco='$preco',descricao='$descricao' WHERE id_destino='$id_destino'";
+    $tamArquivo = $files['size'];
+    $temFoto = false;
+    if($tamArquivo==0){
+        $sql_editarDestino = "UPDATE destinos set nome= ?,preco=?,descricao=? WHERE id_destino=?";
+        $temFoto = false;
     }
     else{
         $sql_editarDestino = "UPDATE destinos set nome='$nome',preco='$preco',descricao='$descricao', foto='$foto' WHERE id_destino='$id_destino'";
+        $temFoto = true;
     }
-    $sql_destino_editado = mysqli_query($conexao,$sql_editarDestino);
-    if($sql_destino_editado){
+    $stmt_editarDestino->prepare($sql_editarDestino);
+    if($temFoto==true){
+        $stmt_editarDestino->bind_param("sdsi",$nome,$preco,$descricao,$id_destino);
+    }
+    else{
+        $stmt_editarDestino->bind_param("sdsbi",$nome,$preco,$descricao,$foto,$id_destino);
+    }
+    
+    if($stmt_editarDestino->execute()){
         ?><script>alert("Destino editado com sucesso!");</script>
         <?php
     }
@@ -121,6 +152,7 @@ function Editar_Destino($conexao,$id_destino,$nome,$preco,$descricao,$foto){
         ?><script>alert("Erro ao editar destino!");</script>
         <?php
     }
+    $stmt_editarDestino->close();
 
 }
 

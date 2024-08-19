@@ -37,15 +37,15 @@
   <?php 
     require_once "conexao.php";
     $sql = "SELECT * from destinos";
-    $sql_select = mysqli_query($conexao,$sql);
-    while($row = mysqli_fetch_array($sql_select)){?>
+    $sql_select = $conexao->query($sql);
+    while($linha = $sql_select->fetch_array()){?>
     <tr>
-    <td> <?php echo $row['id_destino'];?></td>
-    <td> <?php echo $row['nome'];?></td>
-    <td> <?php echo $row['preco'];?></td>
-    <td> <?php echo $row['descricao'];?></td>
-    <td> <button class="btn btn-warning" onclick="Editar(<?php echo $row['id_destino'];?>)"> Editar </button></td>
-    <td> <button class="btn btn-danger" onclick="Excluir(<?php echo $row['id_destino'];?>)"> Editar </button></td>
+    <td> <?php echo $linha['id_destino'];?></td>
+    <td> <?php echo $linha['nome'];?></td>
+    <td> <?php echo $linha['preco'];?></td>
+    <td> <?php echo $linha['descricao'];?></td>
+    <td> <button class="btn btn-warning" onclick="Editar(<?php echo $linha['id_destino'];?>)"> Editar </button></td>
+    <td> <button class="btn btn-danger" onclick="Excluir(<?php echo $linha['id_destino'];?>)"> Editar </button></td>
     </tr>
     <?php } ?>
   </tbody>

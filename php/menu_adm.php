@@ -43,15 +43,15 @@
      $sql = "SELECT RR.id_realizada, D.nome, R.destino, R.qtd_passa,  R.valor_total from dados_pessoais as D inner join reservas_realizadas as RR  ON
     (D.id = RR.id_comprador) inner join reservas as R ON
     (R.id_reserva = RR.id_reserva) ORDER BY D.nome, R.valor_total";
-    $sql_select = mysqli_query($conexao,$sql);
-    $qtd_cadastrados = mysqli_num_rows($sql_select);
-    while($row = mysqli_fetch_array($sql_select)){?>
+    $sql_select = $conexao->query($sql);
+    $qtd_cadastrados = $sql_select->num_rows;
+    while($linha = $sql_select->fetch_array()){?>
     <tr>
-    <td> <?php echo $row['id_realizada'];?></td>
-    <td> <?php echo $row['nome'];?></td>
-    <td> <?php echo $row['destino'];?></td>
-    <td> <?php echo $row['qtd_passa'];?></td>
-    <td> <?php echo "R$". number_format($row['valor_total'],2,',','.');?></td>
+    <td> <?php echo $linha['id_realizada'];?></td>
+    <td> <?php echo $linha['nome'];?></td>
+    <td> <?php echo $linha['destino'];?></td>
+    <td> <?php echo $linha['qtd_passa'];?></td>
+    <td> <?php echo "R$". number_format($linha['valor_total'],2,',','.');?></td>
     </tr>
     <?php } ?>
   </tbody>

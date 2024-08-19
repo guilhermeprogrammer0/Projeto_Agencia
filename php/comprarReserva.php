@@ -42,9 +42,11 @@ error_reporting(0);
 </div>
 <?php
 $id_destino = $_SESSION['selecionadoDestino'];
-$sql = "SELECT * from destinos WHERE id_destino = $id_destino";
-$sql_destino = mysqli_query($conexao,$sql);
-$linha = mysqli_fetch_array($sql_destino);
+$sql = "SELECT * from destinos WHERE id_destino = ?";
+$stmt = $conexao->prepare($sql);
+$stmt->bind_param("i",$id_destino);
+$stmt->execute();
+$linha = $stmt->get_result()->fetch_array();
 $img = "../Upload/" . $linha['foto'];
 ?>
     <main class="formulario cards">
