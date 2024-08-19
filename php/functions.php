@@ -98,16 +98,16 @@ function Login_Adm($conexao,$usuario,$senha){
     $stmt_logar->close();
 }
 function Cadastrar_Destinos($conexao,$nome,$preco,$descricao,$foto){
-     $files = $_FILES[$foto];
+     $files = $_FILES['foto'];
      $name = $files['name'];
      $tmp_name = $files['tmp_name'];
      $extensao = pathinfo($name,PATHINFO_EXTENSION);
      $novo_nome = uniqid() . '.' .$extensao;
      move_uploaded_file($tmp_name, '../Upload/'.$novo_nome);
-    $sql_cadastrar = "INSERT INTO destinos VALUES(default,?,?,?,?)";
+    $sql_cadastrar = "INSERT INTO destinos  VALUES(default,?,?,?,?)";
     $stmt_cadastrar = $conexao->prepare($sql_cadastrar);
-    $stmt_cadastrar->bind_param("sdsb",$nome,$preco,$descricao,$foto);
-    if ($$stmt_cadastrar->execute()) {
+    $stmt_cadastrar->bind_param("sdss",$nome,$preco,$descricao,$novo_nome);
+    if ($stmt_cadastrar->execute()) {
 ?>
 <script>alert('Cadastro feito com Sucesso!');</script>
 <?php
@@ -119,13 +119,12 @@ function Cadastrar_Destinos($conexao,$nome,$preco,$descricao,$foto){
     $stmt_cadastrar->close();
 }
 function Editar_Destino($conexao,$id_destino,$nome,$preco,$descricao,$foto){
-    $files = $_FILES[$foto];
-    $name = $file['name'];
-    $tmp_name = $file['tmp_name'];
-    $extensao = pathinfo($name, PATHINFO_EXTENSION);
-    $novo_nome = uniqid() . '.'.$extensao;
-    move_uploaded_file($tmp_name,'../Upload/'.$novo_nome);
-    $sql_editarDestino;
+    $files = $_FILES['foto'];
+    $name = $files['name'];
+    $tmp_name = $files['tmp_name'];
+    $extensao = pathinfo($name,PATHINFO_EXTENSION);
+    $novo_nome = uniqid() . '.' .$extensao;
+    move_uploaded_file($tmp_name, '../Upload/'.$novo_nome);
     $tamArquivo = $files['size'];
     $temFoto = false;
     if($tamArquivo==0){
@@ -133,15 +132,15 @@ function Editar_Destino($conexao,$id_destino,$nome,$preco,$descricao,$foto){
         $temFoto = false;
     }
     else{
-        $sql_editarDestino = "UPDATE destinos set nome='$nome',preco='$preco',descricao='$descricao', foto='$foto' WHERE id_destino='$id_destino'";
+        $sql_editarDestino = "UPDATE destinos set nome=?,preco=?,descricao=?, foto=? WHERE id_destino=?";
         $temFoto = true;
     }
-    $stmt_editarDestino->prepare($sql_editarDestino);
+    $stmt_editarDestino = $conexao->prepare($sql_editarDestino);
     if($temFoto==true){
-        $stmt_editarDestino->bind_param("sdsi",$nome,$preco,$descricao,$id_destino);
+        $stmt_editarDestino->bind_param("sdssi",$nome,$preco,$descricao,$novo_nome,$id_destino);
     }
     else{
-        $stmt_editarDestino->bind_param("sdsbi",$nome,$preco,$descricao,$foto,$id_destino);
+        $stmt_editarDestino->bind_param("sdsi",$nome,$preco,$descricao,$id_destino);
     }
     
     if($stmt_editarDestino->execute()){

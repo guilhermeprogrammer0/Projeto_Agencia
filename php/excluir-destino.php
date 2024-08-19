@@ -5,7 +5,9 @@ require_once "functions.php";
 $sql_excluir = "DELETE FROM destinos WHERE id_destino = ?";
 $stmt_excluir = $conexao->prepare($sql_excluir);
 $stmt_excluir->bind_param("i",$_REQUEST['id_destino']);
+$stmt_excluir->execute();
 header("location:lista_destinos.php");
+$stmt_excluir->close();
 
 
 
