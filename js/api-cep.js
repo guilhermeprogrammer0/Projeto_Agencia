@@ -2,7 +2,6 @@ let cidade = document.getElementById("cidade");
 let estado = document.getElementById("estado");
 let logradouro = document.getElementById("logradouro");
 let bairro = document.getElementById("bairro");
-
 function atribuirEndereco(data){
     cidade.value = data.localidade;
     estado.value = data.uf;
@@ -16,7 +15,7 @@ function desabilitarCampos(){
 })
 }
 function limparCampos(){
-	 cidade.value = '';
+	cidade.value = '';
     estado.value = '';
     logradouro.value = '';
     bairro.value = '';
@@ -62,5 +61,4 @@ async function buscarEnderecos(){
     catch(erro){
             console.log(erro);
     }
-	
 }
