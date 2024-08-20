@@ -483,6 +483,7 @@ body.dark header{
     overflow-y: auto;
     height:450px;
 }
-#aviso_cep{
+.aviso_cep{
     display:none;
+    color:red;
 }

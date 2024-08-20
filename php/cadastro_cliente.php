@@ -106,7 +106,6 @@ error_reporting(0);
     <label for="cep" class="form-label">CEP</label>
   <input type="text" class="form-control cep" id="cep" placeholder="14840000" name="cep"  required>
   <span  class="form-text aviso_cep" id="aviso_cep" >
-      São 8 caracteres
     </span>
     </div>
     <div class="col">

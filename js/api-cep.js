@@ -2,6 +2,7 @@ let cidade = document.getElementById("cidade");
 let estado = document.getElementById("estado");
 let logradouro = document.getElementById("logradouro");
 let bairro = document.getElementById("bairro");
+
 function atribuirEndereco(data){
     cidade.value = data.localidade;
     estado.value = data.uf;
@@ -14,8 +15,9 @@ function desabilitarCampos(){
     campo.disabled = true;
 })
 }
+desabilitarCampos();
 function limparCampos(){
-	cidade.value = '';
+	 cidade.value = '';
     estado.value = '';
     logradouro.value = '';
     bairro.value = '';
@@ -26,7 +28,7 @@ cep.addEventListener("blur",()=>{
     desabilitarCampos();
 })
 
-let avisoCep = document.querySelector(".avisoCep");
+let avisoCep = document.querySelector(".aviso_cep");
 cep.addEventListener("change",buscarEnderecos);
 async function buscarEnderecos(){
     const valorCep = cep.value;
@@ -61,4 +63,5 @@ async function buscarEnderecos(){
     catch(erro){
             console.log(erro);
     }
+	
 }
