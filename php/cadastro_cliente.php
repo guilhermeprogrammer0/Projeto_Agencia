@@ -104,7 +104,10 @@ error_reporting(0);
     <div class="row">
     <div class="col">
     <label for="cep" class="form-label">CEP</label>
-  <input type="text" class="form-control" id="cep" placeholder="14840000" name="cep"  required>
+  <input type="text" class="form-control cep" id="cep" placeholder="14840000" name="cep"  required>
+  <span  class="form-text aviso_cep" id="aviso_cep" >
+      São 8 caracteres
+    </span>
     </div>
     <div class="col">
     <label for="cidade" class="form-label">Cidade</label>
