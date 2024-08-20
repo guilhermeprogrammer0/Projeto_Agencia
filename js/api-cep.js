@@ -58,9 +58,6 @@ async function buscarEnderecos(){
 	atribuirEndereco(data);
 	avisoCep.innerHTML = "CEP inválido";
 	}
-		
-        
-
     }
     catch(erro){
             console.log(erro);
