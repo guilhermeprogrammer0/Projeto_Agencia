@@ -155,6 +155,15 @@ function Editar_Destino($conexao,$id_destino,$nome,$preco,$descricao,$foto){
     $stmt_editarDestino->close();
 
 }
+function Excluir_Destino($conexao,$id_destino_excluir){
+$sql_excluir = "DELETE FROM destinos WHERE id_destino = ?";
+$stmt_excluir = $conexao->prepare($sql_excluir);
+$stmt_excluir->bind_param("i",$id_destino_excluir);
+$stmt_excluir->execute();
+header("location:lista_destinos.php");
+$stmt_excluir->close();
+
+}
 
 
 

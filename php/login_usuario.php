@@ -1,7 +1,3 @@
-<?php
- require_once "functions.php";
- error_reporting(0);
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -41,7 +37,7 @@
         <h1>Entrar</h1>
     </section>
     <section class="formulario-login">
-    <form action="login_usuario.php" method="POST">
+    <form action="acoes.php" method="POST">
   <div class="mb-3 form-login">
     <label for="email" class="form-label">E-mail</label>
     <input type="email" class="form-control campos-login" id="email" name="email" required>
@@ -54,7 +50,7 @@
 
   <div class="mb-3 botoes-login">
   <input type="reset" class="btn btn-danger" value="Limpar Campos">
-    <input type="submit" name="entrar" class="btn btn-primary" value="Entrar">
+    <input type="submit" name="logar_usuario" class="btn btn-primary" value="Entrar">
 </div>
 
 <div class="mb-3 botoes-login">
@@ -64,14 +60,6 @@
 
     </section>
 </main>
-<?php
-    require_once "conexao.php";
-    if($_POST['entrar']){
-        Login_Usuario($conexao,$_POST['email'],$_POST['senha']);
-    }
-
-?>
-
 <footer class="footer">
         <div class="redes">
             <h3>Redes</h3>

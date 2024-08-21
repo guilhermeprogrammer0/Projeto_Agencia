@@ -67,23 +67,21 @@ $img = "../Upload/" . $linha['foto'];
     </div>
     <div class="botoes">  
     <a href="escolhaReservas.php"><input type="button" class="btn btn-danger" value="Voltar"></a>
-    <input type="submit" name="confirmar" class="btn btn-primary" value="Confirmar"></div>
+    <input type="submit" name="confirmar_reserva" class="btn btn-primary" value="Confirmar"></div>
 </div>
 </div>
     </div>
     </form>
     </main>
-<?php
-    if($_POST['confirmar']){
-        Cadastro_reservas($conexao,$linha['nome'],$_POST['qtd_passa'],$_POST['qtd_passa']*$linha['preco']);
-        $id_comprador = $_SESSION['id_usuario'];
-        $id_reserva = $_SESSION['id_reserva'];
-        Reservar($conexao,$id_comprador,$id_reserva);
-        unset($_SESSION['id_reserva']);
-    }
-    
+    <?php
+    if($_POST['confirmar_reserva']){
+    Cadastro_reservas($conexao,$linha['nome'],$_POST['qtd_passa'],$_POST['qtd_passa']*$linha['preco']);
+    $id_comprador = $_SESSION['id_usuario'];
+    $id_reserva = $_SESSION['id_reserva'];
+    Reservar($conexao,$id_comprador,$id_reserva);
+    unset($_SESSION['id_reserva']);
+}
     ?>
-   
    <footer class="footer">
         <div class="redes">
             <h3>Redes</h3>

@@ -25,7 +25,7 @@ error_reporting(0);
         <h2 id="txt">Inserir Destinos</h2>
 </div>
     <main class="formulario cadastroReservas">
-        <form action="edicao-destino.php"  method="post" enctype="multipart/form-data">
+        <form action="acoes.php"  method="post" enctype="multipart/form-data">
             <?php
             require_once "conexao.php";
             $id_destino = $_REQUEST['id_destino'];
@@ -58,13 +58,9 @@ error_reporting(0);
 
 <div class="container">
 <a href="menu_adm.php"><input type="button" class="btn btn-danger " value="Voltar"> </a>
-<input type="submit" class="btn btn-primary" value="Enviar" name="enviar">
+<input type="submit" class="btn btn-primary" value="Enviar" name="editar_destino">
 </div>
 </form></main>
-    <?php
-    require_once "conexao.php";
-    ?>
-
       <script src="../js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"

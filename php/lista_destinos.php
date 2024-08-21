@@ -1,6 +1,7 @@
 <?php
  require_once "functions.php";
  require_once "protecao_adm.php";
+ require_once "functions.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
