@@ -1,7 +1,7 @@
 <?php
 session_start();
-function Cadastro_pessoais($conexao,$nome,$cpf,$sexo,$data_nascimento,$telefone,$email,$senha,$cidade,$cep,$estado,$logradouro,$bairro,$numero){
-    $sql_verificar = "SELECT cpf, email from dados_pessoais WHERE cpf = ? OR email = ?";
+function cadastro_cliente($conexao,$nome,$cpf,$sexo,$data_nascimento,$telefone,$email,$senha,$cidade,$cep,$estado,$logradouro,$bairro,$numero){
+    $sql_verificar = "SELECT cpf, email from clientes WHERE cpf = ? OR email = ?";
     $stmt_verificar = $conexao->prepare($sql_verificar);
     $stmt_verificar->bind_param("ss",$cpf,$email);
     $stmt_verificar->execute();
@@ -14,12 +14,12 @@ function Cadastro_pessoais($conexao,$nome,$cpf,$sexo,$data_nascimento,$telefone,
     <?php
     }
     else{
-    $sql_cadastrar = "INSERT INTO dados_pessoais values (default,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    $sql_cadastrar = "INSERT INTO clientes values (default,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     $stmt_cadastrar = $conexao->prepare($sql_cadastrar);
     $stmt_cadastrar->bind_param("sssssssssssss",$nome,$cpf,$sexo,$data_nascimento,$telefone,$email,$senha,$cidade,$cep,$estado,$logradouro,$bairro,$numero);
     if($stmt_cadastrar->execute()){?>
         <script> window.location.href="escolhaReservas.php" </script><?php
-         $sql = "SELECT id , nome from dados_pessoais ORDER BY id DESC LIMIT 1";
+         $sql = "SELECT id , nome from clientes ORDER BY id DESC LIMIT 1";
          $sql_query = $conexao->query($sql);
          $row = $sql_query->fetch_array();
              $_SESSION['id_usuario'] = $row['id'];
@@ -32,7 +32,7 @@ function Cadastro_pessoais($conexao,$nome,$cpf,$sexo,$data_nascimento,$telefone,
     $stmt_cadastrar->close();
 }
 }
-function Cadastro_reservas($conexao,$destino,$qtd_passa,$valor_total){
+function cadastro_reservas($conexao,$destino,$qtd_passa,$valor_total){
     $sql_reservas = "INSERT INTO reservas values (default,?,?,?)";
     $stmt_reservas = $conexao->prepare($sql_reservas);
     $stmt_reservas->bind_param("sid",$destino,$qtd_passa,$valor_total);
@@ -44,12 +44,14 @@ function Cadastro_reservas($conexao,$destino,$qtd_passa,$valor_total){
     }
     else{
         ?>
-       <script>alert('ERRO');</script><?php 
+       <script>alert('ERRO');
+        window.location.href = 'escolhaReservas.php';
+       </script><?php 
     }
     $stmt_reservas->close();
 
 }
-function Reservar($conexao,$id_comprador,$id_reserva){
+function reservar($conexao,$id_comprador,$id_reserva){
     $sql_reservar = "INSERT INTO reservas_realizadas values (default,?,?)";
     $stmt_reservar = $conexao->prepare($sql_reservar);
     $stmt_reservar->bind_param("ii",$id_comprador,$id_reserva);
@@ -59,11 +61,13 @@ function Reservar($conexao,$id_comprador,$id_reserva){
     }
      else{
          ?>
-        <script>alert('ERRO');</script><?php 
+        <script>alert('ERRO');
+         window.location.href = 'escolhaReservas.php';
+        </script><?php 
      }
 }
-function Login_Usuario($conexao,$email,$senha){
-    $sql_logar = "SELECT id, nome, email, senha from dados_pessoais WHERE email = ? AND senha = ?";
+function login_usuario($conexao,$email,$senha){
+    $sql_logar = "SELECT id, nome, email, senha from clientes WHERE email = ? AND senha = ?";
     $stmt_logar = $conexao->prepare($sql_logar);
     $stmt_logar->bind_param("ss",$email,$senha);
     $stmt_logar->execute();
@@ -76,12 +80,14 @@ function Login_Usuario($conexao,$email,$senha){
         header("location:escolhaReservas.php");
     }
     else{
-        ?> <script>alert('Login e/ou senha Inválidos.');</script><?php 
+        ?> <script>alert('Login e/ou senha Inválidos.');
+        window.location.href = 'login_usuario.php';
+        </script><?php 
     }
     $stmt_logar->close();
 }
 //ADMINISTRATIVO
-function Login_Adm($conexao,$usuario,$senha){
+function login_adm($conexao,$usuario,$senha){
     $sql_logar = "SELECT  * from administrativo WHERE usuario = ? AND senha = ?";
     $stmt_logar = $conexao->prepare($sql_logar);
     $stmt_logar->bind_param("ss",$usuario,$senha);
@@ -94,11 +100,13 @@ function Login_Adm($conexao,$usuario,$senha){
         header("location:menu_adm.php");
     }
     else{
-        ?> <script>alert('Login e/ou senha Inválidos');</script><?php 
+        ?> <script>alert('Login e/ou senha Inválidos');
+        window.location.href = 'login_menuadm.php';
+        </script><?php 
     }
     $stmt_logar->close();
 }
-function Cadastrar_Destinos($conexao,$nome,$preco,$descricao,$foto){
+function cadastrar_destinos($conexao,$nome,$preco,$descricao,$foto){
      $files = $_FILES['foto'];
      $name = $files['name'];
      $tmp_name = $files['tmp_name'];
@@ -110,16 +118,20 @@ function Cadastrar_Destinos($conexao,$nome,$preco,$descricao,$foto){
     $stmt_cadastrar->bind_param("sdss",$nome,$preco,$descricao,$novo_nome);
     if ($stmt_cadastrar->execute()) {
 ?>
-<script>alert('Cadastro feito com Sucesso!');</script>
+<script>alert('Cadastro feito com Sucesso!');
+    window.location.href = "lista_destinos.php";
+</script>
 <?php
     } else {
 ?>
-<script>alert('Erro! Tente Novamente mais tarde!');</script>
+<script>alert('Erro! Tente Novamente mais tarde!');
+    window.location.href = 'cadastro_destinos.php';
+</script>
 <?php
     }
     $stmt_cadastrar->close();
 }
-function Editar_Destino($conexao,$id_destino,$nome,$preco,$descricao,$foto){
+function editar_destino($conexao,$id_destino,$nome,$preco,$descricao,$foto){
     $files = $_FILES['foto'];
     $name = $files['name'];
     $tmp_name = $files['tmp_name'];
@@ -149,13 +161,15 @@ function Editar_Destino($conexao,$id_destino,$nome,$preco,$descricao,$foto){
         <?php
     }
     else{
-        ?><script>alert("Erro ao editar destino!");</script>
+        ?><script>alert("Erro ao editar destino!");
+        window.location.href = 'lista_destinos.php';
+        </script>
         <?php
     }
     $stmt_editarDestino->close();
 
 }
-function Excluir_Destino($conexao,$id_destino_excluir){
+function excluir_destino($conexao,$id_destino_excluir){
 $sql_excluir = "DELETE FROM destinos WHERE id_destino = ?";
 $stmt_excluir = $conexao->prepare($sql_excluir);
 $stmt_excluir->bind_param("i",$id_destino_excluir);

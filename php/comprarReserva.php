@@ -75,10 +75,10 @@ $img = "../Upload/" . $linha['foto'];
     </main>
     <?php
     if($_POST['confirmar_reserva']){
-    Cadastro_reservas($conexao,$linha['nome'],$_POST['qtd_passa'],$_POST['qtd_passa']*$linha['preco']);
+    cadastro_reservas($conexao,$linha['nome'],$_POST['qtd_passa'],$_POST['qtd_passa']*$linha['preco']);
     $id_comprador = $_SESSION['id_usuario'];
     $id_reserva = $_SESSION['id_reserva'];
-    Reservar($conexao,$id_comprador,$id_reserva);
+    reservar($conexao,$id_comprador,$id_reserva);
     unset($_SESSION['id_reserva']);
 }
     ?>

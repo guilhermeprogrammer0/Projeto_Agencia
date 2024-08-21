@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17/08/2024 às 03:51
+-- Tempo de geração: 21/08/2024 às 02:33
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -45,10 +45,10 @@ INSERT INTO `administrativo` (`id_adm`, `usuario`, `senha`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `dados_pessoais`
+-- Estrutura para tabela `clientes`
 --
 
-CREATE TABLE `dados_pessoais` (
+CREATE TABLE `clientes` (
   `id` int(11) NOT NULL,
   `nome` varchar(100) DEFAULT NULL,
   `cpf` varchar(15) DEFAULT NULL,
@@ -66,13 +66,11 @@ CREATE TABLE `dados_pessoais` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Despejando dados para a tabela `dados_pessoais`
+-- Despejando dados para a tabela `clientes`
 --
 
-INSERT INTO `dados_pessoais` (`id`, `nome`, `cpf`, `sexo`, `data_nascimento`, `telefone`, `email`, `senha`, `cidade`, `cep`, `estado`, `logradouro`, `bairro`, `numero`) VALUES
-(5, 'Guilherme', '55625684898', 'M', '2003-09-12', '16996091036', 'gui@gmail.com', 'gui123', 'Guariba', '1484000', 'Pi', 'rua teste', 'mariana 1', '261'),
-(6, 'Kethilin', '47835841225', 'F', '2004-06-14', '16996341184', 'keth@gmail.com', 'keth', 'Guariba', '1484000', 'Se', 'rua teste2', 'cohab', '78'),
-(7, 'teste', '456123369', 'M', '2003-06-14', '16996091036', 'teste@gmail.com', 'teste', 'Guariba', '14842512', 'SP', 'Rua José Carlos Loredo', 'Residencial Luiz Carlos Santin', '110');
+INSERT INTO `clientes` (`id`, `nome`, `cpf`, `sexo`, `data_nascimento`, `telefone`, `email`, `senha`, `cidade`, `cep`, `estado`, `logradouro`, `bairro`, `numero`) VALUES
+(1, 'Guilherme', '55625684898', 'M', '2003-09-12', '16996091036', 'gui@gmail.com', 'gui123', 'Guariba', '14842512', 'SP', 'Rua José Carlos Loredo', 'Residencial Luiz Carlos Santin', '110');
 
 -- --------------------------------------------------------
 
@@ -93,12 +91,14 @@ CREATE TABLE `destinos` (
 --
 
 INSERT INTO `destinos` (`id_destino`, `nome`, `preco`, `descricao`, `foto`) VALUES
-(1, 'Rio de Janeiro', 1100, '4 Dias', 'd7e94d9c47e4561f63b60fed553795aa.jpg'),
-(2, 'Capitólio', 800, '3 Dias', 'c591634095cdc12d6062595b683dd56c.jpg'),
-(3, 'Florianópolis', 350, '10 Dias', 'a49eec2ddbf189a8494e2c9771067640.jpg'),
-(5, 'Salvador', 700, '5 Dias', 'b2f9720524f29a8cbc946442a48821b5.jpg'),
-(6, 'Ubatuba', 450, '4 Dias', '9e4b9f5974ce29d49d4305ee9ec15998.jpg'),
-(8, 'Foz do Iguaçu', 700, '2 Dias', '6446268950e4ad77b7859da11242a082.jpg');
+(1, 'Rio de Janeiro', 500, '3 Dias', '66c53506e4716.jpg'),
+(2, 'Capitólio', 450, '1 Dia', '66c5335b2d308.jpg'),
+(3, 'Florianópolis', 420, '2 Dias', '66c5336d059f0.jpg'),
+(4, 'Fernando de Noronha', 510, '3 Dias', '66c533826e05c.jpg'),
+(5, 'Foz do Iguaçu', 700, '4 Dias', '66c5339d55c52.jpg'),
+(6, 'Rio de Janeiro', 350, '3 Dias', '66c533bcf03f7.jpg'),
+(7, 'Salvador', 500, '2 Dias', '66c533cd7277d.jpg'),
+(8, 'Ubatuba', 400, '4 Dias', '66c533dc62654.jpg');
 
 -- --------------------------------------------------------
 
@@ -118,9 +118,8 @@ CREATE TABLE `reservas` (
 --
 
 INSERT INTO `reservas` (`id_reserva`, `destino`, `qtd_passa`, `valor_total`) VALUES
-(1, 'Capitólio', '5', 4000),
-(2, 'Salvador', '5', 3500),
-(3, 'Florianópolis', '3', 1350);
+(1, 'Capitólio', '2', 900),
+(2, 'Capitólio', '2', 900);
 
 -- --------------------------------------------------------
 
@@ -139,9 +138,8 @@ CREATE TABLE `reservas_realizadas` (
 --
 
 INSERT INTO `reservas_realizadas` (`id_realizada`, `id_comprador`, `id_reserva`) VALUES
-(1, 5, 1),
-(2, 5, 2),
-(3, 5, 3);
+(1, 1, 1),
+(2, 1, 2);
 
 --
 -- Índices para tabelas despejadas
@@ -154,9 +152,9 @@ ALTER TABLE `administrativo`
   ADD PRIMARY KEY (`id_adm`);
 
 --
--- Índices de tabela `dados_pessoais`
+-- Índices de tabela `clientes`
 --
-ALTER TABLE `dados_pessoais`
+ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -176,8 +174,8 @@ ALTER TABLE `reservas`
 --
 ALTER TABLE `reservas_realizadas`
   ADD PRIMARY KEY (`id_realizada`),
-  ADD KEY `FK_REALIZADAS_DADOS` (`id_comprador`),
-  ADD KEY `FK_REALIZADAS_RESERVAS` (`id_reserva`);
+  ADD KEY `id_comprador` (`id_comprador`),
+  ADD KEY `id_reserva` (`id_reserva`);
 
 --
 -- AUTO_INCREMENT para tabelas despejadas
@@ -190,10 +188,10 @@ ALTER TABLE `administrativo`
   MODIFY `id_adm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de tabela `dados_pessoais`
+-- AUTO_INCREMENT de tabela `clientes`
 --
-ALTER TABLE `dados_pessoais`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `clientes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `destinos`
@@ -205,13 +203,13 @@ ALTER TABLE `destinos`
 -- AUTO_INCREMENT de tabela `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `reservas_realizadas`
 --
 ALTER TABLE `reservas_realizadas`
-  MODIFY `id_realizada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_realizada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restrições para tabelas despejadas
@@ -221,8 +219,8 @@ ALTER TABLE `reservas_realizadas`
 -- Restrições para tabelas `reservas_realizadas`
 --
 ALTER TABLE `reservas_realizadas`
-  ADD CONSTRAINT `FK_REALIZADAS_DADOS` FOREIGN KEY (`id_comprador`) REFERENCES `dados_pessoais` (`id`),
-  ADD CONSTRAINT `FK_REALIZADAS_RESERVAS` FOREIGN KEY (`id_reserva`) REFERENCES `reservas` (`id_reserva`);
+  ADD CONSTRAINT `reservas_realizadas_ibfk_1` FOREIGN KEY (`id_comprador`) REFERENCES `clientes` (`id`),
+  ADD CONSTRAINT `reservas_realizadas_ibfk_2` FOREIGN KEY (`id_reserva`) REFERENCES `reservas` (`id_reserva`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

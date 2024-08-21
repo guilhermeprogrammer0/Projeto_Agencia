@@ -15,7 +15,7 @@ require_once "protecao.php";
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
     <link rel="shortcut icon" href="../Imagens/logo-novo.png" type="image/x-icon">
-    <title>Reserva Reazalida</title>
+    <title>Reserva realizada</title>
 </head>
 
 <body>
