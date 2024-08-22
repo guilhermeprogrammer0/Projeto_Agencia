@@ -1,3 +1,4 @@
+
 let cidade = document.getElementById("cidade");
 let estado = document.getElementById("estado");
 let logradouro = document.getElementById("logradouro");
@@ -15,10 +16,6 @@ function desabilitarCampos(){
     campo.disabled = true;
 })
 }
-<<<<<<< HEAD
-=======
-desabilitarCampos();
->>>>>>> 602736886331dace17f7eb20cd63ab9101e5c534
 function limparCampos(){
 	 cidade.value = '';
     estado.value = '';
@@ -31,11 +28,7 @@ cep.addEventListener("blur",()=>{
     desabilitarCampos();
 })
 
-<<<<<<< HEAD
 let avisoCep = document.querySelector(".avisoCep");
-=======
-let avisoCep = document.querySelector(".aviso_cep");
->>>>>>> 602736886331dace17f7eb20cd63ab9101e5c534
 cep.addEventListener("change",buscarEnderecos);
 async function buscarEnderecos(){
     const valorCep = cep.value;
@@ -66,12 +59,9 @@ async function buscarEnderecos(){
 	atribuirEndereco(data);
 	avisoCep.innerHTML = "CEP inválido";
 	}
-<<<<<<< HEAD
 		
         
 
-=======
->>>>>>> 602736886331dace17f7eb20cd63ab9101e5c534
     }
     catch(erro){
             console.log(erro);
