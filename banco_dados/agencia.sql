@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21/08/2024 às 02:33
+-- Tempo de geração: 22/08/2024 às 15:24
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -70,7 +70,8 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id`, `nome`, `cpf`, `sexo`, `data_nascimento`, `telefone`, `email`, `senha`, `cidade`, `cep`, `estado`, `logradouro`, `bairro`, `numero`) VALUES
-(1, 'Guilherme', '55625684898', 'M', '2003-09-12', '16996091036', 'gui@gmail.com', 'gui123', 'Guariba', '14842512', 'SP', 'Rua José Carlos Loredo', 'Residencial Luiz Carlos Santin', '110');
+(1, 'Guilherme', '55625684898', 'M', '2003-09-12', '16996091036', 'gui@gmail.com', 'gui123', 'Guariba', '14842512', 'SP', 'Rua José Carlos Loredo', 'Residencial Luiz Carlos Santin', '110'),
+(2, 'Kethilin', '12045236987', 'F', '2004-06-14', '16996341184', 'keth@gmail.com', 'keth', 'Guariba', '14842512', 'SP', 'Rua José Carlos Loredo', 'Residencial Luiz Carlos Santin', '110');
 
 -- --------------------------------------------------------
 
@@ -108,38 +109,20 @@ INSERT INTO `destinos` (`id_destino`, `nome`, `preco`, `descricao`, `foto`) VALU
 
 CREATE TABLE `reservas` (
   `id_reserva` int(11) NOT NULL,
-  `destino` varchar(100) DEFAULT NULL,
-  `qtd_passa` varchar(100) DEFAULT NULL,
-  `valor_total` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `destino` varchar(100) NOT NULL,
+  `qtd_passa` int(11) NOT NULL,
+  `valor_total` float NOT NULL,
+  `id_cliente` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `reservas`
 --
 
-INSERT INTO `reservas` (`id_reserva`, `destino`, `qtd_passa`, `valor_total`) VALUES
-(1, 'Capitólio', '2', 900),
-(2, 'Capitólio', '2', 900);
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `reservas_realizadas`
---
-
-CREATE TABLE `reservas_realizadas` (
-  `id_realizada` int(11) NOT NULL,
-  `id_comprador` int(11) NOT NULL,
-  `id_reserva` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `reservas_realizadas`
---
-
-INSERT INTO `reservas_realizadas` (`id_realizada`, `id_comprador`, `id_reserva`) VALUES
-(1, 1, 1),
-(2, 1, 2);
+INSERT INTO `reservas` (`id_reserva`, `destino`, `qtd_passa`, `valor_total`, `id_cliente`) VALUES
+(1, 'Florianópolis', 5, 2100, 1),
+(2, 'Rio de Janeiro', 2, 1000, 1),
+(3, 'Florianópolis', 3, 1260, 2);
 
 --
 -- Índices para tabelas despejadas
@@ -167,15 +150,8 @@ ALTER TABLE `destinos`
 -- Índices de tabela `reservas`
 --
 ALTER TABLE `reservas`
-  ADD PRIMARY KEY (`id_reserva`);
-
---
--- Índices de tabela `reservas_realizadas`
---
-ALTER TABLE `reservas_realizadas`
-  ADD PRIMARY KEY (`id_realizada`),
-  ADD KEY `id_comprador` (`id_comprador`),
-  ADD KEY `id_reserva` (`id_reserva`);
+  ADD PRIMARY KEY (`id_reserva`),
+  ADD KEY `FK_RESERVA_CLIENTE` (`id_cliente`);
 
 --
 -- AUTO_INCREMENT para tabelas despejadas
@@ -191,7 +167,7 @@ ALTER TABLE `administrativo`
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `destinos`
@@ -203,24 +179,17 @@ ALTER TABLE `destinos`
 -- AUTO_INCREMENT de tabela `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de tabela `reservas_realizadas`
---
-ALTER TABLE `reservas_realizadas`
-  MODIFY `id_realizada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restrições para tabelas despejadas
 --
 
 --
--- Restrições para tabelas `reservas_realizadas`
+-- Restrições para tabelas `reservas`
 --
-ALTER TABLE `reservas_realizadas`
-  ADD CONSTRAINT `reservas_realizadas_ibfk_1` FOREIGN KEY (`id_comprador`) REFERENCES `clientes` (`id`),
-  ADD CONSTRAINT `reservas_realizadas_ibfk_2` FOREIGN KEY (`id_reserva`) REFERENCES `reservas` (`id_reserva`);
+ALTER TABLE `reservas`
+  ADD CONSTRAINT `FK_RESERVA_CLIENTE` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

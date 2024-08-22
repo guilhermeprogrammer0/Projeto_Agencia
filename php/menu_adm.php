@@ -41,14 +41,14 @@
   <tbody>
   <?php 
     require_once "conexao.php";
-     $sql = "SELECT RR.id_realizada, C.nome, R.destino, R.qtd_passa,  R.valor_total from clientes as C inner join reservas_realizadas as RR  ON
-    (C.id = RR.id_comprador) inner join reservas as R ON
-    (R.id_reserva = RR.id_reserva) ORDER BY C.nome, R.valor_total";
+     $sql = "SELECT R.id_reserva, C.nome, R.destino, R.qtd_passa,  R.valor_total from clientes as C inner join reservas as R  ON
+    (C.id = R.id_cliente)
+    ORDER BY C.nome, R.valor_total";
     $sql_select = $conexao->query($sql);
     $qtd_cadastrados = $sql_select->num_rows;
     while($linha = $sql_select->fetch_array()){?>
     <tr>
-    <td> <?php echo $linha['id_realizada'];?></td>
+    <td> <?php echo $linha['id_reserva'];?></td>
     <td> <?php echo $linha['nome'];?></td>
     <td> <?php echo $linha['destino'];?></td>
     <td> <?php echo $linha['qtd_passa'];?></td>

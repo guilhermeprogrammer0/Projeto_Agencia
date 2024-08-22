@@ -35,15 +35,15 @@ function cadastro_cliente($conexao,$nome,$cpf,$sexo,$data_nascimento,$telefone,$
     $stmt_cadastrar->close();
 }
 }
-function cadastro_reservas($conexao,$destino,$qtd_passa,$valor_total){
-    $sql_reservas = "INSERT INTO reservas values (default,?,?,?)";
+function cadastro_reservas($conexao,$destino,$qtd_passa,$valor_total,$id_cliente){
+    $sql_reservas = "INSERT INTO reservas values (default,?,?,?,?)";
     $stmt_reservas = $conexao->prepare($sql_reservas);
-    $stmt_reservas->bind_param("sid",$destino,$qtd_passa,$valor_total);
+    $stmt_reservas->bind_param("sidi",$destino,$qtd_passa,$valor_total,$id_cliente);
     if($stmt_reservas->execute()){
-        $sql_mostrarId = "SELECT id_reserva from reservas ORDER BY id_reserva DESC LIMIT 1";
-        $sql_idReserva = $conexao->query($sql_mostrarId);
-        $row = $sql_idReserva->fetch_array();
-        $_SESSION['id_reserva'] = $row['id_reserva'];
+        ?>
+        <script>
+         window.location.href = 'reserva_realizada.php';
+        </script><?php 
     }
     else{
         ?>
@@ -53,21 +53,6 @@ function cadastro_reservas($conexao,$destino,$qtd_passa,$valor_total){
     }
     $stmt_reservas->close();
 
-}
-function reservar($conexao,$id_comprador,$id_reserva){
-    $sql_reservar = "INSERT INTO reservas_realizadas values (default,?,?)";
-    $stmt_reservar = $conexao->prepare($sql_reservar);
-    $stmt_reservar->bind_param("ii",$id_comprador,$id_reserva);
-    if($stmt_reservar->execute()){
-        header("location:reserva_realizada.php");
-        $stmt_reservar->close();
-    }
-     else{
-         ?>
-        <script>alert('Erro');
-         window.location.href = 'escolhaReservas.php';
-        </script><?php 
-     }
 }
 function login_usuario($conexao,$email,$senha){
     $sql_logar = "SELECT id, nome, email, senha from clientes WHERE email = ? AND senha = ?";
