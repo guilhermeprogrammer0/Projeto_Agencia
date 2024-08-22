@@ -1,8 +1,6 @@
 <?php
 require_once "functions.php";
 require_once "protecao.php";
-
-error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -17,7 +15,7 @@ error_reporting(0);
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
     <link rel="shortcut icon" href="../Imagens/logo-novo.png" type="image/x-icon">
-    <title>Reserva Reazalida</title>
+    <title>Reserva realizada</title>
 </head>
 
 <body>

@@ -3,5 +3,5 @@ function Editar(id){
 }
 function Excluir(id){
     let confirmar = confirm("Deseja mesmo excluir?");
-    if(confirmar === true)window.location.href = `excluir-destino.php?id_destino=${id}`;
+    if(confirmar === true)window.location.href = `acoes.php?id_destino_excluir=${id}`;
 }

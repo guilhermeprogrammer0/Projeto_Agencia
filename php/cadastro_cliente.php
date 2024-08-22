@@ -1,6 +1,5 @@
 <?php
 require_once "functions.php";
-error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -42,7 +41,7 @@ error_reporting(0);
 </div>
   
     <main class="formulario">
-        <form action="cadastro_cliente.php"  method="post">
+        <form action="acoes.php"  method="post">
         <section class="texto-form">
         <h2>Dados Pessoais</h2>
     </section>
@@ -163,16 +162,9 @@ error_reporting(0);
 
 <div class="container">
 <a href="login_usuario.php"><input type="button" class="btn btn-danger " value="Cancelar"> </a>
-    <input type="submit" class="btn btn-primary" value="Enviar" name="enviar">
+    <input type="submit" class="btn btn-primary" value="Enviar" name="cadastrar_cliente">
 </div>
 </form></main>
-
-    <?php
-    require_once "protecao.php";
-    require_once "conexao.php";
-    if($_POST['enviar']){
-        Cadastro_pessoais($conexao,$_POST['nome'],$_POST['cpf'],$_POST['sexo'],$_POST['data_nascimento'],$_POST['telefone'],$_POST['email'],$_POST['senha'],$_POST['cidade'],$_POST['cep'],$_POST['estado'],$_POST['logradouro'],$_POST['bairro'],$_POST['numero']);
-    } ?>
 
     <footer class="footer">
         <div class="redes">

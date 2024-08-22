@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 <?php
  require_once "functions.php";
   error_reporting(0);
 ?>
+=======
+>>>>>>> 602736886331dace17f7eb20cd63ab9101e5c534
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -27,7 +30,7 @@
         <h1>Entrar</h1>
     </section>
     <section class="formulario-login ">
-    <form action="login_menuadm.php" method="POST">
+    <form action="acoes.php" method="POST">
   <div class="mb-3 form-login">
     <label for="usuario" class="form-label">Usuário</label>
     <input type="email" class="form-control campos-login" id="usuario" name="usuario" required>
@@ -41,19 +44,12 @@
 
   <div class="mb-3 botoes-login">
   <input type="reset" class="btn btn-danger" value="Limpar Campos">
-    <input type="submit" name="entrar" class="btn btn-primary" value="Entrar">
+    <input type="submit" name="logar_adm" class="btn btn-primary" value="Entrar">
 </div>
 </form>
 
     </section>
 </main>
-<?php
-    require_once "conexao.php";
-    if($_POST['entrar']){
-        Login_Adm($conexao,$_POST['usuario'],$_POST['senha']);
-    }
-
-?>
 
       <script src="../js/senha.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"

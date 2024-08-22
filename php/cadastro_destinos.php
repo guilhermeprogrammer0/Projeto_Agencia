@@ -25,7 +25,7 @@ error_reporting(0);
         <h2 id="txt">Inserir Destinos</h2>
 </div>
     <main class="formulario cadastroReservas">
-        <form action="cadastro_destinos.php"  method="post" enctype="multipart/form-data">
+        <form action="acoes.php"  method="post" enctype="multipart/form-data">
         <section class="texto-form">
         <h2>Destinos</h2>
     </section>
@@ -47,18 +47,9 @@ error_reporting(0);
 
 <div class="container">
 <a href="menu_adm.php"><input type="button" class="btn btn-danger " value="Voltar"> </a>
-<input type="submit" class="btn btn-primary" value="Enviar" name="enviar">
+<input type="submit" class="btn btn-primary" value="Enviar" name="cadastrar_destinos">
 </div>
 </form></main>
-    <?php
-    require_once "conexao.php";
-    if($_POST['enviar']){
-        Cadastrar_Destinos($conexao,$_POST['nome'],$_POST['preco'],$_POST['descricao'],$_POST['foto']);
-    }
-
-
-    ?>
-
       <script src="../js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"

@@ -41,9 +41,9 @@
   <tbody>
   <?php 
     require_once "conexao.php";
-     $sql = "SELECT RR.id_realizada, D.nome, R.destino, R.qtd_passa,  R.valor_total from dados_pessoais as D inner join reservas_realizadas as RR  ON
-    (D.id = RR.id_comprador) inner join reservas as R ON
-    (R.id_reserva = RR.id_reserva) ORDER BY D.nome, R.valor_total";
+     $sql = "SELECT RR.id_realizada, C.nome, R.destino, R.qtd_passa,  R.valor_total from clientes as C inner join reservas_realizadas as RR  ON
+    (C.id = RR.id_comprador) inner join reservas as R ON
+    (R.id_reserva = RR.id_reserva) ORDER BY C.nome, R.valor_total";
     $sql_select = $conexao->query($sql);
     $qtd_cadastrados = $sql_select->num_rows;
     while($linha = $sql_select->fetch_array()){?>

@@ -132,6 +132,52 @@ body.dark header{
     text-align: center;
     color:#1377b6;
 }
+.slides{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	width:60%;
+	margin:auto;
+	margin-top:20px;
+	border-radius:0.5em;
+	padding:20px;
+	height:auto;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.texto-slides{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	width:40%;
+}
+.texto-slides h2{
+	font-size: 1.4em;
+    margin: 10px 0;
+    font-weight: bold;
+	animation: animacao 2s infinite;
+	color: linear-gradient(to right, #00aaff, #004d99);
+	text-align:Center;
+}
+@keyframes animacao{
+	0%,30%,60%,90%{
+		transform: translateY(0);
+	}
+	20%{
+		transform: translateY(-3px) scale(1);
+	}
+	70%{
+		transform: translateX(30px);
+	}
+}
+.carousel{
+	width:50%;
+	display:block;
+	margin:auto;
+	
+}
+.d-block{
+	border-radius:2px;
+}
 .texto{
     margin-top: 25px;
     text-align:center;
@@ -211,7 +257,6 @@ body.dark header{
     margin-top: 50px;
     justify-content: center;
     flex-wrap: wrap;
-
 }
 .lugares{
     width:50%;
