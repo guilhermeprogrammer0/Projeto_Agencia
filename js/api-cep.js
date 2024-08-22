@@ -16,6 +16,7 @@ function desabilitarCampos(){
     campo.disabled = true;
 })
 }
+desabilitarCampos();
 function limparCampos(){
 	 cidade.value = '';
     estado.value = '';
