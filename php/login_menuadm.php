@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 <?php
  require_once "functions.php";
   error_reporting(0);
 ?>
-=======
->>>>>>> 602736886331dace17f7eb20cd63ab9101e5c534
 <!DOCTYPE html>
 <html lang="pt-br">
 
