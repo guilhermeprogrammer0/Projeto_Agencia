@@ -31,7 +31,6 @@ error_reporting(0);
             <li><a href="../index.html">Início</a></li>
             <li><a href="../pacotes.html">Pacotes</a></li>
             <li class="active"><a href="reservas.php">Reservas</a></li>
-            <li><a href="../curiosidades.html">Curiosidades</a></li>
             <li><a href="../sobre.html">Sobre</a></li>
             <a href="logout.php"> <div class="divSair"><button class="btnSair"> Sair</button></div> </a>
             <div class="divMudartema"><i class="btnMudarTema fa-solid  fa-2x" id="btnMudarTema"> </i></div>
@@ -51,9 +50,7 @@ $img = "../Upload/" . $linha['foto'];
 ?>
     <main class="formulario cards">
     <form action="comprarReserva.php" method="POST">
-    <div class="row">
-    <div class="col">
-    <div class="card cardConfirmacao" style="width: 24rem;">
+    <div class="card cardConfirmacao">
   <div class="card-body cardConfirmacao-body">
     <h1 class="card-title">Olá, <?php echo $_SESSION['nome_usuario'] . "!";?></h1>
     <h5 class="card-title">Destino:</h5>
@@ -68,8 +65,6 @@ $img = "../Upload/" . $linha['foto'];
     <div class="botoes">  
     <a href="escolhaReservas.php"><input type="button" class="btn btn-danger" value="Voltar"></a>
     <input type="submit" name="confirmar_reserva" class="btn btn-primary" value="Confirmar"></div>
-</div>
-</div>
     </div>
     </form>
     </main>

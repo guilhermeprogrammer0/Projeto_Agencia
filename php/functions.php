@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(0);
 function cadastro_cliente($conexao,$nome,$cpf,$sexo,$data_nascimento,$telefone,$email,$senha,$cidade,$cep,$estado,$logradouro,$bairro,$numero){
     $sql_verificar = "SELECT cpf, email from clientes WHERE cpf = ? OR email = ?";
     $stmt_verificar = $conexao->prepare($sql_verificar);
@@ -27,7 +28,9 @@ function cadastro_cliente($conexao,$nome,$cpf,$sexo,$data_nascimento,$telefone,$
     }
     else{
         ?>
-       <script>alert('ERRO');</script><?php 
+       <script>alert('Erro ao Cadastrar');
+        window.location.href = 'cadastro_cliente.php';
+       </script><?php 
     }
     $stmt_cadastrar->close();
 }
@@ -44,7 +47,7 @@ function cadastro_reservas($conexao,$destino,$qtd_passa,$valor_total){
     }
     else{
         ?>
-       <script>alert('ERRO');
+       <script>alert('Erro ao fazer a reserva');
         window.location.href = 'escolhaReservas.php';
        </script><?php 
     }
@@ -61,7 +64,7 @@ function reservar($conexao,$id_comprador,$id_reserva){
     }
      else{
          ?>
-        <script>alert('ERRO');
+        <script>alert('Erro');
          window.location.href = 'escolhaReservas.php';
         </script><?php 
      }
@@ -80,7 +83,7 @@ function login_usuario($conexao,$email,$senha){
         header("location:escolhaReservas.php");
     }
     else{
-        ?> <script>alert('Login e/ou senha Inválidos.');
+        ?> <script>alert('Login e/ou senha inválidos.');
         window.location.href = 'login_usuario.php';
         </script><?php 
     }
@@ -100,7 +103,7 @@ function login_adm($conexao,$usuario,$senha){
         header("location:menu_adm.php");
     }
     else{
-        ?> <script>alert('Login e/ou senha Inválidos');
+        ?> <script>alert('Login e/ou senha inválidos');
         window.location.href = 'login_menuadm.php';
         </script><?php 
     }
@@ -124,7 +127,7 @@ function cadastrar_destinos($conexao,$nome,$preco,$descricao,$foto){
 <?php
     } else {
 ?>
-<script>alert('Erro! Tente Novamente mais tarde!');
+<script>alert('Erro! Tente Novamente!');
     window.location.href = 'cadastro_destinos.php';
 </script>
 <?php

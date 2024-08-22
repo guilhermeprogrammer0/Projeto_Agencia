@@ -29,16 +29,16 @@
     <section class="texto-login">
         <h1>Entrar</h1>
     </section>
-    <section class="formulario-login ">
+    <section class="formulario-login pagina-login-adm ">
     <form action="acoes.php" method="POST">
   <div class="mb-3 form-login">
     <label for="usuario" class="form-label">Usuário</label>
-    <input type="email" class="form-control campos-login" id="usuario" name="usuario" required>
+    <input type="email" class="form-control campos-login campos-login-adm" id="usuario" name="usuario" required>
     <div id="usuario" class="form-text">Somente administradores possui um usuário</div>
   </div>
   <div class="mb-3 form-login">
     <label for="senha" class="form-label">Senha</label>
-    <input type="password" class="form-control campos-login" id="senha" name="senha" required>
+    <input type="password" class="form-control campos-login campos-login-adm" id="senha" name="senha" required>
     <span id="mostrar">Mostrar Senha</span>
   </div>
 

@@ -27,11 +27,11 @@
 <table class="table table-striped">
   <thead class="thead-light">
     <tr>
-      <th scope="col">ID</th>
       <th scope="col">Nome</th>
       <th scope="col">Preço</th>
       <th scope="col">Descrição</th>
-      <th scope="col" colspan="2">Ações</th>
+      <th scope="col">Edição</th>
+      <th scope="col">Exclusão</th>
     </tr>
   </thead>
   <tbody>
@@ -41,7 +41,6 @@
     $sql_select = $conexao->query($sql);
     while($linha = $sql_select->fetch_array()){?>
     <tr>
-    <td> <?php echo $linha['id_destino'];?></td>
     <td> <?php echo $linha['nome'];?></td>
     <td> <?php echo $linha['preco'];?></td>
     <td> <?php echo $linha['descricao'];?></td>

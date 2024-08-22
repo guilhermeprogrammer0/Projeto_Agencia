@@ -110,23 +110,11 @@ footer h3{
 	width:90%;
 }
 .texto-slides{
-	display:flex;
-	align-items:center;
-	justify-content:center;
 	width:100%;
 }
 .texto-slides h2{
-    font-weight: bold;
+    animation:none;
 }
-	.carousel{
-	width:100%;
-	display:block;
-	margin:auto;
-	margin-top:30px
-	
-}
-
-  
 }
 @media screen and (max-width:600px){
     .formulario{
@@ -179,6 +167,9 @@ footer h3{
         flex-direction: column;
         width:95%;
     }
+    .pagina-login-adm{
+        width:100%;
+    }
     .pagina-login .txt-login-usuario h1{
         font-size: 2.8em;
     }
@@ -228,7 +219,13 @@ footer h3{
 
     .cards{
         margin-top:25px;
+        width:80%;
     }
+    .cardConfirmacao{
+        padding:0.9em;
+        width:100%;
+    }
+    
     .alert-primary{
         margin-top:150px;
         width:80%;
