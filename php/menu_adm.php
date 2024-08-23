@@ -59,10 +59,10 @@
     </table>
     </main>
     <h3 id="txt-qtd">Quantidade de Reservas: <strong><?php echo $qtd_cadastrados; ?> </strong></h3>
-    <div class="mb-3 botoes-login">
-    <a href="logout_adm.php"><button  class="btn btn-danger btn-danger-menu">Sair </button> </a>
-    <a href="cadastro_destinos.php"><button  class="btn btn-primary btn-danger-menu">Cadastrar Destinos </button> </a>
-    <a href="lista_destinos.php"><button  class="btn btn-warning btn-danger-menu">Lista de Destinos</button> </a>
+    <div class="botoesAdm">
+    <a href="logout_adm.php"><button  class="btn btn-danger btnAdm">Sair </button> </a>
+    <a href="cadastro_destinos.php"><button  class="btn btn-primary btnAdm ">Cadastrar Destinos </button> </a>
+    <a href="lista_destinos.php"><button  class="btn btn-warning btnAdm">Lista de Destinos</button> </a>
 </div>
 
 

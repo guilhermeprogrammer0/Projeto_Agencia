@@ -16,7 +16,7 @@ error_reporting(0);
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
     <link rel="shortcut icon" href="../Imagens/logo-novo.png" type="image/x-icon">
-    <title>Cadastro de  Destinos</title>
+    <title>Cadastro de Destinos</title>
 </head>
 
 <body>
@@ -24,7 +24,7 @@ error_reporting(0);
 <div class="texto-reserva">
         <h2 id="txt">Inserir Destinos</h2>
 </div>
-    <main class="formulario cadastroReservas">
+    <main class="formulario cadastroDestinos">
         <form action="acoes.php"  method="post" enctype="multipart/form-data">
         <section class="texto-form">
         <h2>Destinos</h2>

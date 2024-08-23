@@ -40,7 +40,7 @@
   </div>
 
   <div class="mb-3 botoes-login">
-  <input type="reset" class="btn btn-danger" value="Limpar Campos">
+  <input type="reset" class="btn btn-danger" value="Limpar">
     <input type="submit" name="logar_adm" class="btn btn-primary" value="Entrar">
 </div>
 </form>

@@ -51,7 +51,7 @@
   </tbody>
     </table>
     </main>
-    <div class="mb-3 botoes-login">
+    <div class="mb-3 btnVoltar">
     <a href="menu_adm.php"><button  class="btn btn-danger btn-danger-menu">Voltar</button> </a>
 </div>
 

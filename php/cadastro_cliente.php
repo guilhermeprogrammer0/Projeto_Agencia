@@ -14,7 +14,7 @@ require_once "functions.php";
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
     <link rel="shortcut icon" href="../Imagens/logo-novo.png" type="image/x-icon">
-    <title>Reservas</title>
+    <title>Cadastro de Clientes</title>
 </head>
 
 <body>

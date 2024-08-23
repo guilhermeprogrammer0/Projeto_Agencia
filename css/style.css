@@ -293,7 +293,7 @@ body.dark header{
     width:70%;
     margin:auto;
     margin-top:15px;
-    padding:50px;
+    padding:30px;
     text-align:center;
 }
 .btn{
@@ -479,8 +479,17 @@ body.dark header{
     justify-content: center;
     align-items: center;
 }
-.btn-danger-menu{
-    margin-top:20px;
+.botoesAdm{
+    width:50%;
+    display:flex;
+    margin:auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding:0.8em;
+}
+.btnAdm{
+    width:auto;
+    padding:0.7em;
 }
 #mostrar{
     padding:5px;
@@ -531,11 +540,22 @@ body.dark header{
 .cadastroReservas{
     width:35%;
     background-color: white;
-
+}
+.cadastroDestinos{
+    width:35%;
+    background-color: white;
+    height:auto;
 }
 .table-cadastrados{
     overflow-y: auto;
     height:450px;
+}
+.btnVoltar{
+    display:flex;
+    justify-content: center;
+    width:30%;
+    margin:auto;
+    margin-top:25px;
 }
 .avisoCep{
 	display:none;
