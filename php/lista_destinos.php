@@ -44,8 +44,8 @@
     <td> <?php echo $linha['nome'];?></td>
     <td> <?php echo $linha['preco'];?></td>
     <td> <?php echo $linha['descricao'];?></td>
-    <td> <button class="btn btn-warning" onclick="Editar(<?php echo $linha['id_destino'];?>)"> Editar </button></td>
-    <td> <button class="btn btn-danger" onclick="Excluir(<?php echo $linha['id_destino'];?>)"> Excluir </button></td>
+    <td> <button class="btn btn-warning btnAcoes" onclick="Editar(<?php echo $linha['id_destino'];?>)"> Editar </button></td>
+    <td> <button class="btn btn-danger btnAcoes" onclick="Excluir(<?php echo $linha['id_destino'];?>)"> Excluir </button></td>
     </tr>
     <?php } ?>
   </tbody>

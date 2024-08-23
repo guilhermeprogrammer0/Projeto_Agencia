@@ -29,25 +29,25 @@
     
 }
 .footer{
-    flex-wrap: wrap;
-    text-align: center;
+    flex-direction: column;
+    gap:0.8em;
 }
 .redes{
-    width:50%;
+    width:100%;
     align-items: center;
 
 }
 .icones{
-    width:80%;
+    width:100%;
+
 }
 .maps{
-    width:70%;
-    margin-top:15px;
+    width:100%;
+
 }
 .contato{
-    width:50%;
+    width:100%;
     align-items: center;
-
 }
 footer h3{
     width:100%;
@@ -75,8 +75,13 @@ footer h3{
         font-size: 1.1em;
     }
     .table-cadastrados{
-        height:300px;
-        overflow-y: auto;
+        height:550px;
+    }
+    .table-striped{
+        width:100%;
+    }
+    .btnAcoes{
+        width:auto;
     }
     .thead-light tr th{
         font-size: 0.9em;

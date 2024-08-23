@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #F1F3F5;
+    background-color: #F4F4F6;
 }
 header{
     width:100%;
@@ -194,12 +194,17 @@ body.dark header{
     flex-wrap: wrap;
     gap:25px;
 }
+.link-underline{
+    color:#1377b6;
+}
 .footer{
+    position: absolute;
     display: flex;
-    justify-content: space-around;
+    margin-top:50px;
+    justify-content: space-between;
     width:100%;
-    margin-top:35px;
-    padding:1em;
+    padding:2em;
+    background-color: #E8E8E8;
 }
 .footer h3{
     font-family: 'Montserrat';
@@ -494,7 +499,7 @@ body.dark header{
 #mostrar{
     padding:5px;
     cursor: pointer;
-    color:#1c82a2;;
+    color:#1377b6;
 }
 .reserva-realizada{
     margin-top:200px;
