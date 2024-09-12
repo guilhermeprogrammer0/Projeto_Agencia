@@ -10,6 +10,11 @@ if($_POST['logar_usuario']){
 if($_POST['editar_perfil']){
     editar_perfil($conexao,$_POST['id'],$_POST['nome'],$_POST['cpf'],$_POST['sexo'],$_POST['data_nascimento'],$_POST['telefone'],$_POST['email'],$_POST['senha'],$_POST['cidade'],$_POST['cep'],$_POST['estado'],$_POST['logradouro'],$_POST['bairro'],$_POST['numero']);
 }
+if($_REQUEST['id_cliente_excluir']){
+    excluir_perfil($conexao,$_REQUEST['id_cliente_excluir']);
+    unset($_SESSION['id_usuario']);
+    unset($_SESSION['nome_usuario']);
+}
 if($_POST['logar_adm']){
     login_adm($conexao,$_POST['usuario'],$_POST['senha']);
 }

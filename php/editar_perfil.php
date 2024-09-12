@@ -98,7 +98,7 @@ error_reporting(0);
     <label for="senha" class="form-label">Senha</label>
   <input type="password" class="form-control" id="senha" name="senha"  required>
   <span id="passwordHelpInline" class="form-text">
-  Redigite a senha ou troque-a
+  Redigite a senha ou troque
     </span>
     </div>
     </div>

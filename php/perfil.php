@@ -59,21 +59,24 @@
   <h3 class="card-title">Cidade</h3>
   <p><?php echo $linha['cidade'];?></p>
     <div class="botoes">  
-            <a href="editar_perfil.php" class="btn btn-warning"> Editar Dados </button> </a>
+    <a href="escolhaReservas.php" class="btn btn-danger"> Voltar </button> </a>
+    <a href="editar_perfil.php" class="btn btn-warning"> Editar Dados </button> </a>
+    <button class="btn btn-danger" onclick="excluir_conta(<?php echo $linha['id'];?>)"> Excluir Conta</button>
+
     </div>
 </section>
     <section class="texto-perfil">
-    <p>Aqui no Viajantes sem Fronteiras, a sua segurança e privacidade são nossa prioridade máxima. Estamos comprometidos em proteger suas informações com o mais alto nível de segurança.</p>
-🔹 <p><strong>Segurança de Dados:</strong> Seus dados são criptografados e armazenados de forma segura. Apenas você e as pessoas autorizadas têm acesso às suas informações pessoais.</p>
-🔹 <p><strong>Privacidade em Primeiro Lugar: </strong> Nunca compartilhamos suas informações com terceiros sem o seu consentimento explícito. Seus dados são usados exclusivamente para oferecer a você a melhor experiência possível.</p>
-🔹 <p><strong>Suporte Sempre ao Seu Lado: </strong> Nossa equipe de suporte está aqui para ajudar com qualquer dúvida ou preocupação que você possa ter. Entre em contato conosco e teremos prazer em assisti-lo.</p>
+    <p>🔹 Aqui no <strong>Viajantes sem Fronteiras</strong>, a sua segurança e privacidade são nossa prioridade máxima. Estamos comprometidos em proteger suas informações com o mais alto nível de segurança.</p>
+<p>🔹 <strong>Segurança de Dados:</strong> Seus dados são criptografados e armazenados de forma segura. Apenas você e as pessoas autorizadas têm acesso às suas informações pessoais.</p>
+ <p>🔹 <strong>Privacidade em Primeiro Lugar: </strong> Nunca compartilhamos suas informações com terceiros sem o seu consentimento explícito. Seus dados são usados exclusivamente para oferecer a você a melhor experiência possível.</p>
+ <p>🔹 <strong>Suporte Sempre ao Seu Lado: </strong> Nossa equipe de suporte está aqui para ajudar com qualquer dúvida ou preocupação que você possa ter. Entre em contato conosco e teremos prazer em assisti-lo.</p>
     </section>
 </section>
 </main>
 
    
 
-    <!--<footer class="footer">
+    <footer class="footer">
         <div class="redes">
             <h3>Redes</h3>
             <div class="icones"><i class="fa-brands fa-whatsapp "></i>16998246382</div>
@@ -91,7 +94,7 @@
                     width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"></iframe></div>
         </div>
-    </footer>-->
+    </footer>
       <script src="../js/api-cep.js"></script>
       <script src="../js/darkMode.js"></script>
       <script src="../js/script.js"></script>

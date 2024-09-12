@@ -131,6 +131,12 @@ footer h3{
     color:white;
     font-size: 4em;
 }
+.perfil{
+    width:100%;
+}
+.cards-perfil{
+    width:90%;
+}
 }
 @media screen and (max-width:600px){
     .formulario{

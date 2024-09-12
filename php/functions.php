@@ -75,22 +75,64 @@ function login_usuario($conexao,$email,$senha){
     $stmt_logar->close();
 }
 function editar_perfil($conexao,$id,$nome,$cpf,$sexo,$data_nascimento,$telefone,$email,$senha,$cidade,$cep,$estado,$logradouro,$bairro,$numero){
-    $sql_editar = "UPDATE clientes set nome = ?,cpf = ?,sexo = ?,data_nascimento = ?,telefone = ?,email = ?,senha = ?,cidade = ?,cep = ?,estado = ?,logradouro = ?,bairro = ?,numero = ? WHERE id = ?";
-    $stmt_editar_perfil = $conexao->prepare($sql_editar);
-    $stmt_editar_perfil->bind_param("sssssssssssssi",$nome,$cpf,$sexo,$data_nascimento,$telefone,$email,$senha,$cidade,$cep,$estado,$logradouro,$bairro,$numero,$id);
-    if($stmt_editar_perfil->execute()){
-        ?>
-        <script>alert("Edição realizada com sucesso");
-            window.location.href="perfil.php";
-        </script>
-        <?php
+    $sql_verificar = "SELECT cpf, email from clientes WHERE (cpf = ? OR email = ?) AND id != ?";
+    $stmt_verificar = $conexao->prepare($sql_verificar);
+    $stmt_verificar->bind_param("ssi",$cpf,$email,$id);
+    $stmt_verificar->execute();
+    $resposta_verificacao = $stmt_verificar->get_result();
+    $linha = $resposta_verificacao->fetch_array();
+    if($resposta_verificacao->num_rows==0)
+    {
+        $sql_editar = "UPDATE clientes set nome = ?,cpf = ?,sexo = ?,data_nascimento = ?,telefone = ?,email = ?,senha = ?,cidade = ?,cep = ?,estado = ?,logradouro = ?,bairro = ?,numero = ? WHERE id = ?";
+        $stmt_editar_perfil = $conexao->prepare($sql_editar);
+        $stmt_editar_perfil->bind_param("sssssssssssssi",$nome,$cpf,$sexo,$data_nascimento,$telefone,$email,$senha,$cidade,$cep,$estado,$logradouro,$bairro,$numero,$id);
+        if($stmt_editar_perfil->execute()){
+            ?>
+            <script>alert("Edição realizada com sucesso");
+                window.location.href="perfil.php";
+            </script>
+            <?php
+        }
+        else{
+            ?>
+            <script>alert("Erro ao editar! Tente novamente.");
+            </script>
+            <?php
+        }
     }
     else{
         ?>
-        <script>alert("Erro ao editar! Tente novamente.");
-        </script>
-        <?php
+        <script> alert('E-mail e/ou cpf indisponíveis indisponível para uso!'); 
+        window.location.href = 'editar_perfil.php';
+    </script>
+    <?php
+}
     }
+function excluir_perfil($conexao,$id){
+    $sql_desassociar = "UPDATE reservas set id_cliente = NULL WHERE id_cliente = ?";
+    $stmt_desassociar = $conexao->prepare($sql_desassociar);
+    $stmt_desassociar->bind_param("i",$id);
+    if($stmt_desassociar->execute()){
+        $sql_excluir_perfil = "DELETE from clientes WHERE id = ?";
+        $stmt_excluir_perfil = $conexao->prepare($sql_excluir_perfil);
+        $stmt_excluir_perfil->bind_param("i",$id);
+        if($stmt_excluir_perfil->execute()){
+            ?>
+            <script>alert("Conta excluida com sucesso!")
+                window.location.href = "login_usuario.php";
+            </script>
+            <?php
+        }
+        else{
+            ?>
+            <script>alert("Erro ao excluir sua conta!")
+            </script>
+            <?php
+        }
+        $stmt_excluir_perfil->close();
+    }
+    $stmt_desassociar->close();
+
 }
 //ADMINISTRATIVO
 function login_adm($conexao,$usuario,$senha){
