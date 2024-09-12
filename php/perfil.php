@@ -1,6 +1,7 @@
 <?php
     require_once "functions.php";
     require_once "conexao.php";
+    require_once "protecao.php";
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +60,6 @@
   <p><?php echo $linha['cidade'];?></p>
     <div class="botoes">  
             <a href="editar_perfil.php" class="btn btn-warning"> Editar Dados </button> </a>
-            <button class="btn btn-danger"  onclick="exclusaoPerfil()"> Excluir Conta</button>
     </div>
 </section>
     <section class="texto-perfil">
@@ -92,7 +92,6 @@
                     referrerpolicy="no-referrer-when-downgrade"></iframe></div>
         </div>
     </footer>-->
-      
       <script src="../js/api-cep.js"></script>
       <script src="../js/darkMode.js"></script>
       <script src="../js/script.js"></script>

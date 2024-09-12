@@ -92,7 +92,6 @@ function editar_perfil($conexao,$id,$nome,$cpf,$sexo,$data_nascimento,$telefone,
         <?php
     }
 }
-
 //ADMINISTRATIVO
 function login_adm($conexao,$usuario,$senha){
     $sql_logar = "SELECT  * from administrativo WHERE usuario = ? AND senha = ?";
