@@ -7,6 +7,9 @@ if($_POST['cadastrar_cliente']){
 if($_POST['logar_usuario']){
     login_usuario($conexao,$_POST['email'],$_POST['senha']);
 }
+if($_POST['editar_perfil']){
+    editar_perfil($conexao,$_POST['id'],$_POST['nome'],$_POST['cpf'],$_POST['sexo'],$_POST['data_nascimento'],$_POST['telefone'],$_POST['email'],$_POST['senha'],$_POST['cidade'],$_POST['cep'],$_POST['estado'],$_POST['logradouro'],$_POST['bairro'],$_POST['numero']);
+}
 if($_POST['logar_adm']){
     login_adm($conexao,$_POST['usuario'],$_POST['senha']);
 }

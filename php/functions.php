@@ -74,6 +74,25 @@ function login_usuario($conexao,$email,$senha){
     }
     $stmt_logar->close();
 }
+function editar_perfil($conexao,$id,$nome,$cpf,$sexo,$data_nascimento,$telefone,$email,$senha,$cidade,$cep,$estado,$logradouro,$bairro,$numero){
+    $sql_editar = "UPDATE clientes set nome = ?,cpf = ?,sexo = ?,data_nascimento = ?,telefone = ?,email = ?,senha = ?,cidade = ?,cep = ?,estado = ?,logradouro = ?,bairro = ?,numero = ? WHERE id = ?";
+    $stmt_editar_perfil = $conexao->prepare($sql_editar);
+    $stmt_editar_perfil->bind_param("sssssssssssssi",$nome,$cpf,$sexo,$data_nascimento,$telefone,$email,$senha,$cidade,$cep,$estado,$logradouro,$bairro,$numero,$id);
+    if($stmt_editar_perfil->execute()){
+        ?>
+        <script>alert("Edição realizada com sucesso");
+            window.location.href="perfil.php";
+        </script>
+        <?php
+    }
+    else{
+        ?>
+        <script>alert("Erro ao editar! Tente novamente.");
+        </script>
+        <?php
+    }
+}
+
 //ADMINISTRATIVO
 function login_adm($conexao,$usuario,$senha){
     $sql_logar = "SELECT  * from administrativo WHERE usuario = ? AND senha = ?";
