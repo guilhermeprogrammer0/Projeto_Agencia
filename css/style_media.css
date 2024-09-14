@@ -137,6 +137,9 @@ footer h3{
 .cards-perfil{
     width:90%;
 }
+.texto-reservaRealizada{
+    width:80%;
+}
 }
 @media screen and (max-width:600px){
     .formulario{
@@ -254,8 +257,9 @@ footer h3{
         margin-top:150px;
         width:80%;
     }
-    .btn2{
+    .btn-realizada{
         margin-bottom:20px;
         width:200px;
+
     }
 }

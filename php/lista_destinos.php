@@ -44,15 +44,15 @@
     <td> <?php echo $linha['nome'];?></td>
     <td> <?php echo $linha['preco'];?></td>
     <td> <?php echo $linha['descricao'];?></td>
-    <td> <button class="btn btn-warning btnAcoes" onclick="Editar(<?php echo $linha['id_destino'];?>)"> Editar </button></td>
-    <td> <button class="btn btn-danger btnAcoes" onclick="Excluir(<?php echo $linha['id_destino'];?>)"> Excluir </button></td>
+    <td> <button class="btn btnEditar btnAcoes" onclick="Editar(<?php echo $linha['id_destino'];?>)"> Editar </button></td>
+    <td> <button class="btn btnExcluir btnAcoes" onclick="Excluir(<?php echo $linha['id_destino'];?>)"> Excluir </button></td>
     </tr>
     <?php } ?>
   </tbody>
     </table>
     </main>
     <div class="mb-3 btnVoltar">
-    <a href="menu_adm.php"><button  class="btn btn-danger btn-danger-menu">Voltar</button> </a>
+    <a href="menu_adm.php"><button  class="btn">Voltar</button> </a>
 </div>
 
 

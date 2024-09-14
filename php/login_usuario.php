@@ -48,12 +48,12 @@
   </div>
 
   <div class="mb-3 botoes-login">
-  <input type="reset" class="btn btn-danger" value="Limpar">
-    <input type="submit" name="logar_usuario" class="btn btn-primary" value="Entrar">
+  <input type="reset" class="btn btnLimpar" value="Limpar">
+    <input type="submit" name="logar_usuario" class="btn btnSucesso" value="Entrar">
 </div>
 
-<div class="mb-3 botoes-login">
-<a class="link-offset-2 link-underline link-underline-opacity-0" href="cadastro_cliente.php">Cadastre - se </a>
+<div class="mb-3 texto-cadastre-se">
+<p> Ainda não tem conta? </p><a class="link-offset-2 link-underline link-underline-opacity-0" href="cadastro_cliente.php">Cadastre - se </a>
 </div>
 </form>
 

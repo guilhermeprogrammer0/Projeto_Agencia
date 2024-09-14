@@ -53,19 +53,18 @@ $img = "../Upload/" . $linha['foto'];
     <form action="comprarReserva.php" method="POST">
     <div class="card cardConfirmacao">
   <div class="card-body cardConfirmacao-body">
-    <h1 class="card-title">Olá, <?php echo $_SESSION['nome_usuario'] . "!";?></h1>
-    <h5 class="card-title">Destino:</h5>
-    <h4 class="card-text"><?php echo $linha['nome'];?></h4>
+    <h2 class="card-title">Olá, <?php echo $_SESSION['nome_usuario'] . "!";?></h2>
+    <h5 class="card-title">Destino: <?php echo $linha['nome'];?></h5>
     <div class="mb-3">
         <label for="qtd_passa" class="form-label">Quantidade </label>           
-    <input type="text" class="form-control"  id="qtd_passa"  onchange="mudarValor(<?php echo $linha['preco'];?>)" name="qtd_passa" required>
+    <input type="text" class="form-control "  id="qtd_passa"  onchange="mudarValor(<?php echo $linha['preco'];?>)" name="qtd_passa" required>
     </div>
-    <h5 class="card-text" id="valor_tela"><?php echo "R$" . number_format($linha['preco'],2,',','.');?></h5>
-    <h5 class="card-text"><img src="<?php echo $img;?>" class="card-img-top" alt="..."></h5>
+    <h5 class="card-text" id="valor_tela">Valor total: <?php echo "R$" . number_format($linha['preco'],2,',','.');?></h5>
+    <p class="card-text"><img src="<?php echo $img;?>" class="card-img-top" alt="..."></p>
     </div>
     <div class="botoes">  
-    <a href="escolhaReservas.php"><input type="button" class="btn btn-danger" value="Voltar"></a>
-    <input type="submit" name="confirmar_reserva" class="btn btn-primary" value="Confirmar"></div>
+    <a href="escolhaReservas.php"><input type="button" class="btn" value="Voltar"></a>
+    <input type="submit" name="confirmar_reserva" class="btn btnSucesso" value="Confirmar"></div>
     </div>
     </form>
     </main>

@@ -64,7 +64,7 @@ error_reporting(0);
     <h5 class="card-title"><?php echo $linha['nome'];?></h5>
     <p class="card-title"> Valor por passagem: R$ <?php echo number_format($linha['preco'],2,',','.');?></p>
     <p class="card-title">Descrição: <?php echo $linha['descricao'];?></p>
-    <button class="btn btn-primary btnReservar" id="reservar" onclick="getId(<?php echo $linha['id_destino'];?>)">Reservar </button> 
+    <button class="btn btnReservar" id="reservar" onclick="getId(<?php echo $linha['id_destino'];?>)">Reservar </button> 
   </div>
 </div>
 <?php }?>

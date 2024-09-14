@@ -46,8 +46,8 @@ error_reporting(0);
     </div>
 
 <div class="container">
-<a href="menu_adm.php"><input type="button" class="btn btn-danger " value="Voltar"> </a>
-<input type="submit" class="btn btn-primary" value="Enviar" name="cadastrar_destinos">
+<a href="menu_adm.php"><input type="button" class="btn " value="Voltar"> </a>
+<input type="submit" class="btn btnSucesso" value="Enviar" name="cadastrar_destinos">
 </div>
 </form></main>
       <script src="../js/script.js"></script>

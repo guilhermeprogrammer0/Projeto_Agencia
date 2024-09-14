@@ -31,17 +31,25 @@ require_once "protecao.php";
             <li><a href="../pacotes.html">Pacotes</a></li>
             <li class="active"><a href="reservas.php">Reservas</a></li>
             <li><a href="../sobre.html">Sobre</a></li>
-            <li><a href="perfil.php">Perfil</li>
+            <li><a href="perfil.php">Perfil</a></li>
             <div class="divMudartema"><i class="btnMudarTema fa-solid  fa-2x" id="btnMudarTema"> </i></div>
         </ul>
     </nav>
     <section class="pagina-reserva-realizada">
     <div class="alert alert-primary cards mt-5" role="alert">
             <h3> Reserva realizada com sucesso!<h3>
-            <a href="logout.php"><button type="button" class="btn btn-danger btn2 ">Sair</button></a>
-            <a href="escolhaReservas.php"><button type="button" class="btn btn-primary btn2">Fazer mais reservas</button></a>
+            <a href="logout.php"><button type="button" class="btn btnSair btn-realizada btn2">Sair</button></a>
+            <a href="escolhaReservas.php"><button type="button" class="btn btnSucesso btn-realizada">Fazer mais reservas</button></a>
             <p id="explicacao">Será enviado as formas de pagamento no e-mail cadastrado.</p>
             </div> </section>
+            <section class="texto-reservaRealizada">
+                <h4 class="text-reservaRealizada">Obrigado por escolher o Viajantes sem Fronteiras!✈️🏝️</h4>
+            <p>Enquanto você se prepara para a sua aventura, por que não aproveitar a oportunidade para explorar ainda mais? Temos ofertas especiais e serviços adicionais que podem tornar sua viagem ainda mais incrível:</p>
+    <p>Atividades Exclusivas: Desde passeios emocionantes até experiências culturais únicas, descubra as melhores atividades no seu destino.</p>
+    <p>Upgrades de Hospedagem: Melhore sua estadia com nossas opções de quartos premium e serviços de luxo.</p>
+    <p>Transporte Adicional: Garanta a sua mobilidade com descontos especiais em aluguel de veículos e transferências.</p>
+    <p>Seguros de Viagem: Proteja sua viagem com nossas opções de seguro, para que você possa relaxar sem preocupações.</p>
+            </section>
     <footer class="footer reserva-realizada">
         <div class="redes">
             <h3>Redes</h3>

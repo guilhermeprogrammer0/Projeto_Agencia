@@ -59,9 +59,9 @@
   <h3 class="card-title">Cidade</h3>
   <p><?php echo $linha['cidade'];?></p>
     <div class="botoes">  
-    <a href="escolhaReservas.php" class="btn btn-danger"> Voltar </button> </a>
-    <a href="editar_perfil.php" class="btn btn-warning"> Editar Dados </button> </a>
-    <button class="btn btn-danger" onclick="excluir_conta(<?php echo $linha['id'];?>)"> Excluir Conta</button>
+    <a href="escolhaReservas.php" class="btn"> Voltar </button> </a>
+    <a href="editar_perfil.php" class="btn btnEditar"> Editar Dados </button> </a>
+    <button class="btn btnExcluir" onclick="excluir_conta(<?php echo $linha['id'];?>)"> Excluir Conta</button>
 
     </div>
 </section>

@@ -60,9 +60,9 @@
     </main>
     <h3 id="txt-qtd">Quantidade de Reservas: <strong><?php echo $qtd_cadastrados; ?> </strong></h3>
     <div class="botoesAdm">
-    <a href="logout_adm.php"><button  class="btn btn-danger btnAdm">Sair </button> </a>
-    <a href="cadastro_destinos.php"><button  class="btn btn-primary btnAdm ">Cadastrar Destinos </button> </a>
-    <a href="lista_destinos.php"><button  class="btn btn-warning btnAdm">Lista de Destinos</button> </a>
+    <a href="logout_adm.php"><button  class="btn btnSairAdm btnAdm">Sair </button> </a>
+    <a href="cadastro_destinos.php"><button  class="btn btnSucesso btnAdm ">Cadastrar Destinos </button> </a>
+    <a href="lista_destinos.php"><button  class="btn btnEditar btnAdm">Lista de Destinos</button> </a>
 </div>
 
 
