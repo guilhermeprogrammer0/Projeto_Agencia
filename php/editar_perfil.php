@@ -167,8 +167,8 @@ error_reporting(0);
     </div>
 
 <div class="container">
-<a href="perfil.php"><input type="button" class="btn btn-danger " value="Voltar"> </a>
-<input type="submit" class="btn btn-primary" value="Enviar" name="editar_perfil">
+<a href="perfil.php"><button type="button" class="btn">Voltar </button> </a>
+<input type="submit" class="btn btnSucesso" value="Enviar" name="editar_perfil">
 </div>
 </form></main>
         <script src="../js/api-cep.js"></script>

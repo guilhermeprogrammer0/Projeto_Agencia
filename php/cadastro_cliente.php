@@ -160,8 +160,8 @@ require_once "functions.php";
     </div>
 
 <div class="container">
-<a href="login_usuario.php"><input type="button" class="btn btn-danger " value="Cancelar"> </a>
-    <input type="submit" class="btn btn-primary" value="Enviar" name="cadastrar_cliente">
+<a href="login_usuario.php"><button type="button" class="btn"> Voltar </button> </a>
+    <input type="submit" class="btn btnSucesso" value="Enviar" name="cadastrar_cliente">
 </div>
 </form></main>
 
