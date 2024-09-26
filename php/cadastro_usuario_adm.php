@@ -1,10 +1,5 @@
-<?php
- require_once "functions.php";
-  error_reporting(0);
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,23 +10,29 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
     <link rel="shortcut icon" href="../Imagens/logo-novo.png" type="image/x-icon">
-    <title>Entrar</title>
+    <title>Cadastrar usuário administrador</title>
 </head>
 
 <body>
    <header>
     <h1>Menu Administrativo</h1>
     </header>
-    <main class="formulario tabela">
+    <main class="formulario tabela mensagem-adm ">
     <section class="texto-login">
-        <h1>Entrar</h1>
+        <h1>Cadastrar</h1>
     </section>
-    <section class="formulario-login pagina-login-adm ">
+    <section class="formulario-login pagina-login-adm">
+    <?php
+    require_once "conexao.php";
+    $sql_contar = "SELECT usuario from administrativo";
+    $sql = $conexao->query($sql_contar);
+    if($sql->num_rows<=4){
+        ?>
     <form action="acoes.php" method="POST">
   <div class="mb-3 form-login">
     <label for="usuario" class="form-label">Usuário</label>
-    <input type="email" class="form-control campos-login campos-login-adm" id="usuario" name="usuario" required>
-    <div id="usuario" class="form-text">Somente administradores possui um usuário</div>
+    <input type="text" class="form-control campos-login campos-login-adm" id="usuario" name="usuario" required>
+    <div id="usuario" class="form-text">Pode ser e-mail ou cpf</div>
   </div>
   <div class="mb-3 form-login">
     <label for="senha" class="form-label">Senha</label>
@@ -41,12 +42,28 @@
 
   <div class="mb-3 botoes-login">
   <input type="reset" class="btn btnLimpar" value="Limpar">
-    <input type="submit" name="logar_adm" class="btn btnSucesso" value="Entrar">
+    <input type="submit" name="cadastrar_usuario_adm" class="btn btnSucesso" value="Cadastrar">
 </div>
 <div class="mb-3 form-login">
-</p><a class="link-offset-2 link-underline link-underline-opacity-0" href="cadastro_usuario_adm.php">Criar usuário </a>
+</p><a class="link-offset-2 link-underline link-underline-opacity-0" href="login_menuadm.php">Voltar </a>
 </div>
 </form>
+<?php
+    }
+    else{
+       ?>
+        <script>
+            let mensagem_adm = document.querySelector(".mensagem-adm");
+            mensagem_adm.classList.add("avisoQtdCadastros");
+        </script>
+       <h3 id="mensagem-adm">A base de dados atingiu o limite máximo de cadastros permitidos, que é de 4. </h3>
+       <div class="mb-3 form-login">
+       </p><a class="link-offset-2 link-underline link-underline-opacity-0" href="login_menuadm.php">Voltar </a>
+    </div>
+       <?php
+    }
+
+?>
 
     </section>
 </main>

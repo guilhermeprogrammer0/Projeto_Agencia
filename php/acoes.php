@@ -15,6 +15,9 @@ if($_REQUEST['id_cliente_excluir']){
     unset($_SESSION['id_usuario']);
     unset($_SESSION['nome_usuario']);
 }
+if($_POST['cadastrar_usuario_adm']){
+    cadastrar_administrador($conexao,$_POST['usuario'],$_POST['senha']);
+}
 if($_POST['logar_adm']){
     login_adm($conexao,$_POST['usuario'],$_POST['senha']);
 }

@@ -474,7 +474,12 @@ body.dark header{
     width:60%;
     padding:25px;
 }
-
+#mensagem-adm{
+    text-align: center;
+}
+.avisoQtdCadastros{
+    background-color: #F25050;
+}
 .formulario-login{
     display:block;
     margin:auto;
