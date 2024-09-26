@@ -135,7 +135,7 @@ function excluir_perfil($conexao,$id){
 
 }
 //ADMINISTRATIVO
-function cadastrar_administrador($conexao,$usuario,$senha){
+function cadastrar_administrador($conexao,$nome,$usuario,$senha){
     $sql_verificar = "SELECT usuario from administrativo WHERE usuario = ?";
     $stmt_verificar = $conexao->prepare($sql_verificar);
     $stmt_verificar->bind_param("s",$usuario);
@@ -147,9 +147,9 @@ function cadastrar_administrador($conexao,$usuario,$senha){
         <?php
     }
     else{
-        $sql_cadastrar_adm = "INSERT INTO administrativo values (default,?,?)";
+        $sql_cadastrar_adm = "INSERT INTO administrativo values (default,?,?,?)";
         $stmt_cadastrar_adm = $conexao->prepare($sql_cadastrar_adm);
-        $stmt_cadastrar_adm->bind_param("ss",$usuario,$senha);
+        $stmt_cadastrar_adm->bind_param("sss",$nome,$usuario,$senha);
         if($stmt_cadastrar_adm->execute()){
             ?>
             <script>alert("Usuário administrador criado com sucesso!");
@@ -176,6 +176,7 @@ function login_adm($conexao,$usuario,$senha){
     if($num_rows>0){
         $row = $resultado->fetch_array();
             $_SESSION['id_adm'] = $row['id_adm'];
+            $_SESSION['nome_adm'] = $row['nome'];
         header("location:menu_adm.php");
     }
     else{

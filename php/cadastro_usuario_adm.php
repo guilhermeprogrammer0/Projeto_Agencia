@@ -29,6 +29,10 @@
     if($sql->num_rows<=4){
         ?>
     <form action="acoes.php" method="POST">
+    <div class="mb-3 form-login">
+    <label for="nome" class="form-label">Nome</label>
+    <input type="text" class="form-control campos-login campos-login-adm" id="nome" name="nome" required>
+  </div>
   <div class="mb-3 form-login">
     <label for="usuario" class="form-label">Usuário</label>
     <input type="text" class="form-control campos-login campos-login-adm" id="usuario" name="usuario" required>

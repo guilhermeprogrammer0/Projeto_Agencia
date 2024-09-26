@@ -477,6 +477,10 @@ body.dark header{
 #mensagem-adm{
     text-align: center;
 }
+#boa-vinda-adm{
+    text-align: center;
+    font-size: 1.5em;
+}
 .avisoQtdCadastros{
     background-color: #F25050;
 }
