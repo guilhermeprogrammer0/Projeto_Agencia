@@ -24,9 +24,10 @@
     <section class="formulario-login pagina-login-adm form-adm">
     <?php
     require_once "conexao.php";
-    $sql_contar = "SELECT usuario from administrativo";
+    $sql_contar = "SELECT COUNT(*) AS total from administrativo";
     $sql = $conexao->query($sql_contar);
-    if($sql->num_rows<=3){
+    $resultado = $sql->fetch_array();
+    if($resultado['total']<4){
         ?>
     <form action="acoes.php" method="POST">
     <div class="mb-3 form-login">
