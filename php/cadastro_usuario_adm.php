@@ -26,7 +26,7 @@
     require_once "conexao.php";
     $sql_contar = "SELECT usuario from administrativo";
     $sql = $conexao->query($sql_contar);
-    if($sql->num_rows<=4){
+    if($sql->num_rows<=3){
         ?>
     <form action="acoes.php" method="POST">
     <div class="mb-3 form-login">
