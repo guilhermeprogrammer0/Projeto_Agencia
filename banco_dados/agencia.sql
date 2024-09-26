@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12/09/2024 às 15:32
+-- Tempo de geração: 26/09/2024 às 17:05
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -31,16 +31,10 @@ USE `agencia`;
 
 CREATE TABLE `administrativo` (
   `id_adm` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL,
   `usuario` varchar(100) DEFAULT NULL,
   `senha` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Despejando dados para a tabela `administrativo`
---
-
-INSERT INTO `administrativo` (`id_adm`, `usuario`, `senha`) VALUES
-(1, 'agencia@adm.com', 'agenciaadm');
 
 -- --------------------------------------------------------
 
@@ -161,7 +155,7 @@ ALTER TABLE `reservas`
 -- AUTO_INCREMENT de tabela `administrativo`
 --
 ALTER TABLE `administrativo`
-  MODIFY `id_adm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_adm` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `clientes`
