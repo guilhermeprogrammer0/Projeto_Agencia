@@ -349,8 +349,8 @@ body.dark header{
     color:white;
 }
 .btnEditar, .btnEditar:hover{
-    background-color:#1c82a2;
-    color:white;
+    background-color:#FFA00A;
+    color:black;
 }
 .btnExcluir, .btnExcluir:hover{
     background-color:#BF0426;

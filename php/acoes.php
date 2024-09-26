@@ -21,12 +21,6 @@ if($_POST['cadastrar_usuario_adm']){
 if($_POST['editar_usuario_adm']){
     editar_usuario_adm($conexao,$_POST['nome'],$_POST['usuario'],$_POST['senha'],$_POST['id_adm']);
 }
-if($_SESSION['excluir_conta_adm'] == true){
-    excluir_usuario_adm($conexao,$_SESSION['id_adm']);
-    unset($_SESSION['excluir_conta_adm']);
-    unset($_SESSION['id_adm']);
-}
-
 if($_POST['logar_adm']){
     login_adm($conexao,$_POST['usuario'],$_POST['senha']);
 }

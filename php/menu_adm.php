@@ -75,9 +75,8 @@
   <script>
     function excluir_conta_adm(){
       let confirmar  = confirm("Deseja mesmo excluir sua conta?");
-    if(confirmar == true){
-      <?php $_SESSION['excluir_conta_adm'] = true;?>
-        window.location.href = 'acoes.php';
+    if(confirmar === true){
+        window.location.href = 'excluir_usuario_adm.php';
     }
     }
   </script>
