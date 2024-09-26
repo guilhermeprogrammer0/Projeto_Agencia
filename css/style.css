@@ -310,6 +310,7 @@ body.dark header{
     margin-top:20px;
     padding:25px;
 }
+
 .row{
     background-color: white;
     padding:20px;
@@ -474,6 +475,9 @@ body.dark header{
     width:60%;
     padding:25px;
 }
+#menu-adm{
+    text-align: center;
+}
 #mensagem-adm{
     text-align: center;
 }
@@ -494,6 +498,9 @@ body.dark header{
     padding:10px;
     height:400px;
     padding:35px;
+}
+.form-adm{
+    height:500px;
 }
 .formulario .texto-login h1{
     font-family: 'Bebas neue';

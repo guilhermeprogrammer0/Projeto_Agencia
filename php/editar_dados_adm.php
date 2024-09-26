@@ -1,3 +1,6 @@
+<?php
+require_once "functions.php";
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,65 +13,52 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
     <link rel="shortcut icon" href="../Imagens/logo-novo.png" type="image/x-icon">
-    <title>Cadastrar usuário administrador</title>
+    <title>Editar usuário administrador</title>
 </head>
 
 <body>
    <header>
     <h1>Menu Administrativo</h1>
     </header>
-    <main class="formulario tabela mensagem-adm">
+    <main class="formulario tabela">
     <section class="texto-login">
-        <h1>Cadastrar</h1>
+        <h1>Edição</h1>
     </section>
     <section class="formulario-login pagina-login-adm form-adm">
     <?php
     require_once "conexao.php";
-    $sql_contar = "SELECT usuario from administrativo";
-    $sql = $conexao->query($sql_contar);
-    if($sql->num_rows<=4){
-        ?>
+    $id_adm = $_SESSION['id_adm'];
+    $sql_editar = "SELECT * from administrativo WHERE id_adm = ?";
+    $stmt_editar = $conexao->prepare($sql_editar);
+    $stmt_editar->bind_param("s",$id_adm);
+    $stmt_editar->execute();
+    $linha = $stmt_editar->get_result()->fetch_array();?>
     <form action="acoes.php" method="POST">
     <div class="mb-3 form-login">
+    <input type="hidden" class="form-control campos-login campos-login-adm" id="id_adm" name="id_adm" value="<?php echo $linha['id_adm'];?>">
+  </div>
+    <div class="mb-3 form-login">
     <label for="nome" class="form-label">Nome</label>
-    <input type="text" class="form-control campos-login campos-login-adm" id="nome" name="nome" required>
+    <input type="text" class="form-control campos-login campos-login-adm" id="nome" name="nome" value="<?php echo $linha['nome'];?>">
   </div>
   <div class="mb-3 form-login">
     <label for="usuario" class="form-label">Usuário</label>
-    <input type="text" class="form-control campos-login campos-login-adm" id="usuario" name="usuario" required>
+    <input type="text" class="form-control campos-login campos-login-adm" id="usuario" name="usuario" value="<?php echo $linha['usuario'];?>">
     <div id="usuario" class="form-text">Pode ser e-mail ou cpf</div>
   </div>
   <div class="mb-3 form-login">
     <label for="senha" class="form-label">Senha</label>
     <input type="password" class="form-control campos-login campos-login-adm" id="senha" name="senha" required>
-    <span id="mostrar">Mostrar Senha</span>
+    <span>Insira a senha</span>
   </div>
-
   <div class="mb-3 botoes-login">
   <input type="reset" class="btn btnLimpar" value="Limpar">
-    <input type="submit" name="cadastrar_usuario_adm" class="btn btnSucesso" value="Cadastrar">
+    <input type="submit" name="editar_usuario_adm" class="btn btnSucesso" value="Editar">
 </div>
 <div class="mb-3 form-login">
 </p><a class="link-offset-2 link-underline link-underline-opacity-0" href="login_menuadm.php">Voltar </a>
 </div>
 </form>
-<?php
-    }
-    else{
-       ?>
-        <script>
-            let mensagem_adm = document.querySelector(".mensagem-adm");
-            mensagem_adm.classList.add("avisoQtdCadastros");
-        </script>
-       <h3 id="mensagem-adm">A base de dados atingiu o limite máximo de cadastros permitidos, que é de 4. </h3>
-       <div class="mb-3 form-login">
-       </p><a class="link-offset-2 link-underline link-underline-opacity-0" href="login_menuadm.php">Voltar </a>
-    </div>
-       <?php
-    }
-
-?>
-
     </section>
 </main>
 

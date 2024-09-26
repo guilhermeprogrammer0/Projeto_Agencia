@@ -7,5 +7,4 @@ function excluir_conta(id){
     if(confirmar == true){
         window.location.href = `acoes.php?id_cliente_excluir=${id}`;
     }
-
 }

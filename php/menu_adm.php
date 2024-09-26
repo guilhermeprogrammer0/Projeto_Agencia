@@ -58,13 +58,29 @@
     <?php } ?>
   </tbody>
     </table>
-    </main>
     <h3 id="txt-qtd">Quantidade de Reservas: <strong><?php echo $qtd_cadastrados; ?> </strong></h3>
-    <div class="botoesAdm">
-    <a href="logout_adm.php"><button  class="btn btnSairAdm btnAdm">Sair </button> </a>
+    </main>
+
+    <h4 id="menu-adm">Gerenciamento de destinos</h4>
+    <div class="botoesAdm gerenciamento_destinos">
     <a href="cadastro_destinos.php"><button  class="btn btnSucesso btnAdm ">Cadastrar Destinos </button> </a>
-    <a href="lista_destinos.php"><button  class="btn btnEditar btnAdm">Lista de Destinos</button> </a>
-</div>
+    <a href="lista_destinos.php"><button  class="btn btnSucesso btnAdm">Lista de Destinos</button> </a>
+  </div>
+  <h4 id="menu-adm">Gerenciamento do perfil</h4>
+  <div class="botoesAdm gerenciamento_perfil">
+    <a href="logout_adm.php"><button  class="btn btnSairAdm btnAdm">Sair </button> </a>
+    <a href="editar_dados_adm.php"><button  class="btn btnEditar btnAdm ">Editar dados </button> </a>
+    <button  class="btn btnExcluir btnAdm" onclick="excluir_conta_adm()">Excluir usuário</button>
+  </div>
+  <script>
+    function excluir_conta_adm(){
+      let confirmar  = confirm("Deseja mesmo excluir sua conta?");
+    if(confirmar == true){
+      <?php $_SESSION['excluir_conta_adm'] = true;?>
+        window.location.href = 'acoes.php';
+    }
+    }
+  </script>
 
 
       <script src="../js/script.js"></script>

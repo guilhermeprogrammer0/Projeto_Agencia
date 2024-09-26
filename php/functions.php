@@ -164,7 +164,9 @@ function cadastrar_administrador($conexao,$nome,$usuario,$senha){
             </script>
             <?php
         }
+        $stmt_cadastrar_adm->close();
     }
+    $stmt_verificar->close();
 }
 function login_adm($conexao,$usuario,$senha){
     $sql_logar = "SELECT  * from administrativo WHERE usuario = ? AND senha = ?";
@@ -185,6 +187,35 @@ function login_adm($conexao,$usuario,$senha){
         </script><?php 
     }
     $stmt_logar->close();
+}
+function editar_usuario_adm($conexao,$nome,$usuario,$senha,$id_adm){
+    $sql_editar_adm = "UPDATE administrativo set nome = ?, usuario = ?, senha = ? WHERE id_adm = ?";
+    $stmt_editar_adm = $conexao->prepare($sql_editar_adm);
+    $stmt_editar_adm->bind_param("sssi",$nome,$usuario,$senha,$id_adm);
+    if($stmt_editar_adm->execute()){
+        $_SESSION['nome_adm'] = $nome;
+        ?>
+        <script>alert("Usuário editado com sucesso!");
+            window.location.href = "menu_adm.php";
+        </script>
+        <?php
+    }
+    else{
+        ?>
+        <script>alert("Erro! Tente novamente.");
+            window.location.href = "editar_dados_adm.php";
+        </script>
+        <?php
+    }
+    $stmt_editar_adm->close();
+}
+function excluir_usuario_adm($conexao,$id_adm){
+$sql_excluir_adm = "DELETE FROM administrativo WHERE id_adm = ?";
+$stmt_excluir_adm = $conexao->prepare($sql_excluir_adm);
+$stmt_excluir_adm->bind_param("i",$id_adm);
+$stmt_excluir_adm->execute();
+header("location:login_menuadm.php");
+$stmt_excluir_adm->close();
 }
 function cadastrar_destinos($conexao,$nome,$preco,$descricao,$foto){
      $files = $_FILES['foto'];
