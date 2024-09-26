@@ -56,7 +56,7 @@ require_once "functions.php";
     <input type="submit" name="editar_usuario_adm" class="btn btnSucesso" value="Editar">
 </div>
 <div class="mb-3 form-login">
-</p><a class="link-offset-2 link-underline link-underline-opacity-0" href="login_menuadm.php">Voltar </a>
+</p><a class="link-offset-2 link-underline link-underline-opacity-0" href="menu_adm.php">Voltar </a>
 </div>
 </form>
     </section>
