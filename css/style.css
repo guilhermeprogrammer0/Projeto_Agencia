@@ -627,7 +627,7 @@ body.dark header{
 }
 .table-cadastrados{
     overflow-y: auto;
-    height:450px;
+    height:380px;
 }
 .btnVoltar{
     display:flex;

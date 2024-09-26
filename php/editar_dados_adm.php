@@ -49,7 +49,7 @@ require_once "functions.php";
   <div class="mb-3 form-login">
     <label for="senha" class="form-label">Senha</label>
     <input type="password" class="form-control campos-login campos-login-adm" id="senha" name="senha" required>
-    <span>Insira a senha</span>
+    <span id="mostrar">Mostrar Senha</span>
   </div>
   <div class="mb-3 botoes-login">
   <input type="reset" class="btn btnLimpar" value="Limpar">
