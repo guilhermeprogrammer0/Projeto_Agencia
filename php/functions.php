@@ -82,11 +82,12 @@ function editar_perfil($conexao,$id,$nome,$cpf,$sexo,$data_nascimento,$telefone,
     $resposta_verificacao = $stmt_verificar->get_result();
     $linha = $resposta_verificacao->fetch_array();
     if($resposta_verificacao->num_rows==0)
-    {
+    {     
         $sql_editar = "UPDATE clientes set nome = ?,cpf = ?,sexo = ?,data_nascimento = ?,telefone = ?,email = ?,senha = ?,cidade = ?,cep = ?,estado = ?,logradouro = ?,bairro = ?,numero = ? WHERE id = ?";
         $stmt_editar_perfil = $conexao->prepare($sql_editar);
         $stmt_editar_perfil->bind_param("sssssssssssssi",$nome,$cpf,$sexo,$data_nascimento,$telefone,$email,$senha,$cidade,$cep,$estado,$logradouro,$bairro,$numero,$id);
         if($stmt_editar_perfil->execute()){
+            $_SESSION['nome_usuario'] = $nome;
             ?>
             <script>alert("Edição realizada com sucesso");
                 window.location.href="perfil.php";

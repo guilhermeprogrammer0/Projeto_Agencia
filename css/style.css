@@ -123,6 +123,9 @@ body.dark #menu h5{
 body.dark header{
     background-color: #15202b;
 }
+body.dark .btnVoltarCliente{
+    color:white;
+}
 .divMudartema{
     position: absolute;
     bottom:0;
