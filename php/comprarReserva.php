@@ -60,6 +60,10 @@ $img = "../Upload/" . $linha['foto'];
         <label for="qtd_passa" class="form-label">Quantidade </label>           
     <input type="text" class="form-control "  id="qtd_passa"  onchange="mudarValor(<?php echo $linha['preco'];?>)" name="qtd_passa" required>
     </div>
+    <div class="mb-3">
+        <label for="data" class="form-label">Data</label>           
+    <input type="date" class="form-control "  id="data" name="data_viagem" required>
+    </div>
     <h5 class="card-text" id="valor_tela">Valor total: <?php echo "R$" . number_format($linha['preco'],2,',','.');?></h5>
     <p class="card-text"><img src="<?php echo $img;?>" class="card-img-top" alt="..."></p>
     </div>
@@ -72,7 +76,7 @@ $img = "../Upload/" . $linha['foto'];
     <?php
     if($_POST['confirmar_reserva']){
     $id_comprador = $_SESSION['id_usuario'];
-    cadastro_reservas($conexao,$linha['nome'],$_POST['qtd_passa'],$_POST['qtd_passa']*$linha['preco'],$id_comprador);
+    cadastro_reservas($conexao,$linha['nome'],$_POST['qtd_passa'],$_POST['data_viagem'],$_POST['qtd_passa']*$linha['preco'],$id_comprador);
 }
     ?>
    <footer class="footer">

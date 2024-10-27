@@ -39,26 +39,36 @@
             <div class="divMudartema"><i class="btnMudarTema fa-solid  fa-2x" id="btnMudarTema"> </i></div>
         </ul>
     </nav>
-    <main class="perfil minhasReservas">
+    <main class="perfil">
     <?php 
     $idCliente = $_SESSION['id_usuario'];
     require_once "conexao.php";
-     $sql = "SELECT R.destino, R.qtd_passa,  R.valor_total FROM clientes as C INNER JOIN reservas as R  ON
+     $sql = "SELECT R.destino, R.qtd_passa, R.data_viagem, R.data_realizou,  R.valor_total FROM clientes as C INNER JOIN reservas as R  ON
     (C.id = R.id_cliente)
     WHERE C.id = $idCliente
     ORDER BY R.destino, R.valor_total";
     $sql_select = $conexao->query($sql);
-    $qtd_cadastrados = $sql_select->num_rows;
+    $qtd_reservas = $sql_select->num_rows;
+    if($qtd_reservas==0){
+        ?>
+        <section class="alert alert-primary respostaMinhasReservas" role="alert"><h1>Você ainda não possui nenhuma reserva</h1></section>
+        <?php
+    }
+    else{
    while($linha = $sql_select->fetch_array()){
+    $data_viagem = new DateTime($linha['data_viagem']);
+    $data_realizou = new DateTime($linha['data_realizou']);
     ?>
     <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">Destino: <?php echo $linha['destino']; ?></h5>
     <p class="card-text">Quantidade Passagens: <?php echo $linha['qtd_passa']; ?></p>
+<p class="card-text">Data da viagem: <?php echo $data_viagem->format("d/m/Y");?></p>
+    <p class="card-text">Data da realização: <?php echo $data_realizou->format("d/m/Y");?></p>
     <p class="card-text">Valor total: R$<?php echo  number_format($linha['valor_total'],2,',','0'); ?></p>
   </div>
 </div>
-<?php }?>
+<?php }}?>
     <div class="botoes">  
     <a href="escolhaReservas.php" class="btn"> Voltar </button> </a>
     </div>

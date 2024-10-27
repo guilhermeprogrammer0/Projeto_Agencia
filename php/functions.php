@@ -35,10 +35,10 @@ function cadastro_cliente($conexao,$nome,$cpf,$sexo,$data_nascimento,$telefone,$
     $stmt_cadastrar->close();
 }
 }
-function cadastro_reservas($conexao,$destino,$qtd_passa,$valor_total,$id_cliente){
-    $sql_reservas = "INSERT INTO reservas values (default,?,?,?,?)";
+function cadastro_reservas($conexao,$destino,$qtd_passa,$data_viagem,$valor_total,$id_cliente){
+    $sql_reservas = "INSERT INTO reservas values (default,?,?,?,NOW(),?,?)";
     $stmt_reservas = $conexao->prepare($sql_reservas);
-    $stmt_reservas->bind_param("sidi",$destino,$qtd_passa,$valor_total,$id_cliente);
+    $stmt_reservas->bind_param("sisdi",$destino,$qtd_passa,$data_viagem,$valor_total,$id_cliente);
     if($stmt_reservas->execute()){
         ?>
         <script>

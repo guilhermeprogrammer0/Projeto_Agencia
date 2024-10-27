@@ -30,7 +30,7 @@
     <form action="acoes.php" method="POST">
   <div class="mb-3 form-login">
     <label for="usuario" class="form-label">Usuário</label>
-    <input type="email" class="form-control campos-login campos-login-adm" id="usuario" name="usuario" required>
+    <input type="text" class="form-control campos-login campos-login-adm" id="usuario" name="usuario" required>
     <div id="usuario" class="form-text">Somente administradores possui um usuário</div>
   </div>
   <div class="mb-3 form-login">

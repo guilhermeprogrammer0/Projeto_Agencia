@@ -61,7 +61,7 @@ header h1{
     text-decoration: none;
     color:white;
     font-family: 'Montserrat';
-    font-size:1.5em;
+    font-size:1.4em;
 }
 .perfil{
     width:70%;
@@ -338,11 +338,9 @@ body.dark .btnVoltarCliente{
     padding:30px;
     text-align:center;
 }
-.minhasReservas{
-    width:45%;
-    background-color:#F1F3F5;
-    padding:0.8em;
-    border-radius: 0.9em;
+.respostaMinhasReservas h1{
+    font-size: 2em;
+    text-align: center;
 }
 .btn{
     width:150px;

@@ -1,3 +1,9 @@
+<?php
+require_once "functions.php";
+if(isset($_SESSION['id_usuario'])){
+    header("location:escolhaReservas.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
