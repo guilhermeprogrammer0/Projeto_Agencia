@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
     <link rel="shortcut icon" href="../Imagens/logo-novo.png" type="image/x-icon">
-    <title>Perfil do Cliente</title>
+    <title>Minhas Reservas</title>
 </head>
 
 <body>
@@ -33,50 +33,37 @@
             <li><a href="../pacotes.html">Pacotes</a></li>
             <li><a href="login_usuario.php">Reservas</a></li>
             <li><a href="../sobre.html">Sobre</a></li>
-            <li class="active"><a href="perfil.php">Perfil</a></li>
-            <li><a href="minhasReservas.php">Minhas reservas</a></li>
+            <li><a href="perfil.php">Perfil</a></li>
+            <li class="active"><a href="minhasReservas.php">Minhas reservas</a></li>
             <a href="logout.php"> <div class="divSair"><button class="btnSair"> Sair</button></div> </a>
             <div class="divMudartema"><i class="btnMudarTema fa-solid  fa-2x" id="btnMudarTema"> </i></div>
         </ul>
     </nav>
-    <main class="perfil">
-    <section class="cards">
-    <div class="card cards-perfil">
-        <?php
-            $sql = "SELECT * from clientes WHERE id = ?";
-            $sql_exibir = $conexao->prepare($sql);
-            $sql_exibir->bind_param("i",$_SESSION['id_usuario']);
-            $sql_exibir->execute();
-            $resultado = $sql_exibir->get_result();
-            $linha = $resultado->fetch_array();
-        ?>
+    <main class="perfil minhasReservas">
+    <?php 
+    $idCliente = $_SESSION['id_usuario'];
+    require_once "conexao.php";
+     $sql = "SELECT R.destino, R.qtd_passa,  R.valor_total FROM clientes as C INNER JOIN reservas as R  ON
+    (C.id = R.id_cliente)
+    WHERE C.id = $idCliente
+    ORDER BY R.destino, R.valor_total";
+    $sql_select = $conexao->query($sql);
+    $qtd_cadastrados = $sql_select->num_rows;
+   while($linha = $sql_select->fetch_array()){
+    ?>
+    <div class="card" style="width: 18rem;">
   <div class="card-body">
-  <h3 class="card-title">Nome</h3>
-  <p><?php echo $linha['nome'];?></p>
-  <h3 class="card-title">CPF</h3>
-  <p><?php echo $linha['cpf'];?></p>
-  <h3 class="card-title">E-mail</h3>
-  <p><?php echo $linha['email'];?></p>
-  <h3 class="card-title">Cidade</h3>
-  <p><?php echo $linha['cidade'];?></p>
+    <h5 class="card-title">Destino: <?php echo $linha['destino']; ?></h5>
+    <p class="card-text">Quantidade Passagens: <?php echo $linha['qtd_passa']; ?></p>
+    <p class="card-text">Valor total: R$<?php echo  number_format($linha['valor_total'],2,',','0'); ?></p>
+  </div>
+</div>
+<?php }?>
     <div class="botoes">  
     <a href="escolhaReservas.php" class="btn"> Voltar </button> </a>
-    <a href="editar_perfil.php" class="btn btnEditar"> Editar Dados </button> </a>
-    <button class="btn btnExcluir" onclick="excluir_conta(<?php echo $linha['id'];?>)"> Excluir Conta</button>
-
     </div>
-</section>
-    <section class="texto-perfil">
-    <p>🔹 Aqui no <strong>Viajantes sem Fronteiras</strong>, a sua segurança e privacidade são nossa prioridade máxima. Estamos comprometidos em proteger suas informações com o mais alto nível de segurança.</p>
-<p>🔹 <strong>Segurança de Dados:</strong> Seus dados são criptografados e armazenados de forma segura. Apenas você e as pessoas autorizadas têm acesso às suas informações pessoais.</p>
- <p>🔹 <strong>Privacidade em Primeiro Lugar: </strong> Nunca compartilhamos suas informações com terceiros sem o seu consentimento explícito. Seus dados são usados exclusivamente para oferecer a você a melhor experiência possível.</p>
- <p>🔹 <strong>Suporte Sempre ao Seu Lado: </strong> Nossa equipe de suporte está aqui para ajudar com qualquer dúvida ou preocupação que você possa ter. Entre em contato conosco e teremos prazer em assisti-lo.</p>
-    </section>
-</section>
-</main>
-
    
-
+</main>
     <footer class="footer">
         <div class="redes">
             <h3>Redes</h3>

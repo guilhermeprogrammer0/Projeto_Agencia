@@ -33,6 +33,7 @@ error_reporting(0);
             <li><a href="login_usuario.php">Reservas</a></li>
             <li><a href="../sobre.html">Sobre</a></li>
             <li class="active"><a href="perfil.php">Perfil</a></li>
+            <li><a href="minhasReservas.php">Minhas reservas</a></li>
             <a href="logout.php"> <div class="divSair"><button class="btnSair"> Sair</button></div> </a>
             <div class="divMudartema"><i class="btnMudarTema fa-solid  fa-2x" id="btnMudarTema"> </i></div>
         </ul>

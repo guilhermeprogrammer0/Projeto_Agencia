@@ -338,6 +338,12 @@ body.dark .btnVoltarCliente{
     padding:30px;
     text-align:center;
 }
+.minhasReservas{
+    width:45%;
+    background-color:#F1F3F5;
+    padding:0.8em;
+    border-radius: 0.9em;
+}
 .btn{
     width:150px;
     padding:8px;
