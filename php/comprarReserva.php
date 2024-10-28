@@ -76,7 +76,15 @@ $img = "../Upload/" . $linha['foto'];
     <?php
     if($_POST['confirmar_reserva']){
     $id_comprador = $_SESSION['id_usuario'];
+    $data_atual = new DateTime();
+    $data_viagem = new DateTime($_POST['data_viagem']);
+    if($data_viagem > $data_atual){
     cadastro_reservas($conexao,$linha['nome'],$_POST['qtd_passa'],$_POST['data_viagem'],$_POST['qtd_passa']*$linha['preco'],$id_comprador);
+    }
+    else{
+        ?> <script>alert("Escolha uma data de viagem válida!");</script>
+        <?php
+    }
 }
     ?>
    <footer class="footer">

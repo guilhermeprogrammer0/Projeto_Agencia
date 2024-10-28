@@ -135,6 +135,23 @@ function excluir_perfil($conexao,$id){
     $stmt_desassociar->close();
 
 }
+function excluir_reserva($conexao,$id_reserva){
+   $sql_excluir_reserva = "DELETE FROM reservas WHERE id_reserva = ?";
+   $stmt_excluir_reserva = $conexao->prepare($sql_excluir_reserva);
+   $stmt_excluir_reserva->bind_param("i",$id_reserva);
+   if($stmt_excluir_reserva->execute()){
+    ?>
+    <script>alert("Reserva cancelada com sucesso!");
+    window.location.href = 'minhasReservas.php';
+    </script>
+    <?php
+   }
+   else{
+    ?>
+    <script>alert("Erro ao cancelar reserva");</script>
+    <?php
+   }
+}
 //ADMINISTRATIVO
 function cadastrar_administrador($conexao,$nome,$usuario,$senha){
     $sql_verificar = "SELECT usuario from administrativo WHERE usuario = ?";

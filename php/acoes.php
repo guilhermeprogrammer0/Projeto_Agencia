@@ -15,6 +15,9 @@ if($_REQUEST['id_cliente_excluir']){
     unset($_SESSION['id_usuario']);
     unset($_SESSION['nome_usuario']);
 }
+if($_REQUEST['id_reserva_excluir']){
+    excluir_reserva($conexao,$_REQUEST['id_reserva_excluir']);
+}
 if($_POST['cadastrar_usuario_adm']){
     cadastrar_administrador($conexao,$_POST['nome'], $_POST['usuario'],$_POST['senha']);
 }

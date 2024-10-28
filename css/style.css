@@ -338,8 +338,26 @@ body.dark .btnVoltarCliente{
     padding:30px;
     text-align:center;
 }
+.minhasReservas{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    width:60%;
+    margin:auto;
+    padding:0.9em;
+    gap:10px;
+    height:500px;
+    overflow-y: auto;
+}
+.respostaMinhasReservas{
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
 .respostaMinhasReservas h1{
-    font-size: 2em;
+    font-size:2em;
     text-align: center;
 }
 .btn{

@@ -39,11 +39,11 @@
             <div class="divMudartema"><i class="btnMudarTema fa-solid  fa-2x" id="btnMudarTema"> </i></div>
         </ul>
     </nav>
-    <main class="perfil">
+    <main class="minhasReservas">
     <?php 
     $idCliente = $_SESSION['id_usuario'];
     require_once "conexao.php";
-     $sql = "SELECT R.destino, R.qtd_passa, R.data_viagem, R.data_realizou,  R.valor_total FROM clientes as C INNER JOIN reservas as R  ON
+     $sql = "SELECT R.id_reserva, R.destino, R.qtd_passa, R.data_viagem, R.data_realizou,  R.valor_total FROM clientes as C INNER JOIN reservas as R  ON
     (C.id = R.id_cliente)
     WHERE C.id = $idCliente
     ORDER BY R.destino, R.valor_total";
@@ -51,13 +51,14 @@
     $qtd_reservas = $sql_select->num_rows;
     if($qtd_reservas==0){
         ?>
-        <section class="alert alert-primary respostaMinhasReservas" role="alert"><h1>Você ainda não possui nenhuma reserva</h1></section>
+        <section class="respostaMinhasReservas"><div class="alert alert-primary" role="alert"><h1>Você ainda não possui nenhuma reserva</h1></div></section>
         <?php
     }
     else{
    while($linha = $sql_select->fetch_array()){
     $data_viagem = new DateTime($linha['data_viagem']);
     $data_realizou = new DateTime($linha['data_realizou']);
+    $dataAtual = new DateTime();
     ?>
     <div class="card" style="width: 18rem;">
   <div class="card-body">
@@ -65,15 +66,20 @@
     <p class="card-text">Quantidade Passagens: <?php echo $linha['qtd_passa']; ?></p>
 <p class="card-text">Data da viagem: <?php echo $data_viagem->format("d/m/Y");?></p>
     <p class="card-text">Data da realização: <?php echo $data_realizou->format("d/m/Y");?></p>
-    <p class="card-text">Valor total: R$<?php echo  number_format($linha['valor_total'],2,',','0'); ?></p>
+    <p class="card-text">Valor total: R$<?php echo  number_format($linha['valor_total'],2,',','.'); ?></p>
+    <?php if($data_viagem > $dataAtual){?>
+    <button class="btn btnExcluir" onclick="cancelarReserva(<?php echo $linha['id_reserva'];?>)">Cancelar Reserva</button>
+    <?php 
+    }?>
   </div>
 </div>
 <?php }}?>
-    <div class="botoes">  
+
+</main>
+<div class="btnVoltar">  
     <a href="escolhaReservas.php" class="btn"> Voltar </button> </a>
     </div>
-   
-</main>
+
     <footer class="footer">
         <div class="redes">
             <h3>Redes</h3>
@@ -93,9 +99,9 @@
                     referrerpolicy="no-referrer-when-downgrade"></iframe></div>
         </div>
     </footer>
-      <script src="../js/api-cep.js"></script>
-      <script src="../js/darkMode.js"></script>
-      <script src="../js/script.js"></script>
+    <script src="../js/acoes.js"></script>
+    <script src="../js/darkMode.js"></script>
+    <script src="../js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
         crossorigin="anonymous"></script>
