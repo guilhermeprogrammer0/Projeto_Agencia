@@ -70,7 +70,11 @@
     <?php if($data_viagem > $dataAtual){?>
     <button class="btn btnExcluir" onclick="cancelarReserva(<?php echo $linha['id_reserva'];?>)">Cancelar Reserva</button>
     <?php 
-    }?>
+    }
+    else{?>
+        <p class="btn btnSucesso" href="#"> Concluída </p> <?php
+    }
+    ?>
   </div>
 </div>
 <?php }}?>
