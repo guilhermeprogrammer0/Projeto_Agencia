@@ -1,5 +1,8 @@
 <?php
  require_once "functions.php";
+if(isset($_SESSION['id_adm'])){
+    header("location:menu_adm.php");
+}
   error_reporting(0);
 ?>
 <!DOCTYPE html>
