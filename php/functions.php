@@ -9,7 +9,7 @@ function cadastro_cliente($conexao,$nome,$cpf,$sexo,$data_nascimento,$telefone,$
     $resposta_verificacao = $stmt_verificar->get_result();
     if($resposta_verificacao->num_rows>0){
         ?>
-        <script> alert('Você já possui cadastro no site, entre com seu e-mail e senha.'); 
+        <script> alert('E-mail e/ou cpf já está cadastrado.'); 
         window.location.href = 'login_usuario.php';
     </script>
     <?php
@@ -28,7 +28,7 @@ function cadastro_cliente($conexao,$nome,$cpf,$sexo,$data_nascimento,$telefone,$
     }
     else{
         ?>
-       <script>alert('Erro ao Cadastrar');
+       <script>alert('Erro ao cadastrar!');
         window.location.href = 'cadastro_cliente.php';
        </script><?php 
     }
@@ -47,7 +47,7 @@ function cadastro_reservas($conexao,$destino,$qtd_passa,$data_viagem,$valor_tota
     }
     else{
         ?>
-       <script>alert('Erro ao fazer a reserva');
+       <script>alert('Erro ao fazer a reserva!');
         window.location.href = 'escolhaReservas.php';
        </script><?php 
     }
@@ -89,7 +89,7 @@ function editar_perfil($conexao,$id,$nome,$cpf,$sexo,$data_nascimento,$telefone,
         if($stmt_editar_perfil->execute()){
             $_SESSION['nome_usuario'] = $nome;
             ?>
-            <script>alert("Edição realizada com sucesso");
+            <script>alert("Edição realizada com sucesso!");
                 window.location.href="perfil.php";
             </script>
             <?php
@@ -103,7 +103,7 @@ function editar_perfil($conexao,$id,$nome,$cpf,$sexo,$data_nascimento,$telefone,
     }
     else{
         ?>
-        <script> alert('E-mail e/ou cpf indisponíveis indisponível para uso!'); 
+        <script> alert('E-mail e/ou cpf já está cadastrado.'); 
         window.location.href = 'editar_perfil.php';
     </script>
     <?php
@@ -119,7 +119,7 @@ function excluir_perfil($conexao,$id){
         $stmt_excluir_perfil->bind_param("i",$id);
         if($stmt_excluir_perfil->execute()){
             ?>
-            <script>alert("Conta excluida com sucesso!")
+            <script>alert("Conta excluída com sucesso!")
                 window.location.href = "login_usuario.php";
             </script>
             <?php
@@ -161,7 +161,7 @@ function cadastrar_administrador($conexao,$nome,$usuario,$senha){
     $resposta = $stmt_verificar->get_result();
     if($resposta->num_rows>0){
         ?>
-        <script>alert("Já existe esse usuário na base de dados! Tente outro");</script>
+        <script>alert("Já existe esse usuário na base de dados! Tente outro.");</script>
         <?php
     }
     else{
@@ -200,7 +200,7 @@ function login_adm($conexao,$usuario,$senha){
         header("location:menu_adm.php");
     }
     else{
-        ?> <script>alert('Login e/ou senha inválidos');
+        ?> <script>alert('Login e/ou senha inválidos.');
         window.location.href = 'login_menuadm.php';
         </script><?php 
     }

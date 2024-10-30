@@ -16,7 +16,7 @@ error_reporting(0);
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
     <link rel="shortcut icon" href="../Imagens/logo-novo.png" type="image/x-icon">
-    <title>Edição de Destinos</title>
+    <title>Edição do perfil</title>
 </head>
 
 <body>
