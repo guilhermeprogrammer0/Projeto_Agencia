@@ -30,7 +30,6 @@ require_once "protecao.php";
             <li><a href="../index.html">Início</a></li>
             <li><a href="../pacotes.html">Pacotes</a></li>
             <li><a href="login_usuario.php">Reservas</a></li>
-            <li><a href="../sobre.html">Sobre</a></li>
             <li class="active"><a href="perfil.php">Perfil</a></li>
             <li><a href="minhasReservas.php">Minhas reservas</a></li>
             <div class="divMudartema"><i class="btnMudarTema fa-solid  fa-2x" id="btnMudarTema"> </i></div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26/09/2024 às 17:05
+-- Tempo de geração: 31/10/2024 às 00:03
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -36,6 +36,16 @@ CREATE TABLE `administrativo` (
   `senha` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Despejando dados para a tabela `administrativo`
+--
+
+INSERT INTO `administrativo` (`id_adm`, `nome`, `usuario`, `senha`) VALUES
+(1, 'Émerson', 'emerferreira@gmail.com', 'emer123'),
+(2, 'Maysa Pedro', 'maysa@gmail.com', 'maysa123'),
+(3, 'Matheus', 'matheus@gmail.com', 'matheus'),
+(4, 'Guilherme', 'guilherme@gmail.com', 'guilherme');
+
 -- --------------------------------------------------------
 
 --
@@ -64,8 +74,7 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id`, `nome`, `cpf`, `sexo`, `data_nascimento`, `telefone`, `email`, `senha`, `cidade`, `cep`, `estado`, `logradouro`, `bairro`, `numero`) VALUES
-(1, 'Guilherme', '55625684898', 'M', '2003-09-12', '16996091036', 'gui@gmail.com', 'gui123', 'Guariba', '14842512', 'SP', 'Rua José Carlos Loredo', 'Residencial Luiz Carlos Santin', '110'),
-(2, 'Kethilin', '12045236987', 'F', '2004-06-14', '16996341184', 'keth@gmail.com', 'keth', 'Guariba', '14842512', 'SP', 'Rua José Carlos Loredo', 'Residencial Luiz Carlos Santin', '110');
+(4, 'Guilherme Souza', '55625684898', 'M', '2003-09-12', '16996091036', 'guilherme@gmail.com', 'gui123', 'Guariba', '14842512', 'SP', 'Rua José Carlos Loredo', 'Residencial Luiz Carlos Santin', '110');
 
 -- --------------------------------------------------------
 
@@ -105,6 +114,8 @@ CREATE TABLE `reservas` (
   `id_reserva` int(11) NOT NULL,
   `destino` varchar(100) NOT NULL,
   `qtd_passa` int(11) NOT NULL,
+  `data_viagem` date NOT NULL,
+  `data_realizou` date NOT NULL,
   `valor_total` float NOT NULL,
   `id_cliente` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -113,10 +124,9 @@ CREATE TABLE `reservas` (
 -- Despejando dados para a tabela `reservas`
 --
 
-INSERT INTO `reservas` (`id_reserva`, `destino`, `qtd_passa`, `valor_total`, `id_cliente`) VALUES
-(1, 'Florianópolis', 5, 2100, 1),
-(2, 'Rio de Janeiro', 2, 1000, 1),
-(3, 'Florianópolis', 3, 1260, 2);
+INSERT INTO `reservas` (`id_reserva`, `destino`, `qtd_passa`, `data_viagem`, `data_realizou`, `valor_total`, `id_cliente`) VALUES
+(1, 'Florianópolis', 2, '2024-12-22', '2024-10-30', 840, 4),
+(2, 'Rio de Janeiro', 2, '2025-01-01', '2024-10-30', 1000, 4);
 
 --
 -- Índices para tabelas despejadas
@@ -155,13 +165,13 @@ ALTER TABLE `reservas`
 -- AUTO_INCREMENT de tabela `administrativo`
 --
 ALTER TABLE `administrativo`
-  MODIFY `id_adm` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_adm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `destinos`
@@ -173,7 +183,7 @@ ALTER TABLE `destinos`
 -- AUTO_INCREMENT de tabela `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restrições para tabelas despejadas

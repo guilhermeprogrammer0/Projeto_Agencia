@@ -31,7 +31,6 @@ error_reporting(0);
             <li><a href="../index.html">Início</a></li>
             <li><a href="../pacotes.html">Pacotes</a></li>
             <li><a href="login_usuario.php">Reservas</a></li>
-            <li><a href="../sobre.html">Sobre</a></li>
             <li class="active"><a href="perfil.php">Perfil</a></li>
             <li><a href="minhasReservas.php">Minhas reservas</a></li>
             <a href="logout.php"> <div class="divSair"><button class="btnSair"> Sair</button></div> </a>
@@ -168,7 +167,7 @@ error_reporting(0);
     </div>
 
 <div class="container">
-<a href="perfil.php"><button type="button" class="btn">Voltar </button> </a>
+<a href="perfil.php"><button type="button" class="btn btnVoltarCliente">Voltar </button> </a>
 <input type="submit" class="btn btnSucesso" value="Enviar" name="editar_perfil">
 </div>
 </form></main>
