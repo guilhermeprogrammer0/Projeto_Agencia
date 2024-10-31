@@ -30,7 +30,7 @@ cep.addEventListener("blur",()=>{
 })
 
 let avisoCep = document.querySelector(".avisoCep");
-cep.addEventListener("change",buscarEnderecos);
+cep.addEventListener("blur",buscarEnderecos);
 async function buscarEnderecos(){
     const valorCep = cep.value;
 	if(valorCep.length<8 || valorCep.length>8){
