@@ -9,7 +9,7 @@ body{
 }
 header{
     width:100%;
-    height:60px;
+    height:80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -503,6 +503,7 @@ body.dark .btnVoltarCliente{
 #menu-adm{
     text-align: center;
 }
+
 #mensagem-adm{
     text-align: center;
 }
@@ -579,6 +580,56 @@ body.dark .btnVoltarCliente{
     justify-content:center;
     align-items:center;
 }
+.principal-adm{
+    display:flex;
+    justify-content: space-evenly;
+    width:100%;
+}
+.lista-clientes-adm{
+    overflow-y: auto;
+    height:450px;
+    width:50%;
+}
+.lista-clientes-adm h2{
+    text-align: center;
+}
+.gerenciamento-adm{
+    padding:0.6em;
+    background-color:#1c82a2;
+    width:40%;
+}
+.gerenciamento-adm h2{
+    color:white;
+    text-align: center;
+}
+.menu-adm{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    list-style: none;
+    width:100%;
+    height:auto;
+    color:white;
+}
+.menu-adm li{
+    padding: 17px;
+    transition: 0.5s;
+    cursor:pointer;
+}
+.menu-adm li a, .menu-adm li p{
+    text-decoration: none;
+    padding:13px;
+    color:white;
+    font-size: 1.2em;
+}
+.menu-adm li a:hover,.menu-adm li p:hover{
+    text-decoration: none;
+    color:white;
+    background-color:#04ADBF;
+    border-radius: 2px;
+}
+
 .botoesAdm{
     width:50%;
     display:flex;
@@ -650,10 +701,7 @@ body.dark .btnVoltarCliente{
     background-color: white;
     height:auto;
 }
-.table-cadastrados{
-    overflow-y: auto;
-    height:380px;
-}
+
 .btnVoltar{
     display:flex;
     justify-content: center;

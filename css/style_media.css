@@ -1,4 +1,18 @@
 @media screen and (max-width:768px){
+    .principal-adm{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap:5px;
+        width:100%;
+    }
+    .lista-clientes-adm, .gerenciamento-adm{
+        width:90%;
+    }
+    .menu-adm li a, .menu-adm li p{
+        font-size: 1.1em;
+    }
     .img-logo{
         display:none;
     }

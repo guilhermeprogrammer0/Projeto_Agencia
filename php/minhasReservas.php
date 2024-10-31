@@ -19,7 +19,6 @@
     <link rel="shortcut icon" href="../Imagens/logo-novo.png" type="image/x-icon">
     <title>Minhas Reservas</title>
 </head>
-
 <body>
 <div class="btn-menu">
         <i class="fa-solid fa-bars fa-3x" id="btn-menu"></i>

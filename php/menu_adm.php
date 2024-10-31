@@ -22,13 +22,27 @@
 <body>
    <header>
     <h1>Menu Administrativo</h1>
+    <a href="logout_adm.php"> <div class="divSair"><button class="btnSair"> Sair</button></div> </a>
     </header>
-    <p id="boa-vinda-adm"><?php echo "Olá, " .  $_SESSION['nome_adm'] . "!";?></p>
-    <section class="texto">
-        <h2>Clientes</h2>
+      <p id="boa-vinda-adm"><?php echo "Olá, " .  $_SESSION['nome_adm'] . "!";?></p>
+      <section class="texto">
+      
+       
     </section>
-
-    <main class="formulario tabela table-cadastrados">    
+    <main class="principal-adm">  
+    <section class="gerenciamento-adm">
+    <h2>Gerenciamento</h2>
+      <ul class="menu-adm">
+        <li><strong>Gerenciamento dos destinos</strong></li>
+        <li><a href="cadastro_destinos.php">Cadastrar Destinos</a></li>
+        <li><a href="lista_destinos.php">Lista de Destinos</a></li>
+        <li><strong>Gerenciamento do perfil</strong></li>
+        <li><a href="editar_dados_adm.php">Editar dados do perfil</a></li>
+        <li><p onclick="excluir_conta_adm()">Excluir usuário</p></li>
+      </ul>
+</section>  
+      <section class="lista-clientes-adm">
+      <h2>Reserva dos Clientes</h2>
 <table class="table table-striped">
   <thead class="thead-light">
     <tr>
@@ -59,30 +73,9 @@
   </tbody>
     </table>
     <h3 id="txt-qtd">Quantidade de Reservas: <strong><?php echo $qtd_cadastrados; ?> </strong></h3>
+    </section>
     </main>
-
-    <h4 id="menu-adm">Gerenciamento de destinos</h4>
-    <div class="botoesAdm gerenciamento_destinos">
-    <a href="cadastro_destinos.php"><button  class="btn btnSucesso btnAdm ">Cadastrar Destinos </button> </a>
-    <a href="lista_destinos.php"><button  class="btn btnSucesso btnAdm">Lista de Destinos</button> </a>
-  </div>
-  <h4 id="menu-adm">Gerenciamento do perfil</h4>
-  <div class="botoesAdm gerenciamento_perfil">
-    <a href="logout_adm.php"><button  class="btn btnSairAdm btnAdm">Sair </button> </a>
-    <a href="editar_dados_adm.php"><button  class="btn btnEditar btnAdm ">Editar dados </button> </a>
-    <button  class="btn btnExcluir btnAdm" onclick="excluir_conta_adm()">Excluir usuário</button>
-  </div>
-  <script>
-    function excluir_conta_adm(){
-    let confirmar  = confirm("Deseja mesmo excluir seu usuário");
-    if(confirmar === true){
-        window.location.href = 'excluir_usuario_adm.php';
-    }
-    }
-  </script>
-
-
-      <script src="../js/script.js"></script>
+    <script src="../js/acoesAdm.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
         crossorigin="anonymous"></script>
