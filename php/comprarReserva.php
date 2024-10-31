@@ -77,12 +77,13 @@ $img = "../Upload/" . $linha['foto'];
     $id_comprador = $_SESSION['id_usuario'];
     $data_atual = new DateTime();
     $data_viagem = new DateTime($_POST['data_viagem']);
-    if($data_viagem > $data_atual){
-    cadastro_reservas($conexao,$linha['nome'],$_POST['qtd_passa'],$_POST['data_viagem'],$_POST['qtd_passa']*$linha['preco'],$id_comprador);
-    }
-    else{
+    $diferenca = $data_viagem->diff($data_atual);
+    if($data_viagem < $data_atual || $diferenca->y >2){
         ?> <script>alert("Escolha uma data de viagem válida!");</script>
         <?php
+    }
+    else{
+        cadastro_reservas($conexao,$linha['nome'],$_POST['qtd_passa'],$_POST['data_viagem'],$_POST['qtd_passa']*$linha['preco'],$id_comprador);
     }
 }
     ?>
