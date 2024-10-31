@@ -18,7 +18,6 @@ error_reporting(0);
     <link rel="shortcut icon" href="../Imagens/logo-novo.png" type="image/x-icon">
     <title>Edição do perfil</title>
 </head>
-
 <body>
 <div class="btn-menu">
         <i class="fa-solid fa-bars fa-3x" id="btn-menu"></i>
@@ -80,7 +79,6 @@ error_reporting(0);
     <label for="data" class="form-label">Data de Nascimento</label>
   <input type="date" class="form-control" id="data" name="data_nascimento" value ="<?php echo $linha['data_nascimento'];?>">
     </div>
-    
     </div>
     <section class="texto-form">
         <h2>Contato</h2>
