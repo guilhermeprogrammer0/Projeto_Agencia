@@ -19,12 +19,9 @@ function cadastro_cliente($conexao,$nome,$cpf,$sexo,$data_nascimento,$telefone,$
     $stmt_cadastrar = $conexao->prepare($sql_cadastrar);
     $stmt_cadastrar->bind_param("sssssssssssss",$nome,$cpf,$sexo,$data_nascimento,$telefone,$email,$senha,$cidade,$cep,$estado,$logradouro,$bairro,$numero);
     if($stmt_cadastrar->execute()){?>
-        <script> window.location.href="escolhaReservas.php" </script><?php
-         $sql = "SELECT id , nome from clientes ORDER BY id DESC LIMIT 1";
-         $sql_query = $conexao->query($sql);
-         $row = $sql_query->fetch_array();
-             $_SESSION['id_usuario'] = $row['id'];
-             $_SESSION['nome_usuario'] = $row['nome'];
+        <script>
+        alert("Cadastro realizado com sucesso!")
+        window.location.href="login_usuario.php" </script><?php
     }
     else{
         ?>
@@ -33,6 +30,7 @@ function cadastro_cliente($conexao,$nome,$cpf,$sexo,$data_nascimento,$telefone,$
        </script><?php 
     }
     $stmt_cadastrar->close();
+    $stmt_verificar->close();
 }
 }
 function cadastro_reservas($conexao,$destino,$qtd_passa,$data_viagem,$valor_total,$id_cliente){
@@ -99,7 +97,9 @@ function editar_perfil($conexao,$id,$nome,$cpf,$sexo,$data_nascimento,$telefone,
             <script>alert("Erro ao editar! Tente novamente.");
             </script>
             <?php
+            $stmt_editar_perfil->close();
         }
+        
     }
     else{
         ?>
@@ -107,6 +107,7 @@ function editar_perfil($conexao,$id,$nome,$cpf,$sexo,$data_nascimento,$telefone,
         window.location.href = 'editar_perfil.php';
     </script>
     <?php
+    $stmt_verificar->close();
 }
     }
 function excluir_perfil($conexao,$id){
@@ -151,6 +152,7 @@ function excluir_reserva($conexao,$id_reserva){
     <script>alert("Erro ao cancelar reserva");</script>
     <?php
    }
+   $stmt_excluir_reserva->close();
 }
 //ADMINISTRATIVO
 function cadastrar_administrador($conexao,$nome,$usuario,$senha){
@@ -161,7 +163,9 @@ function cadastrar_administrador($conexao,$nome,$usuario,$senha){
     $resposta = $stmt_verificar->get_result();
     if($resposta->num_rows>0){
         ?>
-        <script>alert("Já existe esse usuário na base de dados! Tente outro.");</script>
+        <script>alert("Já existe esse usuário na base de dados! Tente outro.");
+              window.location.href="cadastro_usuario_adm.php";
+        </script>
         <?php
     }
     else{
@@ -207,6 +211,14 @@ function login_adm($conexao,$usuario,$senha){
     $stmt_logar->close();
 }
 function editar_usuario_adm($conexao,$nome,$usuario,$senha,$id_adm){
+    $sql_verificar = "SELECT usuario from administrativo WHERE usuario = ? AND id_adm != ?";
+    $stmt_verificar = $conexao->prepare($sql_verificar);
+    $stmt_verificar->bind_param("si",$usuario,$id_adm);
+    $stmt_verificar->execute();
+    $resposta_verificacao = $stmt_verificar->get_result();
+    $linha = $resposta_verificacao->fetch_array();
+    if($resposta_verificacao->num_rows==0)
+    {     
     $sql_editar_adm = "UPDATE administrativo set nome = ?, usuario = ?, senha = ? WHERE id_adm = ?";
     $stmt_editar_adm = $conexao->prepare($sql_editar_adm);
     $stmt_editar_adm->bind_param("sssi",$nome,$usuario,$senha,$id_adm);
@@ -224,8 +236,17 @@ function editar_usuario_adm($conexao,$nome,$usuario,$senha,$id_adm){
             window.location.href = "editar_dados_adm.php";
         </script>
         <?php
+        $stmt_editar_adm->close();
     }
-    $stmt_editar_adm->close();
+}
+    else{
+        ?>
+        <script> alert('Este usuário já está cadastrado! Tente outro.'); 
+        window.location.href = 'editar_dados_adm.php';
+    </script>
+    <?php
+     $stmt_verificar->close();
+}
 }
 function excluir_usuario_adm($conexao,$id_adm){
 $sql_excluir_adm = "DELETE FROM administrativo WHERE id_adm = ?";
