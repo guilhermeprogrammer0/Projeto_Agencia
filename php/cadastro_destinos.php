@@ -37,7 +37,7 @@ error_reporting(0);
     <label for="preco" class="form-label">Valor</label>
   <input type="text" class="form-control"  id="preco" name="preco" required>
     </div>
-    <label for="descricao" class="form-label">Descricao</label>
+    <label for="descricao" class="form-label">Descrição</label>
   <input type="text" class="form-control"  id="descricao" name="descricao" required>
     </div>
     <div class="mb-3">

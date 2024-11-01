@@ -663,16 +663,17 @@ body.dark .btnVoltarCliente{
 }
 .reservasDisponiveis{
     width:90%;
-
-    
 }
 .destinosAreservar
 {
     display:flex;
     gap:15px;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
+}
+.img-reserva{
+    width:100%;
 }
 .anuncio{
     width:50%;

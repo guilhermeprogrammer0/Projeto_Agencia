@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 31/10/2024 às 00:03
+-- Tempo de geração: 01/11/2024 às 18:49
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -102,7 +102,8 @@ INSERT INTO `destinos` (`id_destino`, `nome`, `preco`, `descricao`, `foto`) VALU
 (5, 'Foz do Iguaçu', 700, '4 Dias', '66c5339d55c52.jpg'),
 (6, 'Rio de Janeiro', 350, '3 Dias', '66c533bcf03f7.jpg'),
 (7, 'Salvador', 500, '2 Dias', '66c533cd7277d.jpg'),
-(8, 'Ubatuba', 400, '4 Dias', '66c533dc62654.jpg');
+(8, 'Ubatuba', 400, '4 Dias', '66c533dc62654.jpg'),
+(9, 'Campos do Jordão', 650, '2 dias', '6725131089edc.jpg');
 
 -- --------------------------------------------------------
 
@@ -125,8 +126,8 @@ CREATE TABLE `reservas` (
 --
 
 INSERT INTO `reservas` (`id_reserva`, `destino`, `qtd_passa`, `data_viagem`, `data_realizou`, `valor_total`, `id_cliente`) VALUES
-(1, 'Florianópolis', 2, '2024-12-22', '2024-10-30', 840, 4),
-(2, 'Rio de Janeiro', 2, '2025-01-01', '2024-10-30', 1000, 4);
+(1, 'Campos do Jordão', 2, '2025-01-12', '2024-11-01', 1300, 4),
+(2, 'Ubatuba', 1, '2025-01-01', '2024-11-01', 400, 4);
 
 --
 -- Índices para tabelas despejadas
@@ -177,7 +178,7 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de tabela `destinos`
 --
 ALTER TABLE `destinos`
-  MODIFY `id_destino` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_destino` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `reservas`

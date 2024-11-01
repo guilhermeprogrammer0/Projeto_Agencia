@@ -37,7 +37,7 @@
   <tbody>
   <?php 
     require_once "conexao.php";
-    $sql = "SELECT * from destinos";
+    $sql = "SELECT * from destinos ORDER BY nome";
     $sql_select = $conexao->query($sql);
     while($linha = $sql_select->fetch_array()){?>
     <tr>

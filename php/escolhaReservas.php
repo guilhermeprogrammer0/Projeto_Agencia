@@ -53,13 +53,13 @@ error_reporting(0);
     <div class="destinosAreservar">
         <?php 
         require_once "conexao.php";
-        $sql = "SELECT * from destinos";
+        $sql = "SELECT * from destinos ORDER BY nome, preco";
         $sql_destinos_exibidos = $conexao->query($sql);
         while($linha = $sql_destinos_exibidos->fetch_array()){
             $img = "../Upload/" . $linha['foto'];
         ?>
  <div class="card" style="width: 18rem;">
-  <img src="<?php echo $img;?>" class="card-img-top" alt="...">
+  <img src="<?php echo $img;?>" class="card-img-top img-reserva" alt="...">
   <div class="card-body">
     <h5 class="card-title"><?php echo $linha['nome'];?></h5>
     <p class="card-title"> Valor por passagem: R$ <?php echo number_format($linha['preco'],2,',','.');?></p>
