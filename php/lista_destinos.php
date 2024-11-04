@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
     <link rel="shortcut icon" href="../Imagens/logo-novo.png" type="image/x-icon">
-    <title>Menu Administratvo - Lista Destinos</title>
+    <title>Lista Destinos</title>
 </head>
 
 <body>
