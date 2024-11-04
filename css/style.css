@@ -588,13 +588,13 @@ body.dark .btnVoltarCliente{
 .lista-clientes-adm{
     overflow-y: auto;
     height:450px;
-    width:50%;
+    width:55%;
 }
 .lista-clientes-adm h2{
     text-align: center;
 }
 .gerenciamento-adm{
-    padding:0.6em;
+    padding:0.4em;
     background-color:#1c82a2;
     width:40%;
 }
