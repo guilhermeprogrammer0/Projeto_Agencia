@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01/11/2024 às 18:49
+-- Tempo de geração: 04/11/2024 às 23:53
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -100,7 +100,6 @@ INSERT INTO `destinos` (`id_destino`, `nome`, `preco`, `descricao`, `foto`) VALU
 (3, 'Florianópolis', 420, '2 Dias', '66c5336d059f0.jpg'),
 (4, 'Fernando de Noronha', 510, '3 Dias', '66c533826e05c.jpg'),
 (5, 'Foz do Iguaçu', 700, '4 Dias', '66c5339d55c52.jpg'),
-(6, 'Rio de Janeiro', 350, '3 Dias', '66c533bcf03f7.jpg'),
 (7, 'Salvador', 500, '2 Dias', '66c533cd7277d.jpg'),
 (8, 'Ubatuba', 400, '4 Dias', '66c533dc62654.jpg'),
 (9, 'Campos do Jordão', 650, '2 dias', '6725131089edc.jpg');
