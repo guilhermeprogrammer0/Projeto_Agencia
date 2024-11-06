@@ -1,6 +1,5 @@
 <?php
     require_once "functions.php";
-    require_once "conexao.php";
     require_once "protecao.php";
 ?>
 
@@ -41,10 +40,11 @@
     <?php 
     $idCliente = $_SESSION['id_usuario'];
     require_once "conexao.php";
-     $sql = "SELECT R.id_reserva, R.destino, R.qtd_passa, R.data_viagem, R.data_realizou,  R.valor_total FROM clientes as C INNER JOIN reservas as R  ON
-    (C.id = R.id_cliente)
+     $sql = "SELECT R.id_reserva, D.nome, R.qtd_passa, R.data_viagem, R.data_realizou,  R.valor_total FROM clientes as C INNER JOIN reservas as R  ON
+    (R.id_cliente = C.id) INNER JOIN destinos as D ON
+    (R.id_destino = D.id_destino)
     WHERE C.id = $idCliente
-    ORDER BY R.destino, R.valor_total";
+    ORDER BY D.nome, R.valor_total";
     $sql_select = $conexao->query($sql);
     $qtd_reservas = $sql_select->num_rows;
     if($qtd_reservas==0){
@@ -60,7 +60,7 @@
     ?>
     <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">Destino: <?php echo $linha['destino']; ?></h5>
+    <h5 class="card-title">Destino: <?php echo $linha['nome']; ?></h5>
     <p class="card-text">Quantidade Passagens: <?php echo $linha['qtd_passa']; ?></p>
 <p class="card-text">Data da viagem: <?php echo $data_viagem->format("d/m/Y");?></p>
     <p class="card-text">Data da realização: <?php echo $data_realizou->format("d/m/Y");?></p>

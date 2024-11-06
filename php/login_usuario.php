@@ -45,11 +45,11 @@ if(isset($_SESSION['id_usuario'])){
     <form action="acoes.php" method="POST">
   <div class="mb-3 form-login">
     <label for="email" class="form-label">E-mail</label>
-    <input type="email" class="form-control campos-login" id="email" name="email" required>
+    <input type="email" class="form-control campos-login" id="email" name="email" maxlength="100" required>
   </div>
   <div class="mb-3 form-login">
     <label for="senha" class="form-label">Senha</label>
-    <input type="password" class="form-control campos-login" id="senha" name="senha" required>
+    <input type="password" class="form-control campos-login" id="senha" name="senha" maxlength="100" required>
     <span id="mostrar">Mostrar Senha</span>
   </div>
 

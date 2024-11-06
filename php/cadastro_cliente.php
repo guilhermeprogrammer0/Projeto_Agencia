@@ -47,11 +47,11 @@ require_once "functions.php";
         <div class="row">
     <div class="col">
     <label for="nome" class="form-label">Nome Completo</label>
-  <input type="text" class="form-control"  id="nome" name="nome" required>
+  <input type="text" class="form-control"  id="nome" name="nome" maxlength="100" required>
     </div>
      <div class="col">
      <label for="cpf" class="form-label">CPF</label>
-  <input type="text" class="form-control" id="cpf" placeholder="xxx.xxx.xxx-xx" name="cpf"  required >
+  <input type="text" class="form-control" id="cpf"  name="cpf"  minlength="11" maxlength="11" required >
     </div>
     </div>
     <div class="row">
@@ -78,18 +78,18 @@ require_once "functions.php";
     <div class="row">
     <div class="col">
     <label for="tel" class="form-label">Telefone-Celular</label>
-  <input type="text" class="form-control" id="tel" placeholder="(xx) xxxxx-xxxx" name="telefone"  required>
+  <input type="text" class="form-control" id="tel"  name="telefone"  maxlength="15" required>
     </div>
     <div class="col">
     <label for="email" class="form-label">E-mail</label>
-  <input type="email" class="form-control" id="email" name="email"  required>
+  <input type="email" class="form-control" id="email" name="email"  maxlength="100" required>
   <span id="passwordHelpInline" class="form-text">
       Será usado para fazer futuras reservas
     </span>
     </div>
     <div class="col">
     <label for="senha" class="form-label">Senha</label>
-  <input type="password" class="form-control" id="senha" name="senha"  required>
+  <input type="password" class="form-control" id="senha" name="senha"   maxlength="100" required>
   <span id="passwordHelpInline" class="form-text">
   Será usado para fazer futuras reservas
     </span>
@@ -102,13 +102,13 @@ require_once "functions.php";
     <div class="row">
     <div class="col">
     <label for="cep" class="form-label">CEP</label>
-  <input type="text" class="form-control " id="cep" placeholder="14840000" name="cep"  required>
+  <input type="text" class="form-control " id="cep"  name="cep"  minlength="8" maxlength="8" required>
     <span id="passwordHelpInline" class="form-text avisoCep">
     </span>
     </div>
     <div class="col">
     <label for="cidade" class="form-label">Cidade</label>
-  <input type="text" class="form-control camposEndereco" id="cidade" name="cidade"  required>
+  <input type="text" class="form-control camposEndereco" id="cidade" name="cidade"  maxlength="100" required>
     </div>
     <div class="col">
     <label for="estado" class="form-label">Estado</label>
@@ -147,15 +147,15 @@ require_once "functions.php";
     <div class="row">
     <div class="col">
     <label for="logradouro" class="form-label camposEndereco">Logradouro</label>
-  <input type="text" class="form-control camposEndereco" id="logradouro" placeholder="Rua/Avenida" name="logradouro"  required>
+  <input type="text" class="form-control camposEndereco" id="logradouro" placeholder="Rua/Avenida" name="logradouro" maxlength="100" required>
     </div>
     <div class="col">
     <label for="bairro" class="form-label">Bairro</label>
-  <input type="text" class="form-control camposEndereco" id="bairro" name="bairro"  required>
+  <input type="text" class="form-control camposEndereco" id="bairro" name="bairro" maxlength="100" required>
     </div>
     <div class="col">
     <label for="numero" class="form-label numero ">Número</label>
-  <input type="text" class="form-control camposEndereco" id="numero" name="numero"  required>
+  <input type="text" class="form-control camposEndereco" id="numero" name="numero" maxlength="10" required>
     </div>
     </div>
 

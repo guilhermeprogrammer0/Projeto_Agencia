@@ -56,8 +56,9 @@
   <tbody>
   <?php 
     require_once "conexao.php";
-     $sql = "SELECT R.id_reserva, C.nome, R.destino, R.qtd_passa,  R.valor_total from clientes as C inner join reservas as R  ON
-    (C.id = R.id_cliente)
+     $sql = "SELECT R.id_reserva, C.nome, D.nome as nome_destino, R.qtd_passa,  R.valor_total from clientes as C inner join reservas as R  ON
+    (R.id_cliente =  C.id) INNER JOIN destinos as D ON
+    (R.id_destino = D.id_destino)
     ORDER BY C.nome, R.valor_total";
     $sql_select = $conexao->query($sql);
     $qtd_cadastrados = $sql_select->num_rows;
@@ -65,7 +66,7 @@
     <tr>
     <td> <?php echo $linha['id_reserva'];?></td>
     <td> <?php echo $linha['nome'];?></td>
-    <td> <?php echo $linha['destino'];?></td>
+    <td> <?php echo $linha['nome_destino'];?></td>
     <td> <?php echo $linha['qtd_passa'];?></td>
     <td> <?php echo "R$". number_format($linha['valor_total'],2,',','.');?></td>
     </tr>

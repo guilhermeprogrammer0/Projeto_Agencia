@@ -83,7 +83,7 @@ $img = "../Upload/" . $linha['foto'];
         <?php
     }
     else{
-        cadastro_reservas($conexao,$linha['nome'],$_POST['qtd_passa'],$_POST['data_viagem'],$_POST['qtd_passa']*$linha['preco'],$id_comprador);
+        cadastro_reservas($conexao,$_POST['qtd_passa'],$_POST['data_viagem'],$_POST['qtd_passa']*$linha['preco'],$id_comprador,$linha['id_destino']);
     }
 }
     ?>

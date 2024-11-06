@@ -35,20 +35,20 @@ require_once "functions.php";
     $linha = $stmt_editar->get_result()->fetch_array();?>
     <form action="acoes.php" method="POST">
     <div class="mb-3 form-login">
-    <input type="hidden" class="form-control campos-login campos-login-adm" id="id_adm" name="id_adm" value="<?php echo $linha['id_adm'];?>">
+    <input type="hidden" class="form-control campos-login campos-login-adm" id="id_adm" name="id_adm" value="<?php echo $linha['id_adm'];?>" required>
   </div>
     <div class="mb-3 form-login">
     <label for="nome" class="form-label">Nome</label>
-    <input type="text" class="form-control campos-login campos-login-adm" id="nome" name="nome" value="<?php echo $linha['nome'];?>">
+    <input type="text" class="form-control campos-login campos-login-adm" id="nome" name="nome" value="<?php echo $linha['nome'];?>" maxlength="100" required>
   </div>
   <div class="mb-3 form-login">
     <label for="usuario" class="form-label">Usuário</label>
-    <input type="text" class="form-control campos-login campos-login-adm" id="usuario" name="usuario" value="<?php echo $linha['usuario'];?>">
+    <input type="text" class="form-control campos-login campos-login-adm" id="usuario" name="usuario" value="<?php echo $linha['usuario'];?>" maxlength="50" required>
     <div id="usuario" class="form-text">Pode ser e-mail ou cpf</div>
   </div>
   <div class="mb-3 form-login">
     <label for="senha" class="form-label">Senha</label>
-    <input type="password" class="form-control campos-login campos-login-adm" id="senha" name="senha" required>
+    <input type="password" class="form-control campos-login campos-login-adm" id="senha" name="senha" maxlength="100" required>
     <span id="mostrar">Mostrar Senha</span>
   </div>
   <div class="mb-3 botoes-login">

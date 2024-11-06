@@ -54,13 +54,13 @@ error_reporting(0);
     </section>
         <div class="row">
     <div class="col">
-    <input type="hidden" class="form-control"  id="id" name="id" value ="<?php echo $linha['id'];?>">
+    <input type="hidden" class="form-control"  id="id" name="id" value ="<?php echo $linha['id'];?>" required>
     <label for="nome" class="form-label">Nome Completo</label>
-  <input type="text" class="form-control"  id="nome" name="nome" value ="<?php echo $linha['nome'];?>">
+  <input type="text" class="form-control"  id="nome" name="nome" value ="<?php echo $linha['nome'];?>" maxlength="100" required>
     </div>
      <div class="col">
      <label for="cpf" class="form-label">CPF</label>
-  <input type="text" class="form-control" id="cpf" name="cpf" value ="<?php echo $linha['cpf'];?>">
+  <input type="text" class="form-control" id="cpf" name="cpf" value ="<?php echo $linha['cpf'];?>"  minlength="11" maxlength="11" required>
     </div>
     </div>
     <div class="row">
@@ -77,7 +77,7 @@ error_reporting(0);
     </div>
     <div class="col">
     <label for="data" class="form-label">Data de Nascimento</label>
-  <input type="date" class="form-control" id="data" name="data_nascimento" value ="<?php echo $linha['data_nascimento'];?>">
+  <input type="date" class="form-control" id="data" name="data_nascimento" value ="<?php echo $linha['data_nascimento'];?>" required>
     </div>
     </div>
     <section class="texto-form">
@@ -86,15 +86,15 @@ error_reporting(0);
     <div class="row">
     <div class="col">
     <label for="tel" class="form-label">Telefone-Celular</label>
-  <input type="text" class="form-control" id="tel" name="telefone" value ="<?php echo $linha['telefone'];?>">
+  <input type="text" class="form-control" id="tel" name="telefone" value ="<?php echo $linha['telefone'];?>" maxlength="15" required>
     </div>
     <div class="col">
     <label for="email" class="form-label">E-mail</label>
-  <input type="email" class="form-control" id="email" name="email" value ="<?php echo $linha['email'];?>">
+  <input type="email" class="form-control" id="email" name="email" value ="<?php echo $linha['email'];?>" maxlength="100" required>
     </div>
     <div class="col">
     <label for="senha" class="form-label">Senha</label>
-  <input type="password" class="form-control" id="senha" name="senha"  required>
+  <input type="password" class="form-control" id="senha" name="senha" maxlength="100" required>
   <span id="passwordHelpInline" class="form-text">
   Redigite a senha ou troque
     </span>
@@ -107,17 +107,17 @@ error_reporting(0);
     <div class="row">
     <div class="col">
     <label for="cep" class="form-label">CEP</label>
-  <input type="text" class="form-control " id="cep" placeholder="14840000" name="cep" value ="<?php echo $linha['cep'];?>">
+  <input type="text" class="form-control " id="cep"  name="cep" value ="<?php echo $linha['cep'];?>" minlength="8" maxlength="8" required>
     <span id="passwordHelpInline" class="form-text avisoCep">
     </span>
     </div>
     <div class="col">
     <label for="cidade" class="form-label">Cidade</label>
-  <input type="text" class="form-control camposEndereco" id="cidade" name="cidade">
+  <input type="text" class="form-control camposEndereco" id="cidade" name="cidade" maxlength="100"  required>
     </div>
     <div class="col">
     <label for="estado" class="form-label">Estado</label>
-    <select class="form-select camposEndereco" id="estado" name="estado" selected="<?php echo $linha['estado'];?>">
+    <select class="form-select camposEndereco" id="estado" name="estado" selected="<?php echo $linha['estado'];?>" required>
   <option selected>Selecione</option>
   <option value="AC">AC</option>
   <option value="AL">AL</option>
@@ -152,15 +152,15 @@ error_reporting(0);
     <div class="row">
     <div class="col">
     <label for="logradouro" class="form-label camposEndereco">Logradouro</label>
-  <input type="text" class="form-control camposEndereco" id="logradouro" placeholder="Rua/Avenida" name="logradouro">
+  <input type="text" class="form-control camposEndereco" id="logradouro"  name="logradouro" maxlength="100" required>
     </div>
     <div class="col">
     <label for="bairro" class="form-label">Bairro</label>
-  <input type="text" class="form-control camposEndereco" id="bairro" name="bairro">
+  <input type="text" class="form-control camposEndereco" id="bairro" name="bairro" maxlength="100" required>
     </div>
     <div class="col">
     <label for="numero" class="form-label numero ">Número</label>
-  <input type="text" class="form-control camposEndereco" id="numero" name="numero" >
+  <input type="text" class="form-control camposEndereco" id="numero" name="numero" maxlength="10" required >
     </div>
     </div>
 

@@ -33,10 +33,10 @@ function cadastro_cliente($conexao,$nome,$cpf,$sexo,$data_nascimento,$telefone,$
     $stmt_verificar->close();
 }
 }
-function cadastro_reservas($conexao,$destino,$qtd_passa,$data_viagem,$valor_total,$id_cliente){
-    $sql_reservas = "INSERT INTO reservas values (default,?,?,?,NOW(),?,?)";
+function cadastro_reservas($conexao,$qtd_passa,$data_viagem,$valor_total,$id_cliente,$id_destino){
+    $sql_reservas = "INSERT INTO reservas values (default,?,?,NOW(),?,?,?)";
     $stmt_reservas = $conexao->prepare($sql_reservas);
-    $stmt_reservas->bind_param("sisdi",$destino,$qtd_passa,$data_viagem,$valor_total,$id_cliente);
+    $stmt_reservas->bind_param("isdii",$qtd_passa,$data_viagem,$valor_total,$id_cliente,$id_destino);
     if($stmt_reservas->execute()){
         ?>
         <script>
@@ -320,6 +320,10 @@ function editar_destino($conexao,$id_destino,$nome,$preco,$descricao,$foto){
 
 }
 function excluir_destino($conexao,$id_destino_excluir){
+$sql_desassociar = "UPDATE reservas set id_destino = NULL WHERE id_destino = ?";
+$stmt_desassociar = $conexao->prepare($sql_desassociar);
+$stmt_desassociar->bind_param("i",$id_destino_excluir);
+if($stmt_desassociar->execute()){
 $sql_excluir = "DELETE FROM destinos WHERE id_destino = ?";
 $stmt_excluir = $conexao->prepare($sql_excluir);
 $stmt_excluir->bind_param("i",$id_destino_excluir);
@@ -328,6 +332,9 @@ header("location:lista_destinos.php");
 $stmt_excluir->close();
 
 }
+$stmt_desassociar->close();
+}
+
 
 
 

@@ -31,14 +31,14 @@ error_reporting(0);
     </section>
         <div class="mb-3">
     <label for="destino" class="form-label">Destino </label>
-    <input type="text" class="form-control"  id="nome" name="nome" required>
+    <input type="text" class="form-control"  id="nome" name="nome" maxlength="100" required>
     </div>
     <div class="mb-3">
     <label for="preco" class="form-label">Valor</label>
   <input type="text" class="form-control"  id="preco" name="preco" required>
     </div>
     <label for="descricao" class="form-label">Descrição</label>
-  <input type="text" class="form-control"  id="descricao" name="descricao" required>
+  <input type="text" class="form-control"  id="descricao" name="descricao" maxlength="100" required>
     </div>
     <div class="mb-3">
     <label for="foto" class="form-label">Imagem</label>
