@@ -317,7 +317,6 @@ function editar_destino($conexao,$id_destino,$nome,$preco,$descricao,$foto){
         <?php
     }
     $stmt_editarDestino->close();
-
 }
 function excluir_destino($conexao,$id_destino_excluir){
 $sql_desassociar = "UPDATE reservas set id_destino = NULL WHERE id_destino = ?";
@@ -330,12 +329,8 @@ $stmt_excluir->bind_param("i",$id_destino_excluir);
 $stmt_excluir->execute();
 header("location:lista_destinos.php");
 $stmt_excluir->close();
-
 }
 $stmt_desassociar->close();
 }
-
-
-
 
 ?>
