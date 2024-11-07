@@ -41,7 +41,7 @@
     $idCliente = $_SESSION['id_usuario'];
     require_once "conexao.php";
      $sql = "SELECT R.id_reserva, IF(R.id_destino IS NULL,'Destino indisponível',D.nome) as nome, R.qtd_passa, R.data_viagem, R.data_realizou,  R.valor_total FROM clientes as C INNER JOIN reservas as R  ON
-    (R.id_cliente = C.id) left join destinos as D ON
+    (R.id_cliente = C.id) LEFT JOIN  destinos as D ON
     (R.id_destino = D.id_destino)
     WHERE C.id = $idCliente
     ORDER BY D.nome, R.valor_total";

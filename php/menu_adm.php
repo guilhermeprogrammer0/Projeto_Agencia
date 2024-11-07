@@ -58,10 +58,10 @@
   <tbody>
   <?php 
     require_once "conexao.php";
-     $sql = "SELECT R.id_reserva, IF(R.id_cliente IS NULL, 'Cliente removido', C.nome) as nome_cliente, IF(R.id_destino IS NULL, 'Destino indisponível', D.nome) as nome_destino, R.qtd_passa,  R.valor_total from clientes as C right join reservas as R  ON
-    (R.id_cliente =  C.id) left JOIN destinos as D ON
+     $sql = "SELECT R.id_reserva, IF(R.id_cliente IS NULL, 'Cliente removido', C.nome) as nome_cliente, IF(R.id_destino IS NULL, 'Destino indisponível', D.nome) as nome_destino, R.qtd_passa,  R.valor_total from clientes as C RIGHT JOIN reservas as R  ON
+    (R.id_cliente =  C.id) LEFT JOIN destinos as D ON
     (R.id_destino = D.id_destino)
-    ORDER BY C.nome, nome_destino";
+    ORDER BY nome_cliente, nome_destino";
     $sql_select = $conexao->query($sql);
     $qtd_cadastrados = $sql_select->num_rows;
     while($linha = $sql_select->fetch_array()){?>
