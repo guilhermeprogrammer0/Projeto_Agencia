@@ -343,12 +343,15 @@ body.dark .btnVoltarCliente{
     justify-content:space-evenly;
     align-items:flex-start;
     flex-wrap:wrap;
-    width:60%;
+    width:90%;
     margin:auto;
     padding:0.7em;
-    gap:5px;
-    height:500px;
+    gap:12px;
+    height:700px;
     overflow-y: auto;
+}
+.titulo-destino-reserva{
+    font-size:1.1em;
 }
 .respostaMinhasReservas{
     width:100%;

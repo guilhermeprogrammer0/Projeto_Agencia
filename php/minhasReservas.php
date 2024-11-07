@@ -40,8 +40,8 @@
     <?php 
     $idCliente = $_SESSION['id_usuario'];
     require_once "conexao.php";
-     $sql = "SELECT R.id_reserva, D.nome, R.qtd_passa, R.data_viagem, R.data_realizou,  R.valor_total FROM clientes as C INNER JOIN reservas as R  ON
-    (R.id_cliente = C.id) INNER JOIN destinos as D ON
+     $sql = "SELECT R.id_reserva, IF(R.id_destino IS NULL,'Destino indisponível',D.nome) as nome, R.qtd_passa, R.data_viagem, R.data_realizou,  R.valor_total FROM clientes as C INNER JOIN reservas as R  ON
+    (R.id_cliente = C.id) left join destinos as D ON
     (R.id_destino = D.id_destino)
     WHERE C.id = $idCliente
     ORDER BY D.nome, R.valor_total";
@@ -59,8 +59,8 @@
     $dataAtual = new DateTime();
     ?>
     <div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Destino: <?php echo $linha['nome']; ?></h5>
+  <div class="card-body card-minhas-reservas">
+    <h6 class="card-title titulo-destino-reserva">Destino: <?php echo $linha['nome']; ?></h6>
     <p class="card-text">Quantidade Passagens: <?php echo $linha['qtd_passa']; ?></p>
 <p class="card-text">Data da viagem: <?php echo $data_viagem->format("d/m/Y");?></p>
     <p class="card-text">Data da realização: <?php echo $data_realizou->format("d/m/Y");?></p>
@@ -70,7 +70,7 @@
     <?php 
     }
     else{?>
-        <p class="btn btnSucesso" href="#"> Concluída </p> <?php
+       <p class="btn btnSucesso btn-minhas-reservas" href="#"> Concluída </p> <?php
     }
     ?>
   </div>
