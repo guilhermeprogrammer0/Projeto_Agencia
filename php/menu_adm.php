@@ -52,13 +52,15 @@
       <th scope="col">Nome</th>
       <th scope="col">Destino</th>
       <th scope="col">Quantidade</th>
+      <th scope="col">Realização</th>
+      <th scope="col">Viagem</th>
       <th scope="col">Valor Total</th>
     </tr>
   </thead>
   <tbody>
   <?php 
     require_once "conexao.php";
-     $sql = "SELECT R.id_reserva, IF(R.id_cliente IS NULL, 'Cliente removido', C.nome) as nome_cliente, IF(R.id_destino IS NULL, 'Destino indisponível', D.nome) as nome_destino, R.qtd_passa,  R.valor_total from clientes as C RIGHT JOIN reservas as R  ON
+     $sql = "SELECT R.id_reserva, IF(R.id_cliente IS NULL, 'Cliente removido', C.nome) as nome_cliente, IF(R.id_destino IS NULL, 'Destino indisponível', D.nome) as nome_destino, R.qtd_passa, DATE_FORMAT(R.data_realizou,'%d/%m/%Y') as data_realizou, DATE_FORMAT(R.data_viagem,'%d/%m/%Y') as data_viagem,  R.valor_total FROM clientes as C RIGHT JOIN reservas as R  ON
     (R.id_cliente =  C.id) LEFT JOIN destinos as D ON
     (R.id_destino = D.id_destino)
     ORDER BY nome_cliente, nome_destino";
@@ -70,6 +72,8 @@
     <td> <?php echo $linha['nome_cliente'];?></td>
     <td> <?php echo $linha['nome_destino'];?></td>
     <td> <?php echo $linha['qtd_passa'];?></td>
+    <td> <?php echo $linha['data_realizou'];?></td>
+    <td> <?php echo $linha['data_viagem'];?></td>
     <td> <?php echo "R$". number_format($linha['valor_total'],2,',','.');?></td>
     </tr>
     <?php } ?>

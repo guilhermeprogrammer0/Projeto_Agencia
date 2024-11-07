@@ -40,7 +40,7 @@
     <?php 
     $idCliente = $_SESSION['id_usuario'];
     require_once "conexao.php";
-     $sql = "SELECT R.id_reserva, IF(R.id_destino IS NULL,'Destino indisponível',D.nome) as nome, R.qtd_passa, R.data_viagem, R.data_realizou,  R.valor_total FROM clientes as C INNER JOIN reservas as R  ON
+     $sql = "SELECT R.id_reserva, IF(R.id_destino IS NULL,'Destino indisponível',D.nome) as nome, R.qtd_passa, DATE_FORMAT(R.data_realizou,'%d/%m/%Y') as data_realizou, DATE_FORMAT(R.data_viagem, '%d/%m/%Y') as data_viagem,  R.valor_total FROM clientes as C INNER JOIN reservas as R  ON
     (R.id_cliente = C.id) LEFT JOIN  destinos as D ON
     (R.id_destino = D.id_destino)
     WHERE C.id = $idCliente
@@ -55,15 +55,14 @@
     else{
    while($linha = $sql_select->fetch_array()){
     $data_viagem = new DateTime($linha['data_viagem']);
-    $data_realizou = new DateTime($linha['data_realizou']);
     $dataAtual = new DateTime();
     ?>
     <div class="card" style="width: 18rem;">
   <div class="card-body card-minhas-reservas">
     <h6 class="card-title titulo-destino-reserva">Destino: <?php echo $linha['nome']; ?></h6>
     <p class="card-text">Quantidade Passagens: <?php echo $linha['qtd_passa']; ?></p>
-<p class="card-text">Data da viagem: <?php echo $data_viagem->format("d/m/Y");?></p>
-    <p class="card-text">Data da realização: <?php echo $data_realizou->format("d/m/Y");?></p>
+<p class="card-text">Data da realização: <?php echo $linha['data_realizou'];?></p>
+    <p class="card-text">Data da viagem: <?php echo $linha['data_viagem'];?></p>
     <p class="card-text">Valor total: R$<?php echo  number_format($linha['valor_total'],2,',','.'); ?></p>
     <?php if($data_viagem > $dataAtual){?>
     <button class="btn btnExcluir" onclick="cancelarReserva(<?php echo $linha['id_reserva'];?>)">Cancelar Reserva</button>

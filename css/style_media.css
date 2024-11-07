@@ -9,6 +9,9 @@
     .lista-clientes-adm, .gerenciamento-adm{
         width:90%;
     }
+    .lista-clientes-adm{
+        overflow-x: auto;
+    }
     .clientes-principal-adm{
         width:95%;
         overflow-x: auto;
