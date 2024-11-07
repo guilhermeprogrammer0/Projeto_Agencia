@@ -624,17 +624,20 @@ body.dark .btnVoltarCliente{
     color:white;
 }
 .menu-adm li{
-    padding: 17px;
+    padding: 10px;
     transition: 0.5s;
     cursor:pointer;
 }
-.menu-adm li a, .menu-adm li p{
+.menu-adm li p{
+    font-size:1.4em;
+}
+.menu-adm li a, .menu-adm li span{
     text-decoration: none;
-    padding:13px;
+    padding:0.8em;
     color:white;
     font-size: 1.2em;
 }
-.menu-adm li a:hover,.menu-adm li p:hover{
+.menu-adm li a:hover,.menu-adm li span:hover{
     text-decoration: none;
     color:white;
     background-color:#04ADBF;

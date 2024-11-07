@@ -33,14 +33,14 @@
     <section class="gerenciamento-adm">
     <h2>Gerenciamento</h2>
       <ul class="menu-adm">
-        <li><strong>Gerenciamento dos destinos</strong></li>
+        <li><strong><p>Gerenciamento dos destinos</p></strong></li>
         <li><a href="cadastro_destinos.php">Cadastrar Destinos</a></li>
         <li><a href="lista_destinos.php">Lista de Destinos</a></li>
-        <li><strong>Clientes</strong></li>
+        <li><strong><p>Clientes</p></strong></li>
         <li><a href="lista_clientes.php">Lista de clientes</a></li>
-        <li><strong>Gerenciamento do perfil</strong></li>
+        <li><strong><p>Gerenciamento do perfil </p></strong></li>
         <li><a href="editar_dados_adm.php">Editar dados do perfil</a></li>
-        <li><p onclick="excluir_conta_adm()">Excluir usuário</p></li>
+        <li><span onclick="excluir_conta_adm()">Excluir usuário</span></li>
       </ul>
 </section>  
       <section class="lista-clientes-adm">
