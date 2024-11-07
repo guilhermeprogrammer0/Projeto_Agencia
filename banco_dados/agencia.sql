@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07/11/2024 às 00:57
+-- Tempo de geração: 07/11/2024 às 01:31
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -117,7 +117,7 @@ CREATE TABLE `reservas` (
   `data_realizou` date NOT NULL,
   `valor_total` float NOT NULL,
   `id_cliente` int(11) DEFAULT NULL,
-  `id_destino` int(11) NOT NULL
+  `id_destino` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

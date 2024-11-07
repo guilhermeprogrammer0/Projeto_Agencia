@@ -163,7 +163,6 @@ error_reporting(0);
   <input type="text" class="form-control camposEndereco" id="numero" name="numero" maxlength="10" required >
     </div>
     </div>
-
 <div class="container">
 <a href="perfil.php"><button type="button" class="btn btnVoltarCliente">Voltar </button> </a>
 <input type="submit" class="btn btnSucesso" value="Enviar" name="editar_perfil">

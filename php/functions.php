@@ -319,18 +319,28 @@ function editar_destino($conexao,$id_destino,$nome,$preco,$descricao,$foto){
     $stmt_editarDestino->close();
 }
 function excluir_destino($conexao,$id_destino_excluir){
-$sql_desassociar = "UPDATE reservas set id_destino = NULL WHERE id_destino = ?";
-$stmt_desassociar = $conexao->prepare($sql_desassociar);
-$stmt_desassociar->bind_param("i",$id_destino_excluir);
-if($stmt_desassociar->execute()){
-$sql_excluir = "DELETE FROM destinos WHERE id_destino = ?";
-$stmt_excluir = $conexao->prepare($sql_excluir);
-$stmt_excluir->bind_param("i",$id_destino_excluir);
-$stmt_excluir->execute();
-header("location:lista_destinos.php");
-$stmt_excluir->close();
+    $sql_desassociar_destino = "UPDATE reservas set id_destino = NULL WHERE id_destino = ?";
+    $stmt_desassociar_destino = $conexao->prepare($sql_desassociar_destino);
+    $stmt_desassociar_destino->bind_param("i",$id_destino_excluir);
+    if( $stmt_desassociar_destino->execute()){
+        $sql_excluir_destino = "DELETE from destinos WHERE id_destino = ?";
+        $stmt_excluir_destino = $conexao->prepare($sql_excluir_destino);
+        $stmt_excluir_destino->bind_param("i",$id_destino_excluir);
+        if($stmt_excluir_destino->execute()){
+            ?>
+            <script> alert("Destino excluído com sucesso!");
+                window.location.href = "lista_destinos.php";
+            </script>
+            <?php
+        }
+        else{
+            ?>
+            <script>alert("Erro ao excluir o destino!")
+            </script>
+            <?php
+        } 
+        $stmt_excluir_destino->close();
 }
-$stmt_desassociar->close();
+        $stmt_desassociar_destino->close();
 }
-
 ?>
