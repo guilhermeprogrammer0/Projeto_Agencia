@@ -58,7 +58,7 @@
   <tbody>
   <?php 
     require_once "conexao.php";
-     $sql = "SELECT R.id_reserva, IF(R.id_cliente IS NULL, 'Cliente removido', C.nome) as nome_cliente, IF(R.id_destino IS NULL, 'Destino indisponível', D.nome) as nome_destino, R.qtd_passa,  R.valor_total from reservas as R LEFT join clientes as C  ON
+     $sql = "SELECT R.id_reserva, IF(R.id_cliente IS NULL, 'Cliente removido', C.nome) as nome_cliente, IF(R.id_destino IS NULL, 'Destino indisponível', D.nome) as nome_destino, R.qtd_passa,  R.valor_total from clientes as C right join reservas as R  ON
     (R.id_cliente =  C.id) left JOIN destinos as D ON
     (R.id_destino = D.id_destino)
     ORDER BY C.nome, R.valor_total";
