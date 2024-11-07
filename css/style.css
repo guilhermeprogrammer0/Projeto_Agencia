@@ -587,6 +587,7 @@ body.dark .btnVoltarCliente{
     display:flex;
     justify-content: space-evenly;
     width:100%;
+    padding:0.5em;
 }
 .lista-clientes-adm{
     overflow-y: auto;
@@ -603,6 +604,13 @@ body.dark .btnVoltarCliente{
 }
 .gerenciamento-adm h2{
     color:white;
+    text-align: center;
+}
+.clientes-principal-adm{
+    margin:auto;
+    width:70%;
+}
+.c-lista-clientes-adm h2{
     text-align: center;
 }
 .menu-adm{

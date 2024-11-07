@@ -20,6 +20,7 @@ require_once "functions.php";
    <header>
     <h1>Menu Administrativo</h1>
     </header>
+    <p id="boa-vinda-adm"><?php echo "Olá, " .  $_SESSION['nome_adm'] . "!";?></p>
     <main class="formulario tabela">
     <section class="texto-login">
         <h1>Edição</h1>

@@ -33,12 +33,12 @@ if(isset($_SESSION['id_adm'])){
     <form action="acoes.php" method="POST">
   <div class="mb-3 form-login">
     <label for="usuario" class="form-label">Usuário</label>
-    <input type="text" class="form-control campos-login campos-login-adm" id="usuario" name="usuario" required>
+    <input type="text" class="form-control campos-login campos-login-adm" id="usuario" name="usuario" maxlength="50" required>
     <div id="usuario" class="form-text">Somente administradores possui um usuário</div>
   </div>
   <div class="mb-3 form-login">
     <label for="senha" class="form-label">Senha</label>
-    <input type="password" class="form-control campos-login campos-login-adm" id="senha" name="senha" required>
+    <input type="password" class="form-control campos-login campos-login-adm" id="senha" name="senha" maxlength="100" required>
     <span id="mostrar">Mostrar Senha</span>
   </div>
 

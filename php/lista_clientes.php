@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/style_media.css">
     <link rel="shortcut icon" href="../Imagens/logo-novo.png" type="image/x-icon">
-    <title>Menu Administratvo</title>
+    <title>Lista de clientes</title>
 </head>
 
 <body>
@@ -26,58 +26,45 @@
     </header>
       <p id="boa-vinda-adm"><?php echo "Olá, " .  $_SESSION['nome_adm'] . "!";?></p>
       <section class="texto">
-      
-       
     </section>
-    <main class="principal-adm">  
-    <section class="gerenciamento-adm">
-    <h2>Gerenciamento</h2>
-      <ul class="menu-adm">
-        <li><strong>Gerenciamento dos destinos</strong></li>
-        <li><a href="cadastro_destinos.php">Cadastrar Destinos</a></li>
-        <li><a href="lista_destinos.php">Lista de Destinos</a></li>
-        <li><strong>Clientes</strong></li>
-        <li><a href="lista_clientes.php">Lista de clientes</a></li>
-        <li><strong>Gerenciamento do perfil</strong></li>
-        <li><a href="editar_dados_adm.php">Editar dados do perfil</a></li>
-        <li><p onclick="excluir_conta_adm()">Excluir usuário</p></li>
-      </ul>
-</section>  
-      <section class="lista-clientes-adm">
-      <h2>Reserva dos Clientes</h2>
-<table class="table table-striped">
-  <thead class="thead-light">
+    <main class="clientes-principal-adm">  
+      <section class="c-lista-clientes-adm">
+      <h2>Lista de Clientes</h2>
+<table class="table table-striped tabela-clientes">
+  <thead class="thead-light ">
     <tr>
-      <th scope="col">ID</th>
       <th scope="col">Nome</th>
-      <th scope="col">Destino</th>
-      <th scope="col">Quantidade</th>
-      <th scope="col">Valor Total</th>
+      <th scope="col">CPF</th>
+      <th scope="col">Data Nascimento</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Cidade</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="tabela-clientes">
   <?php 
     require_once "conexao.php";
-     $sql = "SELECT R.id_reserva, IF(R.id_cliente IS NULL, 'Cliente removido', C.nome) as nome_cliente, IF(R.id_destino IS NULL, 'Destino indisponível', D.nome) as nome_destino, R.qtd_passa,  R.valor_total from reservas as R LEFT join clientes as C  ON
-    (R.id_cliente =  C.id) left JOIN destinos as D ON
-    (R.id_destino = D.id_destino)
-    ORDER BY C.nome, R.valor_total";
+     $sql = "SELECT id,nome,cpf,data_nascimento,telefone,email,cep,cidade,estado,logradouro,bairro,numero from clientes";
     $sql_select = $conexao->query($sql);
     $qtd_cadastrados = $sql_select->num_rows;
     while($linha = $sql_select->fetch_array()){?>
     <tr>
-    <td> <?php echo $linha['id_reserva'];?></td>
-    <td> <?php echo $linha['nome_cliente'];?></td>
-    <td> <?php echo $linha['nome_destino'];?></td>
-    <td> <?php echo $linha['qtd_passa'];?></td>
-    <td> <?php echo "R$". number_format($linha['valor_total'],2,',','.');?></td>
+    <td> <?php echo $linha['nome'];?></td>
+    <td> <?php echo $linha['cpf'];?></td>
+    <td> <?php echo $linha['data_nascimento'];?></td>
+    <td> <?php echo $linha['telefone'];?></td>
+    <td> <?php echo $linha['email'];?></td>
+    <td> <?php echo $linha['cidade'];?></td>
     </tr>
     <?php } ?>
   </tbody>
     </table>
-    <h3 id="txt-qtd">Quantidade de Reservas: <strong><?php echo $qtd_cadastrados; ?> </strong></h3>
+    <h3 id="txt-qtd">Quantidade de clientes: <strong><?php echo $qtd_cadastrados; ?> </strong></h3>
     </section>
     </main>
+    <div class="btnVoltar">  
+    <a href="menu_adm.php" class="btn"> Voltar </button> </a>
+    </div>
     <script src="../js/acoesAdm.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"

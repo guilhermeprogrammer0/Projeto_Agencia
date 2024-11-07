@@ -23,6 +23,7 @@
    <header>
     <h1>Menu Administrativo</h1>
     </header>
+    <p id="boa-vinda-adm"><?php echo "Olá, " .  $_SESSION['nome_adm'] . "!";?></p>
     <main class="formulario tabela table-cadastrados">    
 <table class="table table-striped">
   <thead class="thead-light">

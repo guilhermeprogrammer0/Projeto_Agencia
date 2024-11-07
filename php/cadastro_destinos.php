@@ -20,7 +20,11 @@ error_reporting(0);
 </head>
 
 <body>
-
+<header>
+    <h1>Menu Administrativo</h1>
+    <a href="logout_adm.php"> <div class="divSair"><button class="btnSair"> Sair</button></div> </a>
+    </header>
+<p id="boa-vinda-adm"><?php echo "Olá, " .  $_SESSION['nome_adm'] . "!";?></p>
 <div class="texto-reserva">
         <h2 id="txt">Inserir Destinos</h2>
 </div>
