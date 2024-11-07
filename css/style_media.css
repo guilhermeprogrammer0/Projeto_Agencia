@@ -10,17 +10,16 @@
         width:90%;
     }
     .clientes-principal-adm{
-        width:90%;
-        margin:0;
+        width:95%;
+        overflow-x: auto;
+
     }
     .c-lista-clientes-adm{
         width:100%;
     }
     .tabela-clientes{
-        font-size: 0.9em;
-    }
-    .tabela-clientes th,.tabela-clientes td{
-        padding:0.2em;
+        width:1px;
+        font-size: 0.97em;
     }
     .menu-adm li a, .menu-adm li p{
         font-size: 1.1em;
