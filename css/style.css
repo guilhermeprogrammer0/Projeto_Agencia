@@ -629,7 +629,7 @@ body.dark .btnVoltarCliente{
     cursor:pointer;
 }
 .menu-adm li p{
-    font-size:1.4em;
+    font-size:1.3em;
 }
 .menu-adm li a, .menu-adm li span{
     text-decoration: none;
@@ -643,7 +643,6 @@ body.dark .btnVoltarCliente{
     background-color:#04ADBF;
     border-radius: 2px;
 }
-
 .botoesAdm{
     width:50%;
     display:flex;
