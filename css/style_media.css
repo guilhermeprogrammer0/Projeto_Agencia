@@ -50,11 +50,24 @@
     align-items: center;
     gap:10px;
    }
+   .texto-reserva-escolha-reserva{
+    width:80%;
+   }
+   .form-busca-destino{
+    width:100%;
+}
+#input-pesquisa-destino{
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.pesquisa-destino{
+    width:80%;
+}
    .main-inicio{
    
     justify-content: center;
     align-items: center;
-    
 }
 .footer{
     flex-direction: column;

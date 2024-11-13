@@ -305,6 +305,26 @@ body.dark .btnVoltarCliente{
     display: flex;
     justify-content: center;
 }
+.form-busca-destino{
+    width:40%;
+    margin:auto;
+}
+#input-pesquisa-destino{
+    display:flex;
+    gap:10px;
+}
+.btn-pesquisa-destino{
+    border:0;
+    background-color: none;
+    color:white;
+    background-color:#1c82a2;
+}
+.form-busca-destino label, .form-busca-destino .form-text{
+    color:white;
+}
+.pesquisa-destino{
+    border-radius: 0.2em;
+}
 .formulario{
     width:50%;
     display:block;

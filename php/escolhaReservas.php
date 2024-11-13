@@ -41,21 +41,45 @@ error_reporting(0);
     <section class="anuncio">
 <h1> Descubra Seu Destino dos Sonhos: Ofertas Exclusivas e Locais Imperdíveis em Viagens! </h1>
 </section>
-    <div class="texto-reserva">
+    <div class="texto-reserva texto-reserva-escolha-reserva">
         <h2 id="txt">Realizar Reserva</h2>
+        <section class="form-busca-destino">
+        <form action="escolhaReservas.php" method="POST">
+        <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Pesquise por destinos</label>
+        <div id="input-pesquisa-destino">
+        <input type="text" class="form-control pesquisa-destino" id="nome" name="nome" placeholder="Nome destino">
+        <button type="submit" name="enviar" class="fa-solid fa-magnifying-glass fa-2x btn-pesquisa-destino" ></button>
+        </div>   
+  </section>
+  </div>
+        </form>
 </div>
   
     <main class="formulario reservasDisponiveis">
         <section id="aparecer">
-<section class="texto-form">
-        <h2>Reservar</h2>
-    </section>
     <div class="destinosAreservar">
         <?php 
         require_once "conexao.php";
-        $sql = "SELECT * from destinos ORDER BY nome, preco";
-        $sql_destinos_exibidos = $conexao->query($sql);
-        while($linha = $sql_destinos_exibidos->fetch_array()){
+        if(isset($_POST['nome'])){
+            $nome = "%" . $_POST['nome'] . "%";
+            $sql = "SELECT * from destinos WHERE nome LIKE ? ORDER BY nome, preco";
+            $stmt = $conexao->prepare($sql);
+            $stmt->bind_param("s",$nome);
+            $stmt->execute();
+            $resultado = $stmt->get_result();
+        }
+        else{
+            $sql = "SELECT * from destinos ORDER BY nome, preco";
+            $resultado = $conexao->query($sql);
+        }
+       
+        $qtd_resultados = $resultado->num_rows;
+        if($qtd_resultados==0){
+            echo "<h2> Nenhum resultado encontrado </h2>";
+        }
+        else{
+        while($linha = $resultado->fetch_array()){
             $img = "../Upload/" . $linha['foto'];
         ?>
  <div class="card" style="width: 18rem;">
@@ -67,7 +91,7 @@ error_reporting(0);
     <button class="btn btnReservar" id="reservar" onclick="getId(<?php echo $linha['id_destino'];?>)">Reservar </button> 
   </div>
 </div>
-<?php }?>
+<?php }}?>
     </div>
 </section>
 </main>
