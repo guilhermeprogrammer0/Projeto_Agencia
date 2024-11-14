@@ -306,8 +306,9 @@ body.dark .btnVoltarCliente{
     justify-content: center;
 }
 .form-busca-destino{
-    width:40%;
+    width:60%;
     margin:auto;
+    padding:0.5em;
 }
 #input-pesquisa-destino{
     display:flex;
