@@ -60,20 +60,23 @@
   <tbody>
   <?php 
     require_once "conexao.php";
-     $sql = "SELECT R.id_reserva, IF(R.id_cliente IS NULL, 'Cliente removido', C.nome) as nome_cliente, IF(R.id_destino IS NULL, 'Destino indisponível', D.nome) as nome_destino, R.qtd_passa, DATE_FORMAT(R.data_realizou,'%d/%m/%Y') as data_realizou, DATE_FORMAT(R.data_viagem,'%d/%m/%Y') as data_viagem,  R.valor_total FROM clientes as C RIGHT JOIN reservas as R  ON
+     $sql = "SELECT R.id_reserva, IF(R.id_cliente IS NULL, 'Cliente removido', C.nome) as nome_cliente, IF(R.id_destino IS NULL, 'Destino indisponível', D.nome) as nome_destino, R.qtd_passa, R.data_realizou, R.data_viagem,  R.valor_total FROM clientes as C RIGHT JOIN reservas as R  ON
     (R.id_cliente =  C.id) LEFT JOIN destinos as D ON
     (R.id_destino = D.id_destino)
     ORDER BY nome_cliente, nome_destino";
     $sql_select = $conexao->query($sql);
     $qtd_cadastrados = $sql_select->num_rows;
-    while($linha = $sql_select->fetch_array()){?>
+    while($linha = $sql_select->fetch_array()){
+      $data_realizou = new DateTime($linha['data_realizou']);
+      $data_viagem = new DateTime($linha['data_viagem']);
+    ?>
     <tr>
     <td> <?php echo $linha['id_reserva'];?></td>
     <td> <?php echo $linha['nome_cliente'];?></td>
     <td> <?php echo $linha['nome_destino'];?></td>
     <td> <?php echo $linha['qtd_passa'];?></td>
-    <td> <?php echo $linha['data_realizou'];?></td>
-    <td> <?php echo $linha['data_viagem'];?></td>
+    <td> <?php echo $data_realizou->format("d/m/Y");?></td>
+    <td> <?php echo $data_viagem->format("d/m/Y");?></td>
     <td> <?php echo "R$". number_format($linha['valor_total'],2,',','.');?></td>
     </tr>
     <?php } ?>
