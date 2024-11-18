@@ -68,7 +68,7 @@
 <p class="card-text">Data da realização: <?php echo $data_realizou->format("d/m/Y");?></p>
     <p class="card-text">Data da viagem: <?php echo $data_viagem->format("d/m/Y");?></p>
     <p class="card-text">Valor total: R$<?php echo  number_format($linha['valor_total'],2,',','.'); ?></p>
-    <?php if($data_viagem > $dataAtual){?>
+    <?php if($dataAtual < $data_viagem){?>
     <button class="btn btnExcluir" onclick="cancelarReserva(<?php echo $linha['id_reserva'];?>)">Cancelar Reserva</button>
     <?php 
     }

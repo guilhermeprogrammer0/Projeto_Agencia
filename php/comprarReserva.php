@@ -83,8 +83,15 @@ $img = "../Upload/" . $linha['foto'];
         <?php
     }
     else{
-        cadastro_reservas($conexao,$_POST['qtd_passa'],$_POST['data_viagem'],$_POST['qtd_passa']*$linha['preco'],$id_comprador,$linha['id_destino']);
+        $qtd_passagem = $_POST['qtd_passa'];
+        if($qtd_passagem == 0){
+            ?> <script>alert("Informe uma quantidade de passagens válida!");</script>
+        <?php
+        }
+        else{
+        cadastro_reservas($conexao,$_POST['qtd_passa'],$_POST['data_viagem'],$qtd_passagem * $linha['preco'],$id_comprador,$linha['id_destino']);
         unset($_SESSION['selecionadoDestino']);
+        }
     }
 }
     ?>
