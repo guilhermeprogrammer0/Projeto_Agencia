@@ -86,8 +86,8 @@ error_reporting(0);
   <img src="<?php echo $img;?>" class="card-img-top img-reserva" alt="...">
   <div class="card-body">
     <h5 class="card-title"><?php echo $linha['nome'];?></h5>
-    <p class="card-title"> Valor por passagem: R$ <?php echo number_format($linha['preco'],2,',','.');?></p>
-    <p class="card-title">Descrição: <?php echo $linha['descricao'];?></p>
+    <p class="card-title"> <i class="fa-solid fa-money-check-dollar"></i> R$ <?php echo number_format($linha['preco'],2,',','.');?></p>
+    <p class="card-title"><i class="fa-solid fa-calendar-days"></i> <?php echo $linha['descricao'];?></p>
     <button class="btn btnReservar" id="reservar" onclick="getId(<?php echo $linha['id_destino'];?>)">Reservar </button> 
   </div>
 </div>
