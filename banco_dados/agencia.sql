@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Nov-2024 às 12:11
--- Versão do servidor: 10.4.27-MariaDB
--- versão do PHP: 8.0.25
+-- Tempo de geração: 27/11/2024 às 23:57
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -26,7 +26,7 @@ USE `agencia`;
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `administrativo`
+-- Estrutura para tabela `administrativo`
 --
 
 CREATE TABLE `administrativo` (
@@ -37,19 +37,16 @@ CREATE TABLE `administrativo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Extraindo dados da tabela `administrativo`
+-- Despejando dados para a tabela `administrativo`
 --
 
 INSERT INTO `administrativo` (`id_adm`, `nome`, `usuario`, `senha`) VALUES
-(1, 'Émerson', 'emerferreira@gmail.com', 'emer123'),
-(2, 'Maysa Pedro', 'maysa@gmail.com', 'maysa123'),
-(3, 'Matheus', 'matheus@gmail.com', 'matheus'),
-(4, 'Guilherme', 'guilherme@gmail.com', 'guilherme');
+(1, 'Guilherme', 'guilherme@gmail.com', 'guilherme');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `clientes`
+-- Estrutura para tabela `clientes`
 --
 
 CREATE TABLE `clientes` (
@@ -70,7 +67,7 @@ CREATE TABLE `clientes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Extraindo dados da tabela `clientes`
+-- Despejando dados para a tabela `clientes`
 --
 
 INSERT INTO `clientes` (`id`, `nome`, `cpf`, `sexo`, `data_nascimento`, `telefone`, `email`, `senha`, `cidade`, `cep`, `estado`, `logradouro`, `bairro`, `numero`) VALUES
@@ -79,7 +76,7 @@ INSERT INTO `clientes` (`id`, `nome`, `cpf`, `sexo`, `data_nascimento`, `telefon
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `destinos`
+-- Estrutura para tabela `destinos`
 --
 
 CREATE TABLE `destinos` (
@@ -91,7 +88,7 @@ CREATE TABLE `destinos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Extraindo dados da tabela `destinos`
+-- Despejando dados para a tabela `destinos`
 --
 
 INSERT INTO `destinos` (`id_destino`, `nome`, `preco`, `descricao`, `foto`) VALUES
@@ -108,7 +105,7 @@ INSERT INTO `destinos` (`id_destino`, `nome`, `preco`, `descricao`, `foto`) VALU
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `reservas`
+-- Estrutura para tabela `reservas`
 --
 
 CREATE TABLE `reservas` (
@@ -122,7 +119,7 @@ CREATE TABLE `reservas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `reservas`
+-- Despejando dados para a tabela `reservas`
 --
 
 INSERT INTO `reservas` (`id_reserva`, `qtd_passa`, `data_viagem`, `data_realizou`, `valor_total`, `id_cliente`, `id_destino`) VALUES
@@ -133,25 +130,25 @@ INSERT INTO `reservas` (`id_reserva`, `qtd_passa`, `data_viagem`, `data_realizou
 --
 
 --
--- Índices para tabela `administrativo`
+-- Índices de tabela `administrativo`
 --
 ALTER TABLE `administrativo`
   ADD PRIMARY KEY (`id_adm`);
 
 --
--- Índices para tabela `clientes`
+-- Índices de tabela `clientes`
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `destinos`
+-- Índices de tabela `destinos`
 --
 ALTER TABLE `destinos`
   ADD PRIMARY KEY (`id_destino`);
 
 --
--- Índices para tabela `reservas`
+-- Índices de tabela `reservas`
 --
 ALTER TABLE `reservas`
   ADD PRIMARY KEY (`id_reserva`),
@@ -159,14 +156,14 @@ ALTER TABLE `reservas`
   ADD KEY `FK_RESERVA_DESTINOS` (`id_destino`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `administrativo`
 --
 ALTER TABLE `administrativo`
-  MODIFY `id_adm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_adm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `clientes`
@@ -187,11 +184,11 @@ ALTER TABLE `reservas`
   MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Restrições para despejos de tabelas
+-- Restrições para tabelas despejadas
 --
 
 --
--- Limitadores para a tabela `reservas`
+-- Restrições para tabelas `reservas`
 --
 ALTER TABLE `reservas`
   ADD CONSTRAINT `FK_RESERVA_CLIENTE` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`),
