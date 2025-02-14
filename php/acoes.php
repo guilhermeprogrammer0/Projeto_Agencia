@@ -20,8 +20,8 @@ if($_POST['logar_usuario']){
 if($_POST['editar_perfil']){
     editar_perfil($conexao,$_POST['id'],$_POST['nome'],$_POST['cpf'],$_POST['sexo'],$_POST['data_nascimento'],$_POST['telefone'],$_POST['email'],$_POST['senha'],$_POST['cidade'],$_POST['cep'],$_POST['estado'],$_POST['logradouro'],$_POST['bairro'],$_POST['numero']);
 }
-if($_REQUEST['id_cliente_excluir']){
-    excluir_perfil($conexao,$_REQUEST['id_cliente_excluir']);
+if(isset($_POST['btnExcluirCliente'])){
+    excluir_perfil($conexao,$_POST['id']);
     unset($_SESSION['id_usuario']);
     unset($_SESSION['nome_usuario']);
 }
@@ -42,10 +42,9 @@ if($_POST['cadastrar_destinos']){
 }
 if($_POST['editar_destino']){
     editar_destino($conexao,$_POST['id_destino'],$_POST['nome'],$_POST['preco'],$_POST['descricao'],$_POST['foto']);
-    header("location:lista_destinos.php");
     }
-if($_REQUEST['id_destino_excluir']){
-    excluir_destino($conexao,$_REQUEST['id_destino_excluir']);
+if(isset($_POST['btnExcluirDestino'])){
+    excluir_destino($conexao,$_POST['id_destino']);
 }
 
 ?>

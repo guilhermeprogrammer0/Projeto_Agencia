@@ -28,7 +28,7 @@ error_reporting(0);
         <form action="acoes.php"  method="post" enctype="multipart/form-data">
             <?php
             require_once "conexao.php";
-            $id_destino = $_REQUEST['id_destino'];
+            $id_destino = $_POST['id_destino'];
             $sql = "SELECT * from destinos WHERE id_destino=?";
             $stmt = $conexao->prepare($sql);
             $stmt->bind_param("i",$id_destino);

@@ -45,9 +45,16 @@
     <td> <?php echo $linha['nome'];?></td>
     <td> <?php echo $linha['preco'];?></td>
     <td> <?php echo $linha['descricao'];?></td>
-    <td> <button class="btn btnEditar btnAcoes" onclick="Editar(<?php echo $linha['id_destino'];?>)"> Editar </button></td>
-    <td> <button class="btn btnExcluir btnAcoes" onclick="Excluir(<?php echo $linha['id_destino'];?>)"> Excluir </button></td>
+    <form action="editar-destino.php" method = "POST">
+      <input type="hidden" name="id_destino" value="<?php echo $linha['id_destino'];?>">
+    <td> <button type="submit" class="btn btnEditar btnAcoes"> Editar </button></td>
+    </form>
+    <form action="acoes.php" method="POST" onsubmit="return confirm('Deseja mesmo excluir?')">
+      <input type="hidden" name="id_destino" value="<?php echo $linha['id_destino'];?>">
+    <td> <button type="submit" name="btnExcluirDestino" class="btn btnExcluir btnAcoes"> Excluir </button></td>
+    </form>
     </tr>
+    
     <?php } ?>
   </tbody>
     </table>

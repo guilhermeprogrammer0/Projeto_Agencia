@@ -61,7 +61,9 @@
     <div class="botoes">  
     <a href="escolhaReservas.php" class="btn"> Voltar </button> </a>
     <a href="editar_perfil.php" class="btn btnEditar"> Editar Dados </button> </a>
-    <button class="btn btnExcluir" onclick="excluir_conta(<?php echo $linha['id'];?>)"> Excluir Conta</button>
+    <form action="acoes.php" method="POST" onsubmit="return confirm('Deseja mesmo excluir:')">
+        <input type="hidden" name="id" value="<?php echo $linha['id'];?>">
+    <button type="submit" name="btnExcluirCliente" class="btn btnExcluir" > Excluir Conta</button>
 
     </div>
 </section>

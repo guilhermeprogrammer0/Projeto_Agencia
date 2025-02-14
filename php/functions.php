@@ -307,7 +307,9 @@ function editar_destino($conexao,$id_destino,$nome,$preco,$descricao,$foto){
     }
     
     if($stmt_editarDestino->execute()){
-        ?><script>alert("Destino editado com sucesso!");</script>
+        ?><script>alert("Destino editado com sucesso!");
+        window.location.href = "lista_destinos.php";
+        </script>
         <?php
     }
     else{
